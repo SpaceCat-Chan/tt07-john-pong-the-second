@@ -467,6 +467,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [9:0] i_paddle_location;
   input [19:0] i_pope_location;
   wire [19:0] i_pope_location;
+  reg magenta;
   output [2:0] o_b;
   reg [2:0] o_b;
   output [2:0] o_g;
@@ -2075,69 +2076,138 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
-    o_r = 3'h0;
+    magenta = 1'h0;
     casez (palette_index)
       5'h01:
-          o_r = 3'h2;
+          magenta = 1'h0;
       5'h02:
-          o_r = 3'h3;
+          magenta = 1'h1;
       5'h03:
-          o_r = 3'h2;
+          magenta = 1'h0;
       5'h04:
-          o_r = 3'h3;
+          magenta = 1'h1;
       5'h05:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h06:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h07:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h08:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h09:
-          o_r = 3'h5;
+          magenta = 1'h1;
       5'h0a:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h0b:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h0c:
-          o_r = 3'h5;
+          magenta = 1'h1;
       5'h0d:
-          o_r = 3'h4;
+          magenta = 1'h0;
       5'h0e:
-          o_r = 3'h5;
+          magenta = 1'h1;
       5'h0f:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h10:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h11:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h12:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h13:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h14:
-          o_r = 3'h5;
+          magenta = 1'h1;
       5'h15:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h16:
-          o_r = 3'h6;
+          magenta = 1'h0;
       5'h17:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h18:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h19:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h1a:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h1b:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h1c:
-          o_r = 3'h5;
+          magenta = 1'h1;
       5'h1d:
-          o_r = 3'h7;
+          magenta = 1'h1;
       5'h1e:
-          o_r = 3'h7;
+          magenta = 1'h1;
     endcase
+  end
+  always @* begin
+    if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
+    o_r[2:1] = 2'h0;
+    casez (palette_index)
+      5'h01:
+          o_r[2:1] = 2'h1;
+      5'h02:
+          o_r[2:1] = 2'h1;
+      5'h03:
+          o_r[2:1] = 2'h1;
+      5'h04:
+          o_r[2:1] = 2'h1;
+      5'h05:
+          o_r[2:1] = 2'h2;
+      5'h06:
+          o_r[2:1] = 2'h2;
+      5'h07:
+          o_r[2:1] = 2'h2;
+      5'h08:
+          o_r[2:1] = 2'h2;
+      5'h09:
+          o_r[2:1] = 2'h2;
+      5'h0a:
+          o_r[2:1] = 2'h3;
+      5'h0b:
+          o_r[2:1] = 2'h2;
+      5'h0c:
+          o_r[2:1] = 2'h2;
+      5'h0d:
+          o_r[2:1] = 2'h2;
+      5'h0e:
+          o_r[2:1] = 2'h2;
+      5'h0f:
+          o_r[2:1] = 2'h3;
+      5'h10:
+          o_r[2:1] = 2'h3;
+      5'h11:
+          o_r[2:1] = 2'h3;
+      5'h12:
+          o_r[2:1] = 2'h3;
+      5'h13:
+          o_r[2:1] = 2'h3;
+      5'h14:
+          o_r[2:1] = 2'h2;
+      5'h15:
+          o_r[2:1] = 2'h3;
+      5'h16:
+          o_r[2:1] = 2'h3;
+      5'h17:
+          o_r[2:1] = 2'h3;
+      5'h18:
+          o_r[2:1] = 2'h3;
+      5'h19:
+          o_r[2:1] = 2'h3;
+      5'h1a:
+          o_r[2:1] = 2'h3;
+      5'h1b:
+          o_r[2:1] = 2'h3;
+      5'h1c:
+          o_r[2:1] = 2'h2;
+      5'h1d:
+          o_r[2:1] = 2'h3;
+      5'h1e:
+          o_r[2:1] = 2'h3;
+    endcase
+    begin
+        o_r[0] = magenta;
+    end
     if (\$101 ) begin
       o_r = 3'h7;
     end
@@ -2225,69 +2295,72 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
-    o_b = 3'h0;
+    o_b[2:1] = 2'h0;
     casez (palette_index)
       5'h01:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h02:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h03:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h04:
-          o_b = 3'h1;
+          o_b[2:1] = 2'h0;
       5'h05:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h06:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h07:
-          o_b = 3'h2;
+          o_b[2:1] = 2'h1;
       5'h08:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h09:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h0a:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h0b:
-          o_b = 3'h1;
+          o_b[2:1] = 2'h0;
       5'h0c:
-          o_b = 3'h1;
+          o_b[2:1] = 2'h0;
       5'h0d:
-          o_b = 3'h4;
+          o_b[2:1] = 2'h2;
       5'h0e:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h0f:
-          o_b = 3'h0;
+          o_b[2:1] = 2'h0;
       5'h10:
-          o_b = 3'h2;
+          o_b[2:1] = 2'h1;
       5'h11:
-          o_b = 3'h4;
+          o_b[2:1] = 2'h2;
       5'h12:
-          o_b = 3'h1;
+          o_b[2:1] = 2'h0;
       5'h13:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h14:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h15:
-          o_b = 3'h2;
+          o_b[2:1] = 2'h1;
       5'h16:
-          o_b = 3'h4;
+          o_b[2:1] = 2'h2;
       5'h17:
-          o_b = 3'h1;
+          o_b[2:1] = 2'h0;
       5'h18:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h19:
-          o_b = 3'h5;
+          o_b[2:1] = 2'h2;
       5'h1a:
-          o_b = 3'h3;
+          o_b[2:1] = 2'h1;
       5'h1b:
-          o_b = 3'h5;
+          o_b[2:1] = 2'h2;
       5'h1c:
-          o_b = 3'h5;
+          o_b[2:1] = 2'h2;
       5'h1d:
-          o_b = 3'h7;
+          o_b[2:1] = 2'h3;
       5'h1e:
-          o_b = 3'h5;
+          o_b[2:1] = 2'h2;
     endcase
+    begin
+        o_b[0] = magenta;
+    end
     if (\$177 ) begin
       o_b = 3'h7;
     end
