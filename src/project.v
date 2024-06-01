@@ -19,15 +19,15 @@ module tt_um_spacecat_chan_john_pong_the_second (
 );
 
   sphn_vga_top meow(
-    o_r(uo_out[2:0]),
-    o_g(uo_out[6:3]),
-    o_b(uio_out[2:0]),
-    o_hsync(uo_out[6]),
-    o_vsync(uo_out[7]),
-    i_move_up(ui_in[0]),
-    i_move_down(ui_in[1]),
-    pix_clk(clk),
-    pix_rst(rst_n)
+    .o_r(uo_out[2:0]),
+    .o_g(uo_out[6:3]),
+    .o_b(uio_out[2:0]),
+    .o_hsync(uo_out[6]),
+    .o_vsync(uo_out[7]),
+    .i_move_up(ui_in[0]),
+    .i_move_down(ui_in[1]),
+    .pix_clk(clk),
+    .pix_rst(rst_n)
   );
 
   // All output pins must be assigned. If not used, assign to 0.
