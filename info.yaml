@@ -1,11 +1,11 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "John Pong The Second"      # Project title
+  author:       "Sophia Rustfield (Representing HSWAW)"      # Your name
+  discord:      "tt_um_spacecat_chan_john_pong_the_second"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "a hyper simple pong game with the polish pope taking the role of the ball outputted over vga"      # One line description of what your project does
+  language:     "Amaranth" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     25175000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -20,8 +20,8 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
+  ui[0]: "move paddle up"
+  ui[1]: "move paddle down"
   ui[2]: ""
   ui[3]: ""
   ui[4]: ""
@@ -30,19 +30,19 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "red channel bit 0"
+  uo[1]: "red channel bit 1"
+  uo[2]: "red channel bit 2"
+  uo[3]: "green channel bit 0"
+  uo[4]: "green channel bit 1"
+  uo[5]: "green channel bit 2"
+  uo[6]: "horizontal sync signal"
+  uo[7]: "vertical sync signal"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
+  uio[0]: "blue channel bit 0"
+  uio[1]: "blue channel bit 1"
+  uio[2]: "blue channel bit 2"
   uio[3]: ""
   uio[4]: ""
   uio[5]: ""
