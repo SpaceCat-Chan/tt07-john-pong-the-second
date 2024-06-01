@@ -26,9 +26,9 @@ module tt_um_spacecat_chan_john_pong_the_second (
     .o_vsync(uo_out[7]),
     .i_move_up(ui_in[0]),
     .i_move_down(ui_in[1]),
-    .i_player_two_up([ui_in[2]]),
-    .i_player_two_down([ui_in[3]]),
-    .i_player_two_active([ui_in[4]]),
+    .i_player_two_up(ui_in[2]),
+    .i_player_two_down(ui_in[3]),
+    .i_player_two_active(ui_in[4]),
     .pix_clk(clk),
     .pix_rst(~rst_n)
   );
