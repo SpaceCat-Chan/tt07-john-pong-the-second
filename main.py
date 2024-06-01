@@ -29,48 +29,76 @@ class Top(Elaboratable):
         paddle_location = Signal(10, reset=240-75)
         enemy_paddle_location = Signal(10, reset=240-75)
 
+        time_until_start = Signal(range(180), reset=179)
+
+        player_score = Signal(3)
+        enemy_score = Signal(3)
+
+
         with m.If(prev_vsync & ~self.vga.o_vsync): # we just entered vsync, do all logic now
-            with m.If(pope_h_velocity):
-                m.d.pix += pope_location[0:10].eq(pope_location[0:10] + 3)
+            with m.If(time_until_start > 0):
+                m.d.pix += time_until_start.eq(time_until_start - 1)
             with m.Else():
-                m.d.pix += pope_location[0:10].eq(pope_location[0:10] - 3)
-            m.d.pix += pope_location[10:20].eq(pope_location[10:20] + 3 * pope_v_velocity)
-            
-            with m.If(pope_location[0:10] <= 6):
-                m.d.pix += pope_h_velocity.eq(1)
-            with m.If(pope_location[10:20] <= 20):
-                m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity > 0, pope_v_velocity, -pope_v_velocity))
-            with m.If(pope_location[0:10] >= 640 - 34):
-                m.d.pix += pope_h_velocity.eq(0)
-            with m.If(pope_location[10:20] >= 480 - 40):
-                m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
-
-            with m.If((pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
-                m.d.pix += pope_h_velocity.eq(1)
-                with m.If(self.i_move_up):
-                    with m.If(pope_v_velocity > -3):
-                        m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
-                with m.If(self.i_move_down):
-                    with m.If(pope_v_velocity < 3):
-                        m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
+                with m.If(pope_h_velocity):
+                    m.d.pix += pope_location[0:10].eq(pope_location[0:10] + 3)
+                with m.Else():
+                    m.d.pix += pope_location[0:10].eq(pope_location[0:10] - 3)
+                m.d.pix += pope_location[10:20].eq(pope_location[10:20] + 3 * pope_v_velocity)
                 
-            with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150))):
-                m.d.pix += pope_h_velocity.eq(0)
+                with m.If(pope_location[10:20] <= 20):
+                    m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity > 0, pope_v_velocity, -pope_v_velocity))
+                with m.If(pope_location[10:20] >= 480 - 40):
+                    m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
 
-            with m.If(self.i_move_up & (paddle_location >= 3)):
-                m.d.pix += paddle_location.eq(paddle_location - 3)
-            with m.If(self.i_move_down & (paddle_location < (480-150-3))):
-                m.d.pix += paddle_location.eq(paddle_location + 3)
+                with m.If((pope_location[0:10] < 50) & (pope_location[0:10] >= 25) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
+                    m.d.pix += pope_h_velocity.eq(1)
+                    with m.If(self.i_move_up):
+                        with m.If(pope_v_velocity > -3):
+                            m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
+                    with m.If(self.i_move_down):
+                        with m.If(pope_v_velocity < 3):
+                            m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
+                    
+                with m.If((pope_location[0:10] >= 640 - 50 - 34) & (pope_location[0:10] < 640 - 25 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150))):
+                    m.d.pix += pope_h_velocity.eq(0)
 
-            with m.If((pope_location[10:20] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20)):
-                m.d.pix += enemy_paddle_location.eq(enemy_paddle_location + 2)
-            with m.If((pope_location[10:20] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20)):
-                m.d.pix += enemy_paddle_location.eq(enemy_paddle_location - 2)
+                with m.If(self.i_move_up & (paddle_location >= 3)):
+                    m.d.pix += paddle_location.eq(paddle_location - 3)
+                with m.If(self.i_move_down & (paddle_location < (480-150-3))):
+                    m.d.pix += paddle_location.eq(paddle_location + 3)
+
+                with m.If((pope_location[10:20] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20)):
+                    m.d.pix += enemy_paddle_location.eq(enemy_paddle_location + 2)
+                with m.If((pope_location[10:20] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20)):
+                    m.d.pix += enemy_paddle_location.eq(enemy_paddle_location - 2)
+
+                with m.If(pope_location[0:10] <= 6):
+                    m.d.pix += [
+                        pope_location.eq(pope_location.reset),
+                        pope_h_velocity.eq(pope_h_velocity.reset),
+                        pope_v_velocity.eq(pope_v_velocity.reset),
+                        paddle_location.eq(paddle_location.reset),
+                        enemy_paddle_location.eq(enemy_paddle_location.reset),
+                        time_until_start.eq(time_until_start.reset),
+                        enemy_score.eq(enemy_score + 1),
+                    ]
+                with m.If(pope_location[0:10] >= 640 - 34):
+                    m.d.pix += [
+                        pope_location.eq(pope_location.reset),
+                        pope_h_velocity.eq(pope_h_velocity.reset),
+                        pope_v_velocity.eq(pope_v_velocity.reset),
+                        paddle_location.eq(paddle_location.reset),
+                        enemy_paddle_location.eq(enemy_paddle_location.reset),
+                        time_until_start.eq(time_until_start.reset),
+                        player_score.eq(player_score + 1),
+                    ]
 
         m.d.comb += [
             self.vga.i_pope_location.eq(pope_location),
             self.vga.i_paddle_location.eq(paddle_location),
             self.vga.i_enemy_paddle_location.eq(enemy_paddle_location),
+            self.vga.i_player_score.eq(player_score),
+            self.vga.i_enemy_score.eq(enemy_score),
             self.o_r.eq(self.vga.o_r),
             self.o_g.eq(self.vga.o_g),
             self.o_b.eq(self.vga.o_b),
@@ -95,6 +123,8 @@ class VGAOutput(Elaboratable):
         self.i_pope_location = Signal(20)
         self.i_paddle_location = Signal(10)
         self.i_enemy_paddle_location = Signal(10)
+        self.i_player_score = Signal(3)
+        self.i_enemy_score = Signal(3)
 
         self.o_r = Signal(3)
         self.o_g = Signal(3)
@@ -125,6 +155,28 @@ class VGAOutput(Elaboratable):
             self.o_vsync.eq(1),
         ]
 
+        #player score
+        with m.If((clock[0:11] >= 100) & 
+                  (clock[0:11] < 125) & 
+                  (clock[11:22] >= 50) & 
+                  (clock[11:22] < 75)):
+            m.d.comb += [
+                self.o_r.eq(7),
+                self.o_b.eq(~self.i_player_score),
+                self.o_g.eq(~self.i_player_score),
+            ]
+
+        #enemy score
+        with m.If((clock[0:11] >= 640-125) & 
+                  (clock[0:11] < 640-100) & 
+                  (clock[11:22] >= 50) & 
+                  (clock[11:22] < 75)):
+            m.d.comb += [
+                self.o_r.eq(7),
+                self.o_b.eq(~self.i_enemy_score),
+                self.o_g.eq(~self.i_enemy_score),
+            ]
+
         with Image.open("jp2smol_indexed.png") as image:
             bbox = image.getbbox()
             width = bbox[2] - bbox[0]
@@ -134,14 +186,14 @@ class VGAOutput(Elaboratable):
             palette_index = Signal(range(30))
 
             with m.Switch(clock[0:11] - self.i_pope_location[0:10]):
-                for x in range(width - 2):
-                    with m.Case(x + 2):
+                for x in range(width):
+                    with m.Case(x):
                         with m.Switch(clock[11:22] - self.i_pope_location[10:20]):
-                            for y in range(height - 15):
-                                data = image.getpixel((bbox[0] + x + 2, bbox[1] + y + 12))
+                            for y in range(height):
+                                data = image.getpixel((bbox[0] + x, bbox[1] + y))
                                 if data == 0:
                                     continue
-                                with m.Case(y + 12):
+                                with m.Case(y):
                                     m.d.comb += [
                                         palette_index.eq(data),
                                     ]
@@ -176,7 +228,6 @@ class VGAOutput(Elaboratable):
                 self.o_g.eq(7),
                 self.o_b.eq(7),
             ]
-
 
         with m.If((clock[0:11] >= 640) | (clock[11:22] >= 480)):
             m.d.comb += [
