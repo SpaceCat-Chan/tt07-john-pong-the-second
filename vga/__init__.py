@@ -45,6 +45,9 @@ class BoilerplateSubtarget(Elaboratable):
             self.pads.vsync_t.oe.eq(1),
             self.vga.i_move_down.eq(self.pads.down_t.i),
             self.vga.i_move_up.eq(self.pads.up_t.i),
+            self.vga.i_player_two_down.eq(self.pads.p2_down_t.i),
+            self.vga.i_player_two_up.eq(self.pads.p2_up_t.i),
+            self.vga.i_player_two_active.eq(self.pads.p2_active_t.i),
         ]
 
         return m
@@ -66,7 +69,7 @@ class VgaApplet(GlasgowApplet):
     nothing. Similarly, there is no requirement to use IN or OUT FIFOs, or any pins at all.
     """
 
-    __pins = ("hsync","vsync","r0","r1","r2","g0","g1","g2","b0","b1","b2","up","down")
+    __pins = ("hsync","vsync","r0","r1","r2","g0","g1","g2","b0","b1","b2","up","down", "p2_up", "p2_down", "p2_active")
 
     @classmethod
     def add_build_arguments(cls, parser, access):

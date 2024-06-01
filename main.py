@@ -12,6 +12,10 @@ class Top(Elaboratable):
         self.i_move_up = Signal()
         self.i_move_down = Signal()
 
+        self.i_player_two_up = Signal()
+        self.i_player_two_down = Signal()
+        self.i_player_two_active = Signal()
+
     def elaborate(self, platform):
         m = Module()
         m.submodules.vga = self.vga = VGAOutput(16, 96, 48, 10, 2, 33)
@@ -50,7 +54,7 @@ class Top(Elaboratable):
                 with m.If(pope_location[10:20] >= 480 - 40):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
 
-                with m.If((pope_location[0:10] < 50) & (pope_location[0:10] >= 25) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
+                with m.If((pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
                     m.d.pix += pope_h_velocity.eq(1)
                     with m.If(self.i_move_up):
                         with m.If(pope_v_velocity > -3):
@@ -59,18 +63,33 @@ class Top(Elaboratable):
                         with m.If(pope_v_velocity < 3):
                             m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
                     
-                with m.If((pope_location[0:10] >= 640 - 50 - 34) & (pope_location[0:10] < 640 - 25 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150))):
+                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 0)):
                     m.d.pix += pope_h_velocity.eq(0)
+                
+                
+                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
+                    m.d.pix += pope_h_velocity.eq(0)
+                    with m.If(self.i_player_two_up):
+                        with m.If(pope_v_velocity > -3):
+                            m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
+                    with m.If(self.i_player_two_down):
+                        with m.If(pope_v_velocity < 3):
+                            m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
 
                 with m.If(self.i_move_up & (paddle_location >= 3)):
                     m.d.pix += paddle_location.eq(paddle_location - 3)
                 with m.If(self.i_move_down & (paddle_location < (480-150-3))):
                     m.d.pix += paddle_location.eq(paddle_location + 3)
 
-                with m.If((pope_location[10:20] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20)):
+                with m.If((pope_location[10:20] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20) & (self.i_player_two_active == 0)):
                     m.d.pix += enemy_paddle_location.eq(enemy_paddle_location + 2)
-                with m.If((pope_location[10:20] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20)):
+                with m.If((pope_location[10:20] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20) & (self.i_player_two_active == 0)):
                     m.d.pix += enemy_paddle_location.eq(enemy_paddle_location - 2)
+
+                with m.If(self.i_player_two_up & (enemy_paddle_location >= 3) & (self.i_player_two_active)):
+                    m.d.pix += enemy_paddle_location.eq(enemy_paddle_location - 3)
+                with m.If(self.i_player_two_down & (enemy_paddle_location < (480-150-3)) & (self.i_player_two_active)):
+                    m.d.pix += enemy_paddle_location.eq(enemy_paddle_location + 3)
 
                 with m.If(pope_location[0:10] <= 6):
                     m.d.pix += [
@@ -249,7 +268,7 @@ if __name__ == "__main__":
 
     print("starting work")
     mod =Top()
-    result = (convert(mod, name="sphn_vga_top", ports=[mod.o_r, mod.o_r, mod.o_g, mod.o_b, mod.o_hsync, mod.o_vsync, mod.i_move_up, mod.i_move_down],
+    result = (convert(mod, name="sphn_vga_top", ports=[mod.o_r, mod.o_r, mod.o_g, mod.o_b, mod.o_hsync, mod.o_vsync, mod.i_move_up, mod.i_move_down, mod.i_player_two_up, mod.i_player_two_down, mod.i_player_two_active],
         emit_src=False, strip_internal_attrs=True))
     print("verilog generated")
 
