@@ -8,13 +8,13 @@ You can also include images in this folder and reference them in the markdown. E
 -->
 
 ## How it works
-
-Explain how your project works
+it outputs VGA, using all of the dedicated output pins and three of the bidirectional pins, and takes player input on 5 of the dedicated input pins, it works by having a counter that counts clock cycles since boot, and outputs one pixel per clock cycle, on the first clock cycle of vsync, all game logic happens.
 
 ## How to test
-
-Explain how to use your project
+you're gonna need to play the game, and hook it up to a monitor with a DAC
 
 ## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+- a circuit that can convert the digital output to analog VGA
+- a monitor that supports VGA
+- a circuit for some buttons for the player input
+there are no part numbers here because we built everything outselves except for the monitor, and monitors are ubiquotus
