@@ -370,119 +370,55 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$119 ;
   wire \$121 ;
   wire \$123 ;
-  wire [11:0] \$125 ;
-  wire [11:0] \$127 ;
-  wire [11:0] \$129 ;
+  wire \$125 ;
+  wire [10:0] \$127 ;
+  wire \$129 ;
   wire \$13 ;
-  wire [11:0] \$131 ;
-  wire [11:0] \$133 ;
-  wire [11:0] \$135 ;
-  wire [11:0] \$137 ;
-  wire [11:0] \$139 ;
-  wire [11:0] \$141 ;
-  wire [11:0] \$143 ;
-  wire [11:0] \$145 ;
-  wire [11:0] \$147 ;
-  wire [11:0] \$149 ;
+  wire \$131 ;
+  wire \$133 ;
+  wire \$135 ;
+  wire \$137 ;
+  wire \$139 ;
+  wire \$141 ;
+  wire [10:0] \$143 ;
+  wire \$145 ;
+  wire \$147 ;
+  wire \$149 ;
   wire \$15 ;
-  wire [11:0] \$151 ;
-  wire [11:0] \$153 ;
-  wire [11:0] \$155 ;
-  wire [11:0] \$157 ;
-  wire [11:0] \$159 ;
-  wire [11:0] \$161 ;
-  wire [11:0] \$163 ;
-  wire [11:0] \$165 ;
-  wire [11:0] \$167 ;
-  wire [11:0] \$169 ;
+  wire \$151 ;
+  wire \$153 ;
+  wire \$155 ;
+  wire \$157 ;
+  wire \$159 ;
+  wire \$161 ;
+  wire \$163 ;
+  wire [10:0] \$165 ;
+  wire \$167 ;
+  wire \$169 ;
   wire \$17 ;
-  wire [11:0] \$171 ;
-  wire [11:0] \$173 ;
-  wire [11:0] \$175 ;
-  wire [11:0] \$177 ;
-  wire [11:0] \$179 ;
-  wire [11:0] \$181 ;
-  wire [11:0] \$183 ;
-  wire [11:0] \$185 ;
-  wire [11:0] \$187 ;
+  wire \$171 ;
+  wire \$173 ;
+  wire \$175 ;
+  wire \$177 ;
+  wire \$179 ;
+  wire [10:0] \$181 ;
+  wire \$183 ;
+  wire \$185 ;
+  wire \$187 ;
   wire \$189 ;
   wire \$19 ;
-  wire [10:0] \$191 ;
+  wire \$191 ;
   wire \$193 ;
   wire \$195 ;
   wire \$197 ;
   wire \$199 ;
   wire [11:0] \$2 ;
-  wire \$201 ;
-  wire \$203 ;
-  wire \$205 ;
-  wire [10:0] \$207 ;
-  wire \$209 ;
   wire \$21 ;
-  wire \$211 ;
-  wire \$213 ;
-  wire \$215 ;
-  wire \$217 ;
-  wire \$219 ;
-  wire \$221 ;
-  wire \$223 ;
-  wire \$225 ;
-  wire [11:0] \$227 ;
-  wire [11:0] \$229 ;
   wire [11:0] \$23 ;
-  wire [11:0] \$231 ;
-  wire [11:0] \$233 ;
-  wire [11:0] \$235 ;
-  wire [11:0] \$237 ;
-  wire [11:0] \$239 ;
-  wire [11:0] \$241 ;
-  wire [11:0] \$243 ;
-  wire [11:0] \$245 ;
-  wire [11:0] \$247 ;
-  wire [11:0] \$249 ;
   wire [11:0] \$25 ;
-  wire [11:0] \$251 ;
-  wire [11:0] \$253 ;
-  wire [11:0] \$255 ;
-  wire [11:0] \$257 ;
-  wire [11:0] \$259 ;
-  wire [11:0] \$261 ;
-  wire [11:0] \$263 ;
-  wire [11:0] \$265 ;
-  wire [11:0] \$267 ;
-  wire [11:0] \$269 ;
   wire [11:0] \$27 ;
-  wire [11:0] \$271 ;
-  wire [11:0] \$273 ;
-  wire [11:0] \$275 ;
-  wire [11:0] \$277 ;
-  wire [11:0] \$279 ;
-  wire [11:0] \$281 ;
-  wire [11:0] \$283 ;
-  wire [11:0] \$285 ;
-  wire [11:0] \$287 ;
-  wire [11:0] \$289 ;
   wire [11:0] \$29 ;
-  wire \$291 ;
-  wire [10:0] \$293 ;
-  wire \$295 ;
-  wire \$297 ;
-  wire \$299 ;
-  wire \$301 ;
-  wire \$303 ;
-  wire \$305 ;
-  wire \$307 ;
-  wire [10:0] \$309 ;
   wire [11:0] \$31 ;
-  wire \$311 ;
-  wire \$313 ;
-  wire \$315 ;
-  wire \$317 ;
-  wire \$319 ;
-  wire \$321 ;
-  wire \$323 ;
-  wire \$325 ;
-  wire \$327 ;
   wire [11:0] \$33 ;
   wire [11:0] \$35 ;
   wire [11:0] \$37 ;
@@ -541,6 +477,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   reg [2:0] o_r;
   output o_vsync;
   reg o_vsync;
+  reg [4:0] palette_index;
   input pix_clk;
   wire pix_clk;
   input pix_rst;
@@ -560,121 +497,57 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   assign \$119  = clock[10:0] >= 10'h280;
   assign \$121  = clock[21:11] >= 9'h1e0;
   assign \$123  = \$119  | \$121 ;
-  assign \$125  = clock[10:0] - i_pope_location[9:0];
-  assign \$127  = clock[21:11] - i_pope_location[19:10];
-  assign \$129  = clock[21:11] - i_pope_location[19:10];
-  assign \$131  = clock[21:11] - i_pope_location[19:10];
-  assign \$133  = clock[21:11] - i_pope_location[19:10];
-  assign \$135  = clock[21:11] - i_pope_location[19:10];
-  assign \$137  = clock[21:11] - i_pope_location[19:10];
+  assign \$125  = clock[21:11] >= i_paddle_location;
+  assign \$127  = i_paddle_location + 8'h96;
+  assign \$129  = clock[21:11] < \$127 ;
+  assign \$131  = \$125  & \$129 ;
+  assign \$133  = clock[10:0] >= 5'h19;
+  assign \$135  = \$131  & \$133 ;
+  assign \$137  = clock[10:0] < 6'h32;
   assign \$13  = clock[10:0] < 10'h2f0;
-  assign \$139  = clock[21:11] - i_pope_location[19:10];
-  assign \$141  = clock[21:11] - i_pope_location[19:10];
-  assign \$143  = clock[21:11] - i_pope_location[19:10];
-  assign \$145  = clock[21:11] - i_pope_location[19:10];
-  assign \$147  = clock[21:11] - i_pope_location[19:10];
-  assign \$149  = clock[21:11] - i_pope_location[19:10];
-  assign \$151  = clock[21:11] - i_pope_location[19:10];
-  assign \$153  = clock[21:11] - i_pope_location[19:10];
-  assign \$155  = clock[21:11] - i_pope_location[19:10];
-  assign \$157  = clock[21:11] - i_pope_location[19:10];
+  assign \$139  = \$135  & \$137 ;
+  assign \$141  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$143  = i_enemy_paddle_location + 8'h96;
+  assign \$145  = clock[21:11] < \$143 ;
+  assign \$147  = \$141  & \$145 ;
+  assign \$149  = clock[10:0] < 10'h267;
+  assign \$151  = \$147  & \$149 ;
+  assign \$153  = clock[10:0] >= 10'h24e;
+  assign \$155  = \$151  & \$153 ;
+  assign \$157  = clock[10:0] >= 10'h280;
   assign \$15  = \$11  & \$13 ;
-  assign \$159  = clock[21:11] - i_pope_location[19:10];
-  assign \$161  = clock[21:11] - i_pope_location[19:10];
-  assign \$163  = clock[21:11] - i_pope_location[19:10];
-  assign \$165  = clock[21:11] - i_pope_location[19:10];
-  assign \$167  = clock[21:11] - i_pope_location[19:10];
-  assign \$169  = clock[21:11] - i_pope_location[19:10];
-  assign \$171  = clock[21:11] - i_pope_location[19:10];
-  assign \$173  = clock[21:11] - i_pope_location[19:10];
-  assign \$175  = clock[21:11] - i_pope_location[19:10];
-  assign \$177  = clock[21:11] - i_pope_location[19:10];
+  assign \$159  = clock[21:11] >= 9'h1e0;
+  assign \$161  = \$157  | \$159 ;
+  assign \$163  = clock[21:11] >= i_paddle_location;
+  assign \$165  = i_paddle_location + 8'h96;
+  assign \$167  = clock[21:11] < \$165 ;
+  assign \$169  = \$163  & \$167 ;
+  assign \$171  = clock[10:0] >= 5'h19;
+  assign \$173  = \$169  & \$171 ;
+  assign \$175  = clock[10:0] < 6'h32;
+  assign \$177  = \$173  & \$175 ;
   assign \$17  = clock[21:11] >= 9'h1ea;
-  assign \$179  = clock[21:11] - i_pope_location[19:10];
-  assign \$181  = clock[21:11] - i_pope_location[19:10];
-  assign \$183  = clock[21:11] - i_pope_location[19:10];
-  assign \$185  = clock[21:11] - i_pope_location[19:10];
-  assign \$187  = clock[21:11] - i_pope_location[19:10];
-  assign \$189  = clock[21:11] >= i_paddle_location;
-  assign \$191  = i_paddle_location + 8'h96;
-  assign \$193  = clock[21:11] < \$191 ;
-  assign \$195  = \$189  & \$193 ;
-  assign \$197  = clock[10:0] >= 5'h19;
+  assign \$179  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$181  = i_enemy_paddle_location + 8'h96;
+  assign \$183  = clock[21:11] < \$181 ;
+  assign \$185  = \$179  & \$183 ;
+  assign \$187  = clock[10:0] < 10'h267;
+  assign \$189  = \$185  & \$187 ;
+  assign \$191  = clock[10:0] >= 10'h24e;
+  assign \$193  = \$189  & \$191 ;
+  assign \$195  = clock[10:0] >= 10'h280;
+  assign \$197  = clock[21:11] >= 9'h1e0;
   assign \$19  = clock[21:11] < 9'h1ec;
-  assign \$199  = \$195  & \$197 ;
-  assign \$201  = clock[10:0] < 6'h32;
-  assign \$203  = \$199  & \$201 ;
-  assign \$205  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$207  = i_enemy_paddle_location + 8'h96;
-  assign \$209  = clock[21:11] < \$207 ;
-  assign \$211  = \$205  & \$209 ;
-  assign \$213  = clock[10:0] < 10'h267;
-  assign \$215  = \$211  & \$213 ;
-  assign \$217  = clock[10:0] >= 10'h24e;
-  assign \$21  = \$17  & \$19 ;
-  assign \$219  = \$215  & \$217 ;
-  assign \$221  = clock[10:0] >= 10'h280;
-  assign \$223  = clock[21:11] >= 9'h1e0;
-  assign \$225  = \$221  | \$223 ;
-  assign \$227  = clock[10:0] - i_pope_location[9:0];
-  assign \$229  = clock[21:11] - i_pope_location[19:10];
-  assign \$231  = clock[21:11] - i_pope_location[19:10];
-  assign \$233  = clock[21:11] - i_pope_location[19:10];
-  assign \$235  = clock[21:11] - i_pope_location[19:10];
-  assign \$237  = clock[21:11] - i_pope_location[19:10];
-  assign \$23  = clock[10:0] - i_pope_location[9:0];
-  assign \$239  = clock[21:11] - i_pope_location[19:10];
-  assign \$241  = clock[21:11] - i_pope_location[19:10];
-  assign \$243  = clock[21:11] - i_pope_location[19:10];
-  assign \$245  = clock[21:11] - i_pope_location[19:10];
-  assign \$247  = clock[21:11] - i_pope_location[19:10];
-  assign \$249  = clock[21:11] - i_pope_location[19:10];
-  assign \$251  = clock[21:11] - i_pope_location[19:10];
-  assign \$253  = clock[21:11] - i_pope_location[19:10];
-  assign \$255  = clock[21:11] - i_pope_location[19:10];
-  assign \$257  = clock[21:11] - i_pope_location[19:10];
-  assign \$25  = clock[21:11] - i_pope_location[19:10];
-  assign \$259  = clock[21:11] - i_pope_location[19:10];
-  assign \$261  = clock[21:11] - i_pope_location[19:10];
-  assign \$263  = clock[21:11] - i_pope_location[19:10];
-  assign \$265  = clock[21:11] - i_pope_location[19:10];
-  assign \$267  = clock[21:11] - i_pope_location[19:10];
-  assign \$269  = clock[21:11] - i_pope_location[19:10];
-  assign \$271  = clock[21:11] - i_pope_location[19:10];
-  assign \$273  = clock[21:11] - i_pope_location[19:10];
-  assign \$275  = clock[21:11] - i_pope_location[19:10];
-  assign \$277  = clock[21:11] - i_pope_location[19:10];
-  assign \$27  = clock[21:11] - i_pope_location[19:10];
-  assign \$279  = clock[21:11] - i_pope_location[19:10];
-  assign \$281  = clock[21:11] - i_pope_location[19:10];
-  assign \$283  = clock[21:11] - i_pope_location[19:10];
-  assign \$285  = clock[21:11] - i_pope_location[19:10];
-  assign \$287  = clock[21:11] - i_pope_location[19:10];
-  assign \$289  = clock[21:11] - i_pope_location[19:10];
-  assign \$291  = clock[21:11] >= i_paddle_location;
-  assign \$293  = i_paddle_location + 8'h96;
-  assign \$295  = clock[21:11] < \$293 ;
-  assign \$297  = \$291  & \$295 ;
-  assign \$2  = clock[10:0] + 1'h1;
-  assign \$29  = clock[21:11] - i_pope_location[19:10];
-  assign \$299  = clock[10:0] >= 5'h19;
-  assign \$301  = \$297  & \$299 ;
-  assign \$303  = clock[10:0] < 6'h32;
-  assign \$305  = \$301  & \$303 ;
-  assign \$307  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$309  = i_enemy_paddle_location + 8'h96;
-  assign \$311  = clock[21:11] < \$309 ;
-  assign \$313  = \$307  & \$311 ;
-  assign \$315  = clock[10:0] < 10'h267;
-  assign \$317  = \$313  & \$315 ;
-  assign \$31  = clock[21:11] - i_pope_location[19:10];
-  assign \$319  = clock[10:0] >= 10'h24e;
-  assign \$321  = \$317  & \$319 ;
-  assign \$323  = clock[10:0] >= 10'h280;
-  assign \$325  = clock[21:11] >= 9'h1e0;
-  assign \$327  = \$323  | \$325 ;
+  assign \$199  = \$195  | \$197 ;
   always @(posedge pix_clk)
     clock <= \clock$next ;
+  assign \$21  = \$17  & \$19 ;
+  assign \$23  = clock[10:0] - i_pope_location[9:0];
+  assign \$25  = clock[21:11] - i_pope_location[19:10];
+  assign \$27  = clock[21:11] - i_pope_location[19:10];
+  assign \$2  = clock[10:0] + 1'h1;
+  assign \$29  = clock[21:11] - i_pope_location[19:10];
+  assign \$31  = clock[21:11] - i_pope_location[19:10];
   assign \$33  = clock[21:11] - i_pope_location[19:10];
   assign \$35  = clock[21:11] - i_pope_location[19:10];
   assign \$37  = clock[21:11] - i_pope_location[19:10];
@@ -743,1549 +616,1527 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
-    o_r = 3'h0;
+    palette_index = 5'h00;
     casez (\$23 )
       12'h002:
           casez (\$25 )
-            12'h00e:
-                o_r = 3'h7;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
           endcase
       12'h003:
           casez (\$27 )
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
             12'h00f:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1e;
           endcase
       12'h004:
           casez (\$29 )
             12'h00c:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h00d:
-                o_r = 3'h4;
+                palette_index = 5'h0d;
             12'h00e:
-                o_r = 3'h4;
+                palette_index = 5'h0b;
             12'h00f:
-                o_r = 3'h4;
+                palette_index = 5'h07;
             12'h010:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h011:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h7;
-            12'h020:
-                o_r = 3'h7;
-            12'h021:
-                o_r = 3'h7;
-            12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h18;
           endcase
       12'h005:
           casez (\$31 )
             12'h00c:
-                o_r = 3'h4;
+                palette_index = 5'h07;
             12'h00d:
-                o_r = 3'h4;
+                palette_index = 5'h07;
             12'h00e:
-                o_r = 3'h4;
+                palette_index = 5'h07;
             12'h00f:
-                o_r = 3'h4;
+                palette_index = 5'h0b;
             12'h010:
-                o_r = 3'h4;
+                palette_index = 5'h0b;
             12'h011:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h012:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h014:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h016:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h018:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h019:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01a:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01b:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01c:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01d:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01e:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h01f:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h020:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h021:
-                o_r = 3'h5;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h0c;
           endcase
       12'h006:
           casez (\$33 )
             12'h00c:
-                o_r = 3'h4;
+                palette_index = 5'h0b;
             12'h00d:
-                o_r = 3'h4;
+                palette_index = 5'h07;
             12'h00e:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h00f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h016:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h017:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h019:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01a:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01b:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01d:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h021:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h022:
-                o_r = 3'h6;
-            12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h6;
+                palette_index = 5'h10;
           endcase
       12'h007:
           casez (\$35 )
             12'h00c:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h00d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00e:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h010:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h014:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h016:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h019:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01a:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01b:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01c:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01f:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h022:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h023:
-                o_r = 3'h6;
-            12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h15;
           endcase
       12'h008:
           casez (\$37 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h019:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01a:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01b:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01d:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h021:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h022:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h023:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
           endcase
       12'h009:
           casez (\$39 )
             12'h00c:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01a:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01b:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01c:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h021:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h022:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h023:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h024:
-                o_r = 3'h5;
+                palette_index = 5'h09;
           endcase
       12'h00a:
           casez (\$41 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h015:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01b:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h021:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h022:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h023:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h024:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
           endcase
       12'h00b:
           casez (\$43 )
             12'h00c:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h023:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h024:
-                o_r = 3'h5;
+                palette_index = 5'h09;
           endcase
       12'h00c:
           casez (\$45 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01f:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h020:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h024:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
           endcase
       12'h00d:
           casez (\$47 )
             12'h00c:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h014:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h6;
+                palette_index = 5'h10;
           endcase
       12'h00e:
           casez (\$49 )
             12'h00c:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h00d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h05;
             12'h014:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h015:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h016:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01d:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h020:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h00f:
           casez (\$51 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h014:
-                o_r = 3'h3;
+                palette_index = 5'h02;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h010:
           casez (\$53 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h013:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h014:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h02;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h017:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h6;
+                palette_index = 5'h0f;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h17;
           endcase
       12'h011:
           casez (\$55 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h014:
-                o_r = 3'h3;
+                palette_index = 5'h02;
             12'h015:
-                o_r = 3'h2;
+                palette_index = 5'h03;
             12'h016:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h012:
           casez (\$57 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h02;
             12'h016:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h17;
           endcase
       12'h013:
           casez (\$59 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h5;
+                palette_index = 5'h05;
             12'h015:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h014:
           casez (\$61 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h016:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h17;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h17;
           endcase
       12'h015:
           casez (\$63 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h016:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h017:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h016:
           casez (\$65 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h17;
           endcase
       12'h017:
           casez (\$67 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h016:
-                o_r = 3'h3;
+                palette_index = 5'h02;
             12'h017:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h022:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h018:
           casez (\$69 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h016:
-                o_r = 3'h2;
+                palette_index = 5'h01;
             12'h017:
-                o_r = 3'h2;
+                palette_index = 5'h01;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01d:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h01e:
-                o_r = 3'h4;
+                palette_index = 5'h06;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h021:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h12;
           endcase
       12'h019:
           casez (\$71 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h016:
-                o_r = 3'h2;
+                palette_index = 5'h02;
             12'h017:
-                o_r = 3'h2;
+                palette_index = 5'h03;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h01d:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h01e:
-                o_r = 3'h5;
+                palette_index = 5'h05;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h024:
-                o_r = 3'h6;
+                palette_index = 5'h10;
           endcase
       12'h01a:
           casez (\$73 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h015:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h016:
-                o_r = 3'h2;
+                palette_index = 5'h01;
             12'h017:
-                o_r = 3'h2;
+                palette_index = 5'h01;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01f:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h022:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
           endcase
       12'h01b:
           casez (\$75 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1b;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h016:
-                o_r = 3'h2;
+                palette_index = 5'h01;
             12'h017:
-                o_r = 3'h3;
+                palette_index = 5'h04;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01d:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01e:
-                o_r = 3'h6;
+                palette_index = 5'h0a;
             12'h01f:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h020:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h7;
+                palette_index = 5'h1e;
           endcase
       12'h01c:
           casez (\$77 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1e;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h011:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h012:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h016:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h017:
-                o_r = 3'h4;
+                palette_index = 5'h05;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01d:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01e:
-                o_r = 3'h7;
+                palette_index = 5'h12;
             12'h01f:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h020:
-                o_r = 3'h7;
-            12'h021:
-                o_r = 3'h7;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h7;
+                palette_index = 5'h1f;
           endcase
       12'h01d:
           casez (\$79 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h013:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h09;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h019:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h7;
-            12'h020:
-                o_r = 3'h7;
-            12'h021:
-                o_r = 3'h7;
+                palette_index = 5'h1e;
           endcase
       12'h01e:
           casez (\$81 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h015:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h017:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h018:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h019:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h01a:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h6;
+                palette_index = 5'h1b;
           endcase
       12'h01f:
           casez (\$83 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h011:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h014:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h015:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h016:
-                o_r = 3'h5;
+                palette_index = 5'h0c;
             12'h017:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h018:
-                o_r = 3'h7;
+                palette_index = 5'h1a;
             12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
+                palette_index = 5'h1e;
           endcase
       12'h020:
           casez (\$85 )
             12'h00c:
-                o_r = 3'h7;
+                palette_index = 5'h18;
             12'h00d:
-                o_r = 3'h7;
+                palette_index = 5'h13;
             12'h00e:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h00f:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h010:
-                o_r = 3'h6;
+                palette_index = 5'h15;
             12'h011:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h012:
-                o_r = 3'h6;
+                palette_index = 5'h10;
             12'h013:
-                o_r = 3'h5;
+                palette_index = 5'h0e;
             12'h014:
-                o_r = 3'h7;
+                palette_index = 5'h1b;
             12'h015:
-                o_r = 3'h7;
-            12'h016:
-                o_r = 3'h7;
-            12'h017:
-                o_r = 3'h7;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
+                palette_index = 5'h1b;
           endcase
+    endcase
+  end
+  always @* begin
+    if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
+    o_r = 3'h0;
+    casez (palette_index)
+      5'h01:
+          o_r = 3'h2;
+      5'h02:
+          o_r = 3'h3;
+      5'h03:
+          o_r = 3'h2;
+      5'h04:
+          o_r = 3'h3;
+      5'h05:
+          o_r = 3'h4;
+      5'h06:
+          o_r = 3'h4;
+      5'h07:
+          o_r = 3'h4;
+      5'h08:
+          o_r = 3'h4;
+      5'h09:
+          o_r = 3'h5;
+      5'h0a:
+          o_r = 3'h6;
+      5'h0b:
+          o_r = 3'h4;
+      5'h0c:
+          o_r = 3'h5;
+      5'h0d:
+          o_r = 3'h4;
+      5'h0e:
+          o_r = 3'h5;
+      5'h0f:
+          o_r = 3'h6;
+      5'h10:
+          o_r = 3'h6;
+      5'h11:
+          o_r = 3'h6;
+      5'h12:
+          o_r = 3'h7;
+      5'h13:
+          o_r = 3'h7;
+      5'h14:
+          o_r = 3'h5;
+      5'h15:
+          o_r = 3'h6;
+      5'h16:
+          o_r = 3'h6;
+      5'h17:
+          o_r = 3'h7;
+      5'h18:
+          o_r = 3'h7;
+      5'h19:
+          o_r = 3'h7;
+      5'h1a:
+          o_r = 3'h7;
+      5'h1b:
+          o_r = 3'h7;
+      5'h1c:
+          o_r = 3'h5;
+      5'h1d:
+          o_r = 3'h7;
+      5'h1e:
+          o_r = 3'h7;
     endcase
     if (\$101 ) begin
       o_r = 3'h7;
@@ -2300,3112 +2151,150 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_g = 3'h0;
-    casez (\$125 )
-      12'h002:
-          casez (\$127 )
-            12'h00e:
-                o_g = 3'h7;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h7;
-          endcase
-      12'h003:
-          casez (\$129 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h7;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h5;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h7;
-            12'h01a:
-                o_g = 3'h6;
-          endcase
-      12'h004:
-          casez (\$131 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h3;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h7;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h7;
-            12'h01d:
-                o_g = 3'h7;
-            12'h01e:
-                o_g = 3'h7;
-            12'h01f:
-                o_g = 3'h6;
-            12'h020:
-                o_g = 3'h7;
-            12'h021:
-                o_g = 3'h6;
-            12'h022:
-                o_g = 3'h7;
-          endcase
-      12'h005:
-          casez (\$133 )
-            12'h00c:
-                o_g = 3'h3;
-            12'h00d:
-                o_g = 3'h3;
-            12'h00e:
-                o_g = 3'h3;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h3;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h3;
-            12'h018:
-                o_g = 3'h3;
-            12'h019:
-                o_g = 3'h3;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h2;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h2;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h6;
-            12'h023:
-                o_g = 3'h7;
-          endcase
-      12'h006:
-          casez (\$135 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h3;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h3;
-            12'h014:
-                o_g = 3'h3;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h3;
-            12'h018:
-                o_g = 3'h3;
-            12'h019:
-                o_g = 3'h3;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h3;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h3;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h6;
-            12'h024:
-                o_g = 3'h6;
-          endcase
-      12'h007:
-          casez (\$137 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h3;
-            12'h019:
-                o_g = 3'h3;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h3;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h3;
-            12'h022:
-                o_g = 3'h3;
-            12'h023:
-                o_g = 3'h5;
-            12'h024:
-                o_g = 3'h6;
-          endcase
-      12'h008:
-          casez (\$139 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h3;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h3;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h3;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h3;
-            12'h024:
-                o_g = 3'h6;
-          endcase
-      12'h009:
-          casez (\$141 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h5;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h3;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h3;
-          endcase
-      12'h00a:
-          casez (\$143 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h3;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h00b:
-          casez (\$145 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h5;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h3;
-          endcase
-      12'h00c:
-          casez (\$147 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h6;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h00d:
-          casez (\$149 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h3;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h00e:
-          casez (\$151 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h2;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h00f:
-          casez (\$153 )
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h3;
-            12'h014:
-                o_g = 3'h1;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h5;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h010:
-          casez (\$155 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h2;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h1;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h5;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h5;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-          endcase
-      12'h011:
-          casez (\$157 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h3;
-            12'h014:
-                o_g = 3'h1;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h2;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h4;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h5;
-            12'h01e:
-                o_g = 3'h5;
-            12'h01f:
-                o_g = 3'h5;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h5;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h5;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h012:
-          casez (\$159 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h1;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h5;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h5;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-          endcase
-      12'h013:
-          casez (\$161 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h014:
-          casez (\$163 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h5;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-          endcase
-      12'h015:
-          casez (\$165 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h6;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h6;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h016:
-          casez (\$167 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-          endcase
-      12'h017:
-          casez (\$169 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h6;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h1;
-            12'h017:
-                o_g = 3'h2;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h018:
-          casez (\$171 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h1;
-            12'h017:
-                o_g = 3'h1;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h019:
-          casez (\$173 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h6;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h0;
-            12'h017:
-                o_g = 3'h2;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h2;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-          endcase
-      12'h01a:
-          casez (\$175 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h1;
-            12'h017:
-                o_g = 3'h1;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h6;
-            12'h024:
-                o_g = 3'h7;
-          endcase
-      12'h01b:
-          casez (\$177 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h6;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h1;
-            12'h017:
-                o_g = 3'h2;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h7;
-            12'h022:
-                o_g = 3'h7;
-            12'h023:
-                o_g = 3'h7;
-            12'h024:
-                o_g = 3'h6;
-          endcase
-      12'h01c:
-          casez (\$179 )
-            12'h00c:
-                o_g = 3'h7;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h2;
-            12'h017:
-                o_g = 3'h2;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h5;
-            12'h020:
-                o_g = 3'h7;
-            12'h021:
-                o_g = 3'h6;
-            12'h022:
-                o_g = 3'h7;
-            12'h023:
-                o_g = 3'h7;
-          endcase
-      12'h01d:
-          casez (\$181 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h4;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h7;
-            12'h01e:
-                o_g = 3'h7;
-            12'h01f:
-                o_g = 3'h7;
-            12'h020:
-                o_g = 3'h6;
-            12'h021:
-                o_g = 3'h7;
-          endcase
-      12'h01e:
-          casez (\$183 )
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h7;
-            12'h01d:
-                o_g = 3'h6;
-            12'h01e:
-                o_g = 3'h7;
-            12'h01f:
-                o_g = 3'h6;
-          endcase
-      12'h01f:
-          casez (\$185 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h7;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h7;
-            12'h01c:
-                o_g = 3'h7;
-          endcase
-      12'h020:
-          casez (\$187 )
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h6;
-            12'h015:
-                o_g = 3'h6;
-            12'h016:
-                o_g = 3'h7;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h7;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h7;
-            12'h01b:
-                o_g = 3'h5;
-          endcase
+    casez (palette_index)
+      5'h01:
+          o_g = 3'h1;
+      5'h02:
+          o_g = 3'h0;
+      5'h03:
+          o_g = 3'h2;
+      5'h04:
+          o_g = 3'h2;
+      5'h05:
+          o_g = 3'h2;
+      5'h06:
+          o_g = 3'h3;
+      5'h07:
+          o_g = 3'h3;
+      5'h08:
+          o_g = 3'h3;
+      5'h09:
+          o_g = 3'h3;
+      5'h0a:
+          o_g = 3'h3;
+      5'h0b:
+          o_g = 3'h4;
+      5'h0c:
+          o_g = 3'h4;
+      5'h0d:
+          o_g = 3'h4;
+      5'h0e:
+          o_g = 3'h4;
+      5'h0f:
+          o_g = 3'h4;
+      5'h10:
+          o_g = 3'h4;
+      5'h11:
+          o_g = 3'h4;
+      5'h12:
+          o_g = 3'h4;
+      5'h13:
+          o_g = 3'h4;
+      5'h14:
+          o_g = 3'h5;
+      5'h15:
+          o_g = 3'h5;
+      5'h16:
+          o_g = 3'h5;
+      5'h17:
+          o_g = 3'h5;
+      5'h18:
+          o_g = 3'h5;
+      5'h19:
+          o_g = 3'h5;
+      5'h1a:
+          o_g = 3'h6;
+      5'h1b:
+          o_g = 3'h6;
+      5'h1c:
+          o_g = 3'h6;
+      5'h1d:
+          o_g = 3'h6;
+      5'h1e:
+          o_g = 3'h7;
     endcase
-    if (\$203 ) begin
+    if (\$139 ) begin
       o_g = 3'h7;
     end
-    if (\$219 ) begin
+    if (\$155 ) begin
       o_g = 3'h7;
     end
-    if (\$225 ) begin
+    if (\$161 ) begin
       o_g = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_b = 3'h0;
-    casez (\$227 )
-      12'h002:
-          casez (\$229 )
-            12'h00e:
-                o_b = 3'h7;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h7;
-            12'h01a:
-                o_b = 3'h7;
-          endcase
-      12'h003:
-          casez (\$231 )
-            12'h00c:
-                o_b = 3'h7;
-            12'h00d:
-                o_b = 3'h7;
-            12'h00e:
-                o_b = 3'h7;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h5;
-            12'h01a:
-                o_b = 3'h7;
-          endcase
-      12'h004:
-          casez (\$233 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h4;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h7;
-            12'h01c:
-                o_b = 3'h7;
-            12'h01d:
-                o_b = 3'h5;
-            12'h01e:
-                o_b = 3'h5;
-            12'h01f:
-                o_b = 3'h5;
-            12'h020:
-                o_b = 3'h5;
-            12'h021:
-                o_b = 3'h7;
-            12'h022:
-                o_b = 3'h7;
-          endcase
-      12'h005:
-          casez (\$235 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h2;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h5;
-            12'h023:
-                o_b = 3'h7;
-          endcase
-      12'h006:
-          casez (\$237 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h0;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h0;
-            12'h019:
-                o_b = 3'h1;
-            12'h01a:
-                o_b = 3'h0;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h5;
-            12'h024:
-                o_b = 3'h6;
-          endcase
-      12'h007:
-          casez (\$239 )
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h0;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h0;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h7;
-          endcase
-      12'h008:
-          casez (\$241 )
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h0;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h3;
-          endcase
-      12'h009:
-          casez (\$243 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h1;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h1;
-            12'h01a:
-                o_b = 3'h0;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h00a:
-          casez (\$245 )
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h1;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h00b:
-          casez (\$247 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h1;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h00c:
-          casez (\$249 )
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h00d:
-          casez (\$251 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h1;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h0;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h2;
-          endcase
-      12'h00e:
-          casez (\$253 )
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h2;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h2;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h00f:
-          casez (\$255 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h0;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h2;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h010:
-          casez (\$257 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h0;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h3;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h011:
-          casez (\$259 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h012:
-          casez (\$261 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h0;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h013:
-          casez (\$263 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h2;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h014:
-          casez (\$265 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h015:
-          casez (\$267 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h2;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h3;
-            12'h01e:
-                o_b = 3'h2;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h016:
-          casez (\$269 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h3;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h017:
-          casez (\$271 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h2;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h018:
-          casez (\$273 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h2;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h1;
-          endcase
-      12'h019:
-          casez (\$275 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h2;
-          endcase
-      12'h01a:
-          casez (\$277 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h3;
-            12'h024:
-                o_b = 3'h7;
-          endcase
-      12'h01b:
-          casez (\$279 )
-            12'h00c:
-                o_b = 3'h5;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h3;
-            12'h022:
-                o_b = 3'h5;
-            12'h023:
-                o_b = 3'h7;
-            12'h024:
-                o_b = 3'h7;
-          endcase
-      12'h01c:
-          casez (\$281 )
-            12'h00c:
-                o_b = 3'h5;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h3;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h2;
-            12'h020:
-                o_b = 3'h7;
-            12'h021:
-                o_b = 3'h7;
-            12'h022:
-                o_b = 3'h7;
-            12'h023:
-                o_b = 3'h7;
-          endcase
-      12'h01d:
-          casez (\$283 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h5;
-            12'h01e:
-                o_b = 3'h5;
-            12'h01f:
-                o_b = 3'h7;
-            12'h020:
-                o_b = 3'h7;
-            12'h021:
-                o_b = 3'h7;
-          endcase
-      12'h01e:
-          casez (\$285 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h2;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h5;
-            12'h01c:
-                o_b = 3'h7;
-            12'h01d:
-                o_b = 3'h7;
-            12'h01e:
-                o_b = 3'h7;
-            12'h01f:
-                o_b = 3'h6;
-          endcase
-      12'h01f:
-          casez (\$287 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h5;
-            12'h01a:
-                o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h7;
-            12'h01c:
-                o_b = 3'h7;
-          endcase
-      12'h020:
-          casez (\$289 )
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h5;
-            12'h015:
-                o_b = 3'h5;
-            12'h016:
-                o_b = 3'h7;
-            12'h017:
-                o_b = 3'h7;
-            12'h018:
-                o_b = 3'h7;
-            12'h019:
-                o_b = 3'h7;
-            12'h01a:
-                o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h7;
-          endcase
+    casez (palette_index)
+      5'h01:
+          o_b = 3'h0;
+      5'h02:
+          o_b = 3'h0;
+      5'h03:
+          o_b = 3'h0;
+      5'h04:
+          o_b = 3'h1;
+      5'h05:
+          o_b = 3'h0;
+      5'h06:
+          o_b = 3'h0;
+      5'h07:
+          o_b = 3'h2;
+      5'h08:
+          o_b = 3'h3;
+      5'h09:
+          o_b = 3'h0;
+      5'h0a:
+          o_b = 3'h0;
+      5'h0b:
+          o_b = 3'h1;
+      5'h0c:
+          o_b = 3'h1;
+      5'h0d:
+          o_b = 3'h4;
+      5'h0e:
+          o_b = 3'h3;
+      5'h0f:
+          o_b = 3'h0;
+      5'h10:
+          o_b = 3'h2;
+      5'h11:
+          o_b = 3'h4;
+      5'h12:
+          o_b = 3'h1;
+      5'h13:
+          o_b = 3'h3;
+      5'h14:
+          o_b = 3'h3;
+      5'h15:
+          o_b = 3'h2;
+      5'h16:
+          o_b = 3'h4;
+      5'h17:
+          o_b = 3'h1;
+      5'h18:
+          o_b = 3'h3;
+      5'h19:
+          o_b = 3'h5;
+      5'h1a:
+          o_b = 3'h3;
+      5'h1b:
+          o_b = 3'h5;
+      5'h1c:
+          o_b = 3'h5;
+      5'h1d:
+          o_b = 3'h7;
+      5'h1e:
+          o_b = 3'h5;
     endcase
-    if (\$305 ) begin
+    if (\$177 ) begin
       o_b = 3'h7;
     end
-    if (\$321 ) begin
+    if (\$193 ) begin
       o_b = 3'h7;
     end
-    if (\$327 ) begin
+    if (\$199 ) begin
       o_b = 3'h0;
     end
   end

@@ -125,28 +125,34 @@ class VGAOutput(Elaboratable):
             self.o_vsync.eq(1),
         ]
 
-        with Image.open("jp2smol.png") as image:
+        with Image.open("jp2smol_indexed.png") as image:
             bbox = image.getbbox()
             width = bbox[2] - bbox[0]
             height = bbox[3] - bbox[1]
             palette = image.getpalette("RGB")
             
+            palette_index = Signal(range(30))
+
             with m.Switch(clock[0:11] - self.i_pope_location[0:10]):
                 for x in range(width - 2):
                     with m.Case(x + 2):
                         with m.Switch(clock[11:22] - self.i_pope_location[10:20]):
                             for y in range(height - 15):
                                 data = image.getpixel((bbox[0] + x + 2, bbox[1] + y + 12))
-                                if palette:
-                                    data = (palette[data * 3], palette[data * 3 + 1], palette[data * 3 + 2])
-                                if len(data) == 4 and data[3] == 0.0:
+                                if data == 0:
                                     continue
                                 with m.Case(y + 12):
                                     m.d.comb += [
-                                        self.o_r.eq(data[0] >> 5),
-                                        self.o_g.eq(data[1] >> 5),
-                                        self.o_b.eq(data[2] >> 5),
+                                        palette_index.eq(data),
                                     ]
+            with m.Switch(palette_index):
+                for palette_item in range(1,31):
+                    with m.Case(palette_item):
+                        m.d.comb += [
+                            self.o_r.eq(palette[palette_item * 3] >> 5),
+                            self.o_g.eq(palette[palette_item * 3 + 1] >> 5),
+                            self.o_b.eq(palette[palette_item * 3 + 2] >> 5),
+                        ]
 
         with m.If(
             (clock[11:22] >= self.i_paddle_location) &
