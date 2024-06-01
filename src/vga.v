@@ -236,7 +236,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$113  = \$107  & \$111 ;
   assign \$115  = \$101  & \$113 ;
   assign \$119  = \$115  & \$117 ;
-  assign \$121  = $signed(pope_v_velocity) > $signed(3'h5);
+  assign \$121  = $signed(pope_v_velocity) != $signed(3'h5);
   assign \$124  = $signed(pope_v_velocity) - $signed(3'h1);
   assign \$126  = $signed(pope_v_velocity) < $signed(3'h3);
   assign \$12  = pope_location[9:0] >= 10'h25e;
@@ -385,7 +385,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$81  = pope_location[19:10] <= \$79 ;
   assign \$83  = \$77  & \$81 ;
   assign \$85  = \$71  & \$83 ;
-  assign \$87  = $signed(pope_v_velocity) > $signed(3'h5);
+  assign \$87  = $signed(pope_v_velocity) != $signed(3'h5);
   assign \$8  = time_until_start - 1'h1;
   assign \$90  = $signed(pope_v_velocity) - $signed(3'h1);
   assign \$92  = $signed(pope_v_velocity) < $signed(3'h3);

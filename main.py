@@ -57,7 +57,7 @@ class Top(Elaboratable):
                 with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 38) & (pope_location[10:20] <= paddle_location + 150))):
                     m.d.pix += pope_h_velocity.eq(1)
                     with m.If(self.i_move_up):
-                        with m.If(pope_v_velocity > -3):
+                        with m.If(pope_v_velocity != -3):
                             m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
                     with m.If(self.i_move_down):
                         with m.If(pope_v_velocity < 3):
@@ -70,7 +70,7 @@ class Top(Elaboratable):
                 with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 38) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
                     m.d.pix += pope_h_velocity.eq(0)
                     with m.If(self.i_player_two_up):
-                        with m.If(pope_v_velocity > -3):
+                        with m.If(pope_v_velocity != -3):
                             m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
                     with m.If(self.i_player_two_down):
                         with m.If(pope_v_velocity < 3):
