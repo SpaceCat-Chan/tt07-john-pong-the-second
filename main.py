@@ -135,7 +135,7 @@ class VGAOutput(Elaboratable):
                 for x in range(width):
                     with m.Case(x):
                         with m.Switch(clock[11:22] - self.i_pope_location[10:20]):
-                            for y in range(height):
+                            for y in range(height - 1):
                                 with m.Case(y):
                                     data = image.getpixel((bbox[0] + x, bbox[1] + y))
                                     if palette:

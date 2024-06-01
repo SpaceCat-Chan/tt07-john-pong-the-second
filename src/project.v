@@ -27,7 +27,7 @@ module tt_um_spacecat_chan_john_pong_the_second (
     .i_move_up(ui_in[0]),
     .i_move_down(ui_in[1]),
     .pix_clk(clk),
-    .pix_rst(rst_n)
+    .pix_rst(~rst_n)
   );
 
   // All output pins must be assigned. If not used, assign to 0.
