@@ -228,7 +228,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$99  = pope_location[9:0] >= 10'h22c;
   assign \$101  = \$97  & \$99 ;
   assign \$103  = + pope_location[19:10];
-  assign \$105  = enemy_paddle_location - 6'h28;
+  assign \$105  = enemy_paddle_location - 5'h18;
   assign \$107  = $signed(\$103 ) > $signed(\$105 );
   assign \$10  = pope_location[9:0] <= 3'h6;
   assign \$109  = enemy_paddle_location + 8'h96;
@@ -251,7 +251,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$145  = \$141  & \$143 ;
   assign \$147  = + pope_location[19:10];
   assign \$14  = ~ vga_o_vsync;
-  assign \$149  = paddle_location - 6'h28;
+  assign \$149  = paddle_location - 5'h18;
   assign \$151  = $signed(\$147 ) > $signed(\$149 );
   assign \$153  = paddle_location + 8'h96;
   assign \$155  = pope_location[19:10] <= \$153 ;
@@ -259,7 +259,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$159  = \$145  & \$157 ;
   assign \$161  = pope_location[9:0] >= 10'h22c;
   assign \$163  = + pope_location[19:10];
-  assign \$165  = enemy_paddle_location - 6'h28;
+  assign \$165  = enemy_paddle_location - 5'h18;
   assign \$167  = $signed(\$163 ) > $signed(\$165 );
   assign \$16  = prev_vsync & \$14 ;
   assign \$169  = enemy_paddle_location + 8'h96;
@@ -272,7 +272,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$185  = \$181  & \$183 ;
   assign \$187  = + pope_location[19:10];
   assign \$18  = time_until_start > 1'h0;
-  assign \$189  = enemy_paddle_location - 6'h28;
+  assign \$189  = enemy_paddle_location - 5'h18;
   assign \$191  = $signed(\$187 ) > $signed(\$189 );
   assign \$193  = enemy_paddle_location + 8'h96;
   assign \$195  = pope_location[19:10] <= \$193 ;
@@ -369,7 +369,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$50  = - $signed(pope_v_velocity);
   assign \$53  = $signed(pope_v_velocity) > $signed(3'h0);
   assign \$52  = \$53  ? \$48  : \$50 ;
-  assign \$56  = pope_location[19:10] >= 9'h1b8;
+  assign \$56  = pope_location[19:10] >= 9'h1c8;
   assign \$5  = time_until_start > 1'h0;
   assign \$59  = + $signed(pope_v_velocity);
   assign \$61  = - $signed(pope_v_velocity);
@@ -379,7 +379,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$69  = pope_location[9:0] < 6'h32;
   assign \$71  = \$67  & \$69 ;
   assign \$73  = + pope_location[19:10];
-  assign \$75  = paddle_location - 6'h28;
+  assign \$75  = paddle_location - 5'h18;
   assign \$77  = $signed(\$73 ) > $signed(\$75 );
   assign \$79  = paddle_location + 8'h96;
   assign \$81  = pope_location[19:10] <= \$79 ;
@@ -1366,196 +1366,192 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     casez (\$313 )
       12'h000:
           casez (\$315 )
-            12'h010:
+            12'h00c:
                 palette_index = 5'h1e;
-            12'h011:
+            12'h00d:
                 palette_index = 5'h18;
-            12'h012:
+            12'h00e:
                 palette_index = 5'h18;
-            12'h013:
+            12'h00f:
                 palette_index = 5'h1a;
-            12'h014:
+            12'h010:
                 palette_index = 5'h1e;
           endcase
       12'h001:
           casez (\$317 )
-            12'h010:
+            12'h00c:
                 palette_index = 5'h13;
-            12'h011:
+            12'h00d:
                 palette_index = 5'h15;
-            12'h012:
+            12'h00e:
                 palette_index = 5'h10;
-            12'h013:
+            12'h00f:
                 palette_index = 5'h15;
-            12'h014:
+            12'h010:
                 palette_index = 5'h18;
-            12'h015:
+            12'h011:
                 palette_index = 5'h1e;
           endcase
       12'h002:
           casez (\$319 )
-            12'h00f:
+            12'h00b:
                 palette_index = 5'h18;
+            12'h00c:
+                palette_index = 5'h15;
+            12'h00d:
+                palette_index = 5'h10;
+            12'h00e:
+                palette_index = 5'h15;
+            12'h00f:
+                palette_index = 5'h10;
             12'h010:
                 palette_index = 5'h15;
             12'h011:
                 palette_index = 5'h10;
             12'h012:
-                palette_index = 5'h15;
-            12'h013:
-                palette_index = 5'h10;
-            12'h014:
-                palette_index = 5'h15;
-            12'h015:
-                palette_index = 5'h10;
-            12'h016:
                 palette_index = 5'h18;
-            12'h017:
+            12'h013:
                 palette_index = 5'h13;
-            12'h018:
+            12'h014:
                 palette_index = 5'h1a;
           endcase
       12'h003:
           casez (\$321 )
-            12'h00f:
+            12'h00b:
                 palette_index = 5'h0e;
+            12'h00c:
+                palette_index = 5'h10;
+            12'h00d:
+                palette_index = 5'h15;
+            12'h00e:
+                palette_index = 5'h10;
+            12'h00f:
+                palette_index = 5'h10;
             12'h010:
                 palette_index = 5'h10;
             12'h011:
                 palette_index = 5'h15;
             12'h012:
-                palette_index = 5'h10;
+                palette_index = 5'h13;
             12'h013:
-                palette_index = 5'h10;
-            12'h014:
-                palette_index = 5'h10;
-            12'h015:
-                palette_index = 5'h15;
-            12'h016:
-                palette_index = 5'h13;
-            12'h017:
                 palette_index = 5'h18;
-            12'h018:
+            12'h014:
                 palette_index = 5'h13;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1e;
           endcase
       12'h004:
           casez (\$323 )
-            12'h00a:
+            12'h006:
                 palette_index = 5'h1c;
-            12'h00b:
+            12'h007:
                 palette_index = 5'h0d;
+            12'h008:
+                palette_index = 5'h0e;
+            12'h009:
+                palette_index = 5'h0d;
+            12'h00a:
+                palette_index = 5'h0b;
+            12'h00b:
+                palette_index = 5'h07;
             12'h00c:
                 palette_index = 5'h0e;
             12'h00d:
-                palette_index = 5'h0d;
+                palette_index = 5'h0e;
             12'h00e:
-                palette_index = 5'h0b;
+                palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h07;
-            12'h010:
-                palette_index = 5'h0e;
-            12'h011:
-                palette_index = 5'h0e;
-            12'h012:
-                palette_index = 5'h10;
-            12'h013:
                 palette_index = 5'h0c;
-            12'h014:
+            12'h010:
                 palette_index = 5'h15;
-            12'h015:
+            12'h011:
                 palette_index = 5'h10;
-            12'h016:
+            12'h012:
                 palette_index = 5'h12;
-            12'h017:
+            12'h013:
                 palette_index = 5'h10;
-            12'h018:
+            12'h014:
                 palette_index = 5'h17;
-            12'h019:
+            12'h015:
                 palette_index = 5'h18;
           endcase
       12'h005:
           casez (\$325 )
-            12'h008:
+            12'h004:
                 palette_index = 5'h1c;
+            12'h005:
+                palette_index = 5'h07;
+            12'h006:
+                palette_index = 5'h08;
+            12'h007:
+                palette_index = 5'h07;
+            12'h008:
+                palette_index = 5'h07;
             12'h009:
                 palette_index = 5'h07;
             12'h00a:
-                palette_index = 5'h08;
+                palette_index = 5'h07;
             12'h00b:
-                palette_index = 5'h07;
+                palette_index = 5'h0b;
             12'h00c:
-                palette_index = 5'h07;
+                palette_index = 5'h0b;
             12'h00d:
-                palette_index = 5'h07;
-            12'h00e:
-                palette_index = 5'h07;
-            12'h00f:
-                palette_index = 5'h0b;
-            12'h010:
-                palette_index = 5'h0b;
-            12'h011:
                 palette_index = 5'h0e;
+            12'h00e:
+                palette_index = 5'h0c;
+            12'h00f:
+                palette_index = 5'h0c;
+            12'h010:
+                palette_index = 5'h09;
+            12'h011:
+                palette_index = 5'h0a;
             12'h012:
-                palette_index = 5'h0c;
+                palette_index = 5'h0a;
             12'h013:
-                palette_index = 5'h0c;
+                palette_index = 5'h0a;
             12'h014:
                 palette_index = 5'h09;
             12'h015:
                 palette_index = 5'h0a;
             12'h016:
-                palette_index = 5'h0a;
+                palette_index = 5'h09;
             12'h017:
-                palette_index = 5'h0a;
-            12'h018:
-                palette_index = 5'h09;
-            12'h019:
-                palette_index = 5'h0a;
-            12'h01a:
-                palette_index = 5'h09;
-            12'h01b:
                 palette_index = 5'h10;
-            12'h01c:
-                palette_index = 5'h09;
-            12'h01d:
-                palette_index = 5'h09;
-            12'h01e:
-                palette_index = 5'h05;
-            12'h01f:
-                palette_index = 5'h06;
-            12'h020:
-                palette_index = 5'h05;
-            12'h021:
-                palette_index = 5'h0c;
           endcase
       12'h006:
           casez (\$327 )
-            12'h007:
+            12'h003:
                 palette_index = 5'h0d;
+            12'h004:
+                palette_index = 5'h0b;
+            12'h005:
+                palette_index = 5'h07;
+            12'h006:
+                palette_index = 5'h07;
+            12'h007:
+                palette_index = 5'h07;
             12'h008:
                 palette_index = 5'h0b;
             12'h009:
                 palette_index = 5'h07;
             12'h00a:
-                palette_index = 5'h07;
+                palette_index = 5'h0c;
             12'h00b:
-                palette_index = 5'h07;
+                palette_index = 5'h0c;
             12'h00c:
-                palette_index = 5'h0b;
+                palette_index = 5'h10;
             12'h00d:
-                palette_index = 5'h07;
+                palette_index = 5'h0c;
             12'h00e:
-                palette_index = 5'h0c;
+                palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h0c;
+                palette_index = 5'h09;
             12'h010:
-                palette_index = 5'h10;
+                palette_index = 5'h0a;
             12'h011:
-                palette_index = 5'h0c;
+                palette_index = 5'h09;
             12'h012:
-                palette_index = 5'h10;
+                palette_index = 5'h0a;
             12'h013:
                 palette_index = 5'h09;
             12'h014:
@@ -1566,41 +1562,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h0a;
             12'h017:
                 palette_index = 5'h09;
-            12'h018:
-                palette_index = 5'h0a;
-            12'h019:
-                palette_index = 5'h09;
-            12'h01a:
-                palette_index = 5'h0a;
-            12'h01b:
-                palette_index = 5'h09;
-            12'h01c:
-                palette_index = 5'h0a;
-            12'h01d:
-                palette_index = 5'h09;
-            12'h01e:
-                palette_index = 5'h0a;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h0a;
-            12'h021:
-                palette_index = 5'h09;
-            12'h022:
-                palette_index = 5'h10;
           endcase
       12'h007:
           casez (\$329 )
-            12'h006:
+            12'h002:
                 palette_index = 5'h0b;
+            12'h003:
+                palette_index = 5'h07;
+            12'h004:
+                palette_index = 5'h07;
+            12'h005:
+                palette_index = 5'h09;
+            12'h006:
+                palette_index = 5'h09;
             12'h007:
-                palette_index = 5'h07;
+                palette_index = 5'h10;
             12'h008:
-                palette_index = 5'h07;
+                palette_index = 5'h0c;
             12'h009:
-                palette_index = 5'h09;
+                palette_index = 5'h10;
             12'h00a:
-                palette_index = 5'h09;
+                palette_index = 5'h0c;
             12'h00b:
                 palette_index = 5'h10;
             12'h00c:
@@ -1610,125 +1592,91 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h0c;
             12'h00f:
-                palette_index = 5'h10;
+                palette_index = 5'h0f;
             12'h010:
                 palette_index = 5'h0c;
             12'h011:
-                palette_index = 5'h10;
+                palette_index = 5'h0f;
             12'h012:
-                palette_index = 5'h0c;
+                palette_index = 5'h0a;
             12'h013:
                 palette_index = 5'h0f;
             12'h014:
-                palette_index = 5'h0c;
+                palette_index = 5'h0a;
             12'h015:
-                palette_index = 5'h0f;
+                palette_index = 5'h0a;
             12'h016:
-                palette_index = 5'h0a;
+                palette_index = 5'h09;
             12'h017:
-                palette_index = 5'h0f;
-            12'h018:
                 palette_index = 5'h0a;
-            12'h019:
-                palette_index = 5'h0a;
-            12'h01a:
-                palette_index = 5'h09;
-            12'h01b:
-                palette_index = 5'h0a;
-            12'h01c:
-                palette_index = 5'h09;
-            12'h01d:
-                palette_index = 5'h0a;
-            12'h01e:
-                palette_index = 5'h09;
-            12'h01f:
-                palette_index = 5'h0a;
-            12'h020:
-                palette_index = 5'h09;
-            12'h021:
-                palette_index = 5'h0a;
-            12'h022:
-                palette_index = 5'h09;
-            12'h023:
-                palette_index = 5'h15;
           endcase
       12'h008:
           casez (\$331 )
+            12'h001:
+                palette_index = 5'h07;
+            12'h002:
+                palette_index = 5'h07;
+            12'h003:
+                palette_index = 5'h07;
+            12'h004:
+                palette_index = 5'h0c;
             12'h005:
-                palette_index = 5'h07;
+                palette_index = 5'h0c;
             12'h006:
-                palette_index = 5'h07;
+                palette_index = 5'h12;
             12'h007:
-                palette_index = 5'h07;
+                palette_index = 5'h10;
             12'h008:
-                palette_index = 5'h0c;
+                palette_index = 5'h12;
             12'h009:
-                palette_index = 5'h0c;
+                palette_index = 5'h10;
             12'h00a:
-                palette_index = 5'h12;
+                palette_index = 5'h10;
             12'h00b:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h00c:
-                palette_index = 5'h12;
+                palette_index = 5'h10;
             12'h00d:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h00e:
-                palette_index = 5'h10;
+                palette_index = 5'h12;
             12'h00f:
-                palette_index = 5'h0c;
-            12'h010:
                 palette_index = 5'h10;
+            12'h010:
+                palette_index = 5'h12;
             12'h011:
-                palette_index = 5'h0c;
+                palette_index = 5'h10;
             12'h012:
                 palette_index = 5'h12;
             12'h013:
-                palette_index = 5'h10;
+                palette_index = 5'h0f;
             12'h014:
                 palette_index = 5'h12;
             12'h015:
-                palette_index = 5'h10;
+                palette_index = 5'h0a;
             12'h016:
-                palette_index = 5'h12;
+                palette_index = 5'h0a;
             12'h017:
-                palette_index = 5'h0f;
-            12'h018:
-                palette_index = 5'h12;
-            12'h019:
-                palette_index = 5'h0a;
-            12'h01a:
-                palette_index = 5'h0a;
-            12'h01b:
                 palette_index = 5'h09;
-            12'h01c:
-                palette_index = 5'h0a;
-            12'h01d:
-                palette_index = 5'h09;
-            12'h01e:
-                palette_index = 5'h0a;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h0c;
-            12'h021:
-                palette_index = 5'h09;
-            12'h022:
-                palette_index = 5'h0c;
-            12'h023:
-                palette_index = 5'h09;
-            12'h024:
-                palette_index = 5'h1a;
           endcase
       12'h009:
           casez (\$333 )
-            12'h004:
+            12'h000:
                 palette_index = 5'h0b;
-            12'h005:
+            12'h001:
                 palette_index = 5'h07;
-            12'h006:
+            12'h002:
                 palette_index = 5'h07;
-            12'h007:
+            12'h003:
                 palette_index = 5'h10;
+            12'h004:
+                palette_index = 5'h10;
+            12'h005:
+                palette_index = 5'h12;
+            12'h006:
+                palette_index = 5'h10;
+            12'h007:
+                palette_index = 5'h12;
             12'h008:
                 palette_index = 5'h10;
             12'h009:
@@ -1748,56 +1696,36 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h010:
                 palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h12;
+                palette_index = 5'h17;
             12'h012:
-                palette_index = 5'h10;
-            12'h013:
                 palette_index = 5'h12;
+            12'h013:
+                palette_index = 5'h17;
             12'h014:
-                palette_index = 5'h10;
+                palette_index = 5'h12;
             12'h015:
                 palette_index = 5'h17;
             12'h016:
-                palette_index = 5'h12;
+                palette_index = 5'h0a;
             12'h017:
-                palette_index = 5'h17;
-            12'h018:
-                palette_index = 5'h12;
-            12'h019:
-                palette_index = 5'h17;
-            12'h01a:
-                palette_index = 5'h0a;
-            12'h01b:
                 palette_index = 5'h0f;
-            12'h01c:
-                palette_index = 5'h09;
-            12'h01d:
-                palette_index = 5'h0a;
-            12'h01e:
-                palette_index = 5'h09;
-            12'h01f:
-                palette_index = 5'h0c;
-            12'h020:
-                palette_index = 5'h09;
-            12'h021:
-                palette_index = 5'h0c;
-            12'h022:
-                palette_index = 5'h09;
-            12'h023:
-                palette_index = 5'h0c;
-            12'h024:
-                palette_index = 5'h09;
           endcase
       12'h00a:
           casez (\$335 )
-            12'h003:
-                palette_index = 5'h1f;
-            12'h004:
+            12'h000:
                 palette_index = 5'h07;
-            12'h005:
+            12'h001:
                 palette_index = 5'h09;
-            12'h006:
+            12'h002:
                 palette_index = 5'h10;
+            12'h003:
+                palette_index = 5'h10;
+            12'h004:
+                palette_index = 5'h12;
+            12'h005:
+                palette_index = 5'h10;
+            12'h006:
+                palette_index = 5'h12;
             12'h007:
                 palette_index = 5'h10;
             12'h008:
@@ -1819,58 +1747,34 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h010:
                 palette_index = 5'h12;
             12'h011:
-                palette_index = 5'h10;
+                palette_index = 5'h12;
             12'h012:
-                palette_index = 5'h12;
+                palette_index = 5'h18;
             12'h013:
-                palette_index = 5'h10;
+                palette_index = 5'h18;
             12'h014:
-                palette_index = 5'h12;
+                palette_index = 5'h18;
             12'h015:
                 palette_index = 5'h12;
             12'h016:
-                palette_index = 5'h18;
-            12'h017:
-                palette_index = 5'h18;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
-                palette_index = 5'h12;
-            12'h01a:
                 palette_index = 5'h17;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h0f;
-            12'h01c:
-                palette_index = 5'h0f;
-            12'h01d:
-                palette_index = 5'h0a;
-            12'h01e:
-                palette_index = 5'h0f;
-            12'h01f:
-                palette_index = 5'h0c;
-            12'h020:
-                palette_index = 5'h0f;
-            12'h021:
-                palette_index = 5'h0c;
-            12'h022:
-                palette_index = 5'h0c;
-            12'h023:
-                palette_index = 5'h09;
-            12'h024:
-                palette_index = 5'h0c;
-            12'h025:
-                palette_index = 5'h18;
           endcase
       12'h00b:
           casez (\$337 )
-            12'h002:
-                palette_index = 5'h1d;
-            12'h003:
-                palette_index = 5'h0e;
-            12'h004:
+            12'h000:
                 palette_index = 5'h07;
-            12'h005:
+            12'h001:
                 palette_index = 5'h0c;
+            12'h002:
+                palette_index = 5'h10;
+            12'h003:
+                palette_index = 5'h12;
+            12'h004:
+                palette_index = 5'h10;
+            12'h005:
+                palette_index = 5'h12;
             12'h006:
                 palette_index = 5'h10;
             12'h007:
@@ -1894,58 +1798,34 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h010:
                 palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h12;
-            12'h012:
-                palette_index = 5'h10;
-            12'h013:
-                palette_index = 5'h12;
-            12'h014:
-                palette_index = 5'h10;
-            12'h015:
                 palette_index = 5'h17;
+            12'h012:
+                palette_index = 5'h18;
+            12'h013:
+                palette_index = 5'h1a;
+            12'h014:
+                palette_index = 5'h18;
+            12'h015:
+                palette_index = 5'h1a;
             12'h016:
                 palette_index = 5'h18;
             12'h017:
-                palette_index = 5'h1a;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
-                palette_index = 5'h1a;
-            12'h01a:
-                palette_index = 5'h18;
-            12'h01b:
                 palette_index = 5'h17;
-            12'h01c:
-                palette_index = 5'h0f;
-            12'h01d:
-                palette_index = 5'h0f;
-            12'h01e:
-                palette_index = 5'h0c;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h0c;
-            12'h023:
-                palette_index = 5'h0c;
-            12'h024:
-                palette_index = 5'h09;
-            12'h025:
-                palette_index = 5'h0c;
           endcase
       12'h00c:
           casez (\$339 )
+            12'h000:
+                palette_index = 5'h0c;
+            12'h001:
+                palette_index = 5'h0c;
             12'h002:
-                palette_index = 5'h1b;
+                palette_index = 5'h12;
             12'h003:
-                palette_index = 5'h0b;
+                palette_index = 5'h10;
             12'h004:
-                palette_index = 5'h0c;
+                palette_index = 5'h12;
             12'h005:
-                palette_index = 5'h0c;
+                palette_index = 5'h10;
             12'h006:
                 palette_index = 5'h12;
             12'h007:
@@ -1965,76 +1845,48 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h12;
             12'h00f:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h010:
-                palette_index = 5'h12;
+                palette_index = 5'h10;
             12'h011:
                 palette_index = 5'h10;
             12'h012:
-                palette_index = 5'h12;
+                palette_index = 5'h1a;
             12'h013:
-                palette_index = 5'h0c;
+                palette_index = 5'h18;
             12'h014:
-                palette_index = 5'h10;
+                palette_index = 5'h1a;
             12'h015:
-                palette_index = 5'h10;
+                palette_index = 5'h18;
             12'h016:
                 palette_index = 5'h1a;
             12'h017:
-                palette_index = 5'h18;
-            12'h018:
-                palette_index = 5'h1a;
-            12'h019:
-                palette_index = 5'h18;
-            12'h01a:
-                palette_index = 5'h1a;
-            12'h01b:
                 palette_index = 5'h12;
-            12'h01c:
-                palette_index = 5'h12;
-            12'h01d:
-                palette_index = 5'h0a;
-            12'h01e:
-                palette_index = 5'h0f;
-            12'h01f:
-                palette_index = 5'h0f;
-            12'h020:
-                palette_index = 5'h12;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h0c;
-            12'h024:
-                palette_index = 5'h0c;
-            12'h025:
-                palette_index = 5'h09;
-            12'h026:
-                palette_index = 5'h10;
           endcase
       12'h00d:
           casez (\$341 )
-            12'h001:
-                palette_index = 5'h1f;
-            12'h002:
-                palette_index = 5'h0d;
-            12'h003:
-                palette_index = 5'h04;
-            12'h004:
+            12'h000:
                 palette_index = 5'h09;
-            12'h005:
+            12'h001:
                 palette_index = 5'h12;
-            12'h006:
+            12'h002:
                 palette_index = 5'h10;
-            12'h007:
+            12'h003:
                 palette_index = 5'h17;
-            12'h008:
+            12'h004:
                 palette_index = 5'h15;
-            12'h009:
+            12'h005:
                 palette_index = 5'h18;
-            12'h00a:
+            12'h006:
                 palette_index = 5'h15;
+            12'h007:
+                palette_index = 5'h12;
+            12'h008:
+                palette_index = 5'h10;
+            12'h009:
+                palette_index = 5'h12;
+            12'h00a:
+                palette_index = 5'h10;
             12'h00b:
                 palette_index = 5'h12;
             12'h00c:
@@ -2044,242 +1896,150 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h12;
+                palette_index = 5'h09;
             12'h010:
-                palette_index = 5'h10;
-            12'h011:
-                palette_index = 5'h12;
-            12'h012:
-                palette_index = 5'h10;
-            12'h013:
-                palette_index = 5'h09;
-            12'h014:
                 palette_index = 5'h05;
-            12'h015:
+            12'h011:
                 palette_index = 5'h10;
-            12'h016:
+            12'h012:
                 palette_index = 5'h13;
+            12'h013:
+                palette_index = 5'h1a;
+            12'h014:
+                palette_index = 5'h18;
+            12'h015:
+                palette_index = 5'h1a;
+            12'h016:
+                palette_index = 5'h18;
             12'h017:
-                palette_index = 5'h1a;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
-                palette_index = 5'h1a;
-            12'h01a:
-                palette_index = 5'h18;
-            12'h01b:
                 palette_index = 5'h17;
-            12'h01c:
-                palette_index = 5'h0f;
-            12'h01d:
-                palette_index = 5'h0f;
-            12'h01e:
-                palette_index = 5'h09;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h10;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h10;
-            12'h025:
-                palette_index = 5'h10;
-            12'h026:
-                palette_index = 5'h09;
-            12'h027:
-                palette_index = 5'h18;
           endcase
       12'h00e:
           casez (\$343 )
-            12'h001:
-                palette_index = 5'h1f;
-            12'h002:
-                palette_index = 5'h0b;
-            12'h003:
-                palette_index = 5'h02;
-            12'h004:
+            12'h000:
                 palette_index = 5'h0c;
-            12'h005:
+            12'h001:
                 palette_index = 5'h10;
+            12'h002:
+                palette_index = 5'h15;
+            12'h003:
+                palette_index = 5'h13;
+            12'h004:
+                palette_index = 5'h18;
+            12'h005:
+                palette_index = 5'h13;
             12'h006:
-                palette_index = 5'h15;
+                palette_index = 5'h18;
             12'h007:
-                palette_index = 5'h13;
+                palette_index = 5'h15;
             12'h008:
-                palette_index = 5'h18;
+                palette_index = 5'h15;
             12'h009:
-                palette_index = 5'h13;
+                palette_index = 5'h10;
             12'h00a:
-                palette_index = 5'h18;
+                palette_index = 5'h12;
             12'h00b:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h00c:
-                palette_index = 5'h15;
+                palette_index = 5'h12;
             12'h00d:
                 palette_index = 5'h10;
             12'h00e:
                 palette_index = 5'h12;
             12'h00f:
-                palette_index = 5'h10;
+                palette_index = 5'h05;
             12'h010:
-                palette_index = 5'h12;
-            12'h011:
-                palette_index = 5'h10;
-            12'h012:
-                palette_index = 5'h12;
-            12'h013:
-                palette_index = 5'h05;
-            12'h014:
                 palette_index = 5'h04;
-            12'h015:
+            12'h011:
                 palette_index = 5'h05;
-            12'h016:
+            12'h012:
                 palette_index = 5'h15;
-            12'h017:
+            12'h013:
                 palette_index = 5'h17;
-            12'h018:
+            12'h014:
                 palette_index = 5'h1a;
-            12'h019:
+            12'h015:
                 palette_index = 5'h18;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h1a;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h12;
-            12'h01c:
-                palette_index = 5'h12;
-            12'h01d:
-                palette_index = 5'h09;
-            12'h01e:
-                palette_index = 5'h12;
-            12'h01f:
-                palette_index = 5'h10;
-            12'h020:
-                palette_index = 5'h12;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h10;
-            12'h026:
-                palette_index = 5'h10;
-            12'h027:
-                palette_index = 5'h0c;
           endcase
       12'h00f:
           casez (\$345 )
+            12'h000:
+                palette_index = 5'h09;
             12'h001:
-                palette_index = 5'h1f;
+                palette_index = 5'h15;
             12'h002:
-                palette_index = 5'h07;
+                palette_index = 5'h15;
             12'h003:
-                palette_index = 5'h04;
+                palette_index = 5'h18;
             12'h004:
-                palette_index = 5'h09;
+                palette_index = 5'h18;
             12'h005:
-                palette_index = 5'h15;
+                palette_index = 5'h1a;
             12'h006:
-                palette_index = 5'h15;
+                palette_index = 5'h18;
             12'h007:
-                palette_index = 5'h18;
+                palette_index = 5'h1a;
             12'h008:
-                palette_index = 5'h18;
+                palette_index = 5'h13;
             12'h009:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h18;
+                palette_index = 5'h13;
             12'h00b:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00c:
-                palette_index = 5'h13;
+                palette_index = 5'h18;
             12'h00d:
-                palette_index = 5'h18;
+                palette_index = 5'h1a;
             12'h00e:
-                palette_index = 5'h13;
+                palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h18;
-            12'h010:
-                palette_index = 5'h18;
-            12'h011:
-                palette_index = 5'h1a;
-            12'h012:
-                palette_index = 5'h10;
-            12'h013:
                 palette_index = 5'h06;
-            12'h014:
+            12'h010:
                 palette_index = 5'h02;
-            12'h015:
+            12'h011:
                 palette_index = 5'h04;
-            12'h016:
+            12'h012:
                 palette_index = 5'h09;
-            12'h017:
+            12'h013:
                 palette_index = 5'h12;
-            12'h018:
+            12'h014:
                 palette_index = 5'h18;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1a;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h17;
-            12'h01c:
-                palette_index = 5'h0a;
-            12'h01d:
-                palette_index = 5'h12;
-            12'h01e:
-                palette_index = 5'h10;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h17;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h12;
-            12'h026:
-                palette_index = 5'h10;
-            12'h027:
-                palette_index = 5'h10;
           endcase
       12'h010:
           casez (\$347 )
             12'h000:
-                palette_index = 5'h1f;
-            12'h001:
-                palette_index = 5'h1c;
-            12'h002:
-                palette_index = 5'h07;
-            12'h003:
-                palette_index = 5'h02;
-            12'h004:
                 palette_index = 5'h09;
-            12'h005:
+            12'h001:
                 palette_index = 5'h10;
-            12'h006:
+            12'h002:
                 palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h1a;
+            12'h005:
+                palette_index = 5'h1a;
+            12'h006:
+                palette_index = 5'h1b;
             12'h007:
                 palette_index = 5'h18;
             12'h008:
                 palette_index = 5'h1a;
             12'h009:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h1b;
+                palette_index = 5'h1a;
             12'h00b:
                 palette_index = 5'h18;
             12'h00c:
@@ -2287,167 +2047,103 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00d:
                 palette_index = 5'h18;
             12'h00e:
-                palette_index = 5'h1a;
-            12'h00f:
-                palette_index = 5'h18;
-            12'h010:
-                palette_index = 5'h1a;
-            12'h011:
-                palette_index = 5'h18;
-            12'h012:
                 palette_index = 5'h15;
-            12'h013:
+            12'h00f:
                 palette_index = 5'h05;
-            12'h014:
+            12'h010:
                 palette_index = 5'h04;
-            12'h015:
+            12'h011:
                 palette_index = 5'h02;
-            12'h016:
+            12'h012:
                 palette_index = 5'h09;
-            12'h017:
+            12'h013:
                 palette_index = 5'h0c;
-            12'h018:
+            12'h014:
                 palette_index = 5'h1a;
-            12'h019:
+            12'h015:
                 palette_index = 5'h18;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h0f;
-            12'h01c:
-                palette_index = 5'h12;
-            12'h01d:
-                palette_index = 5'h12;
-            12'h01e:
-                palette_index = 5'h18;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h12;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h17;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h17;
-            12'h025:
-                palette_index = 5'h12;
-            12'h026:
-                palette_index = 5'h12;
-            12'h027:
-                palette_index = 5'h10;
           endcase
       12'h011:
           casez (\$349 )
             12'h000:
-                palette_index = 5'h1d;
+                palette_index = 5'h07;
             12'h001:
-                palette_index = 5'h1b;
-            12'h002:
-                palette_index = 5'h07;
-            12'h003:
-                palette_index = 5'h0b;
-            12'h004:
-                palette_index = 5'h07;
-            12'h005:
                 palette_index = 5'h15;
-            12'h006:
+            12'h002:
                 palette_index = 5'h13;
-            12'h007:
+            12'h003:
                 palette_index = 5'h1a;
-            12'h008:
+            12'h004:
                 palette_index = 5'h18;
-            12'h009:
+            12'h005:
                 palette_index = 5'h1b;
-            12'h00a:
+            12'h006:
                 palette_index = 5'h1b;
-            12'h00b:
+            12'h007:
                 palette_index = 5'h1b;
-            12'h00c:
+            12'h008:
                 palette_index = 5'h1a;
+            12'h009:
+                palette_index = 5'h1a;
+            12'h00a:
+                palette_index = 5'h18;
+            12'h00b:
+                palette_index = 5'h1a;
+            12'h00c:
+                palette_index = 5'h18;
             12'h00d:
                 palette_index = 5'h1a;
             12'h00e:
                 palette_index = 5'h18;
             12'h00f:
-                palette_index = 5'h1a;
-            12'h010:
-                palette_index = 5'h18;
-            12'h011:
-                palette_index = 5'h1a;
-            12'h012:
-                palette_index = 5'h18;
-            12'h013:
                 palette_index = 5'h09;
-            12'h014:
+            12'h010:
                 palette_index = 5'h02;
-            12'h015:
+            12'h011:
                 palette_index = 5'h03;
-            12'h016:
+            12'h012:
                 palette_index = 5'h04;
-            12'h017:
+            12'h013:
                 palette_index = 5'h10;
-            12'h018:
+            12'h014:
                 palette_index = 5'h18;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1a;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h12;
-            12'h01b:
-                palette_index = 5'h12;
-            12'h01c:
-                palette_index = 5'h12;
-            12'h01d:
-                palette_index = 5'h17;
-            12'h01e:
-                palette_index = 5'h17;
-            12'h01f:
-                palette_index = 5'h17;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h17;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h17;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h17;
-            12'h026:
-                palette_index = 5'h12;
-            12'h027:
+            12'h017:
                 palette_index = 5'h12;
           endcase
       12'h012:
           casez (\$351 )
             12'h000:
-                palette_index = 5'h1f;
+                palette_index = 5'h0b;
             12'h001:
-                palette_index = 5'h1b;
-            12'h002:
-                palette_index = 5'h0b;
-            12'h003:
-                palette_index = 5'h07;
-            12'h004:
-                palette_index = 5'h0b;
-            12'h005:
                 palette_index = 5'h10;
+            12'h002:
+                palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h1a;
+            12'h005:
+                palette_index = 5'h1a;
             12'h006:
-                palette_index = 5'h18;
+                palette_index = 5'h1b;
             12'h007:
-                palette_index = 5'h18;
+                palette_index = 5'h1a;
             12'h008:
                 palette_index = 5'h1a;
             12'h009:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h1b;
-            12'h00b:
                 palette_index = 5'h1a;
+            12'h00b:
+                palette_index = 5'h18;
             12'h00c:
                 palette_index = 5'h1a;
             12'h00d:
@@ -2455,70 +2151,38 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h1a;
             12'h00f:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h010:
-                palette_index = 5'h1a;
+                palette_index = 5'h05;
             12'h011:
-                palette_index = 5'h18;
+                palette_index = 5'h02;
             12'h012:
-                palette_index = 5'h1a;
+                palette_index = 5'h06;
             12'h013:
                 palette_index = 5'h10;
             12'h014:
-                palette_index = 5'h05;
+                palette_index = 5'h18;
             12'h015:
-                palette_index = 5'h02;
-            12'h016:
-                palette_index = 5'h06;
-            12'h017:
-                palette_index = 5'h10;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
                 palette_index = 5'h13;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h12;
-            12'h01c:
-                palette_index = 5'h17;
-            12'h01d:
-                palette_index = 5'h10;
-            12'h01e:
-                palette_index = 5'h17;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h12;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h17;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h17;
-            12'h025:
-                palette_index = 5'h12;
-            12'h026:
-                palette_index = 5'h17;
-            12'h027:
-                palette_index = 5'h10;
           endcase
       12'h013:
           casez (\$353 )
             12'h000:
-                palette_index = 5'h1d;
-            12'h001:
-                palette_index = 5'h1e;
-            12'h002:
-                palette_index = 5'h11;
-            12'h003:
-                palette_index = 5'h07;
-            12'h004:
                 palette_index = 5'h0b;
-            12'h005:
+            12'h001:
                 palette_index = 5'h15;
+            12'h002:
+                palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h1a;
+            12'h004:
+                palette_index = 5'h18;
+            12'h005:
+                palette_index = 5'h1a;
             12'h006:
                 palette_index = 5'h18;
             12'h007:
@@ -2538,72 +2202,40 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h18;
             12'h00f:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h18;
-            12'h011:
-                palette_index = 5'h1a;
-            12'h012:
-                palette_index = 5'h18;
-            12'h013:
-                palette_index = 5'h18;
-            12'h014:
                 palette_index = 5'h05;
-            12'h015:
+            12'h011:
                 palette_index = 5'h06;
-            12'h016:
+            12'h012:
                 palette_index = 5'h09;
-            12'h017:
+            12'h013:
                 palette_index = 5'h17;
-            12'h018:
+            12'h014:
                 palette_index = 5'h17;
-            12'h019:
+            12'h015:
                 palette_index = 5'h18;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h17;
-            12'h01b:
-                palette_index = 5'h17;
-            12'h01c:
-                palette_index = 5'h17;
-            12'h01d:
-                palette_index = 5'h12;
-            12'h01e:
-                palette_index = 5'h10;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h10;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h17;
-            12'h026:
-                palette_index = 5'h12;
-            12'h027:
+            12'h017:
                 palette_index = 5'h17;
           endcase
       12'h014:
           casez (\$355 )
             12'h000:
-                palette_index = 5'h1f;
-            12'h001:
-                palette_index = 5'h1b;
-            12'h002:
-                palette_index = 5'h0e;
-            12'h003:
-                palette_index = 5'h07;
-            12'h004:
                 palette_index = 5'h14;
-            12'h005:
+            12'h001:
                 palette_index = 5'h16;
-            12'h006:
+            12'h002:
                 palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h1a;
+            12'h005:
+                palette_index = 5'h18;
+            12'h006:
+                palette_index = 5'h1a;
             12'h007:
                 palette_index = 5'h18;
             12'h008:
@@ -2621,70 +2253,38 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 palette_index = 5'h1a;
             12'h00f:
-                palette_index = 5'h18;
+                palette_index = 5'h13;
             12'h010:
-                palette_index = 5'h1a;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h18;
+                palette_index = 5'h09;
             12'h012:
-                palette_index = 5'h1a;
+                palette_index = 5'h12;
             12'h013:
-                palette_index = 5'h13;
+                palette_index = 5'h17;
             12'h014:
-                palette_index = 5'h10;
+                palette_index = 5'h18;
             12'h015:
-                palette_index = 5'h09;
-            12'h016:
-                palette_index = 5'h12;
-            12'h017:
-                palette_index = 5'h17;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
                 palette_index = 5'h13;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h1a;
-            12'h01d:
-                palette_index = 5'h17;
-            12'h01e:
-                palette_index = 5'h12;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h12;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h10;
-            12'h024:
-                palette_index = 5'h17;
-            12'h025:
-                palette_index = 5'h12;
-            12'h026:
-                palette_index = 5'h17;
-            12'h027:
-                palette_index = 5'h12;
           endcase
       12'h015:
           casez (\$357 )
             12'h000:
-                palette_index = 5'h1d;
-            12'h001:
-                palette_index = 5'h1f;
-            12'h002:
-                palette_index = 5'h0e;
-            12'h003:
-                palette_index = 5'h0e;
-            12'h004:
                 palette_index = 5'h14;
-            12'h005:
+            12'h001:
                 palette_index = 5'h1e;
+            12'h002:
+                palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h1a;
+            12'h004:
+                palette_index = 5'h18;
+            12'h005:
+                palette_index = 5'h1a;
             12'h006:
                 palette_index = 5'h18;
             12'h007:
@@ -2706,66 +2306,36 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h1a;
             12'h010:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h1a;
+                palette_index = 5'h12;
             12'h012:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h013:
                 palette_index = 5'h1a;
             12'h014:
-                palette_index = 5'h10;
+                palette_index = 5'h18;
             12'h015:
-                palette_index = 5'h12;
+                palette_index = 5'h1a;
             12'h016:
-                palette_index = 5'h10;
+                palette_index = 5'h18;
             12'h017:
                 palette_index = 5'h1a;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
-                palette_index = 5'h1a;
-            12'h01a:
-                palette_index = 5'h18;
-            12'h01b:
-                palette_index = 5'h1a;
-            12'h01c:
-                palette_index = 5'h1a;
-            12'h01d:
-                palette_index = 5'h1a;
-            12'h01e:
-                palette_index = 5'h10;
-            12'h01f:
-                palette_index = 5'h0c;
-            12'h020:
-                palette_index = 5'h0c;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h10;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h17;
-            12'h026:
-                palette_index = 5'h12;
-            12'h027:
-                palette_index = 5'h17;
           endcase
       12'h016:
           casez (\$359 )
+            12'h000:
+                palette_index = 5'h16;
             12'h001:
-                palette_index = 5'h1d;
-            12'h002:
-                palette_index = 5'h16;
-            12'h003:
-                palette_index = 5'h0e;
-            12'h004:
-                palette_index = 5'h16;
-            12'h005:
                 palette_index = 5'h19;
+            12'h002:
+                palette_index = 5'h1a;
+            12'h003:
+                palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h1a;
+            12'h005:
+                palette_index = 5'h18;
             12'h006:
                 palette_index = 5'h1a;
             12'h007:
@@ -2787,68 +2357,38 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h1a;
-            12'h011:
-                palette_index = 5'h18;
-            12'h012:
-                palette_index = 5'h1a;
-            12'h013:
-                palette_index = 5'h18;
-            12'h014:
                 palette_index = 5'h15;
+            12'h011:
+                palette_index = 5'h0c;
+            12'h012:
+                palette_index = 5'h0c;
+            12'h013:
+                palette_index = 5'h10;
+            12'h014:
+                palette_index = 5'h1a;
             12'h015:
-                palette_index = 5'h0c;
+                palette_index = 5'h18;
             12'h016:
-                palette_index = 5'h0c;
+                palette_index = 5'h1a;
             12'h017:
-                palette_index = 5'h10;
-            12'h018:
-                palette_index = 5'h1a;
-            12'h019:
                 palette_index = 5'h18;
-            12'h01a:
-                palette_index = 5'h1a;
-            12'h01b:
-                palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h1a;
-            12'h01d:
-                palette_index = 5'h13;
-            12'h01e:
-                palette_index = 5'h12;
-            12'h01f:
-                palette_index = 5'h0c;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h10;
-            12'h024:
-                palette_index = 5'h17;
-            12'h025:
-                palette_index = 5'h12;
-            12'h026:
-                palette_index = 5'h17;
-            12'h027:
-                palette_index = 5'h1a;
           endcase
       12'h017:
           casez (\$361 )
+            12'h000:
+                palette_index = 5'h16;
             12'h001:
-                palette_index = 5'h1f;
-            12'h002:
-                palette_index = 5'h16;
-            12'h003:
-                palette_index = 5'h16;
-            12'h004:
-                palette_index = 5'h16;
-            12'h005:
                 palette_index = 5'h1b;
-            12'h006:
+            12'h002:
                 palette_index = 5'h1a;
+            12'h003:
+                palette_index = 5'h1a;
+            12'h004:
+                palette_index = 5'h18;
+            12'h005:
+                palette_index = 5'h1a;
+            12'h006:
+                palette_index = 5'h18;
             12'h007:
                 palette_index = 5'h1a;
             12'h008:
@@ -2868,64 +2408,36 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h1a;
             12'h010:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h1a;
-            12'h012:
-                palette_index = 5'h18;
-            12'h013:
-                palette_index = 5'h1a;
-            12'h014:
-                palette_index = 5'h10;
-            12'h015:
                 palette_index = 5'h09;
-            12'h016:
+            12'h012:
                 palette_index = 5'h02;
-            12'h017:
+            12'h013:
                 palette_index = 5'h05;
-            12'h018:
+            12'h014:
                 palette_index = 5'h18;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1a;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
-                palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h10;
-            12'h01d:
-                palette_index = 5'h10;
-            12'h01e:
-                palette_index = 5'h0c;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h0c;
-            12'h021:
-                palette_index = 5'h12;
-            12'h022:
-                palette_index = 5'h10;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h17;
-            12'h026:
+            12'h017:
                 palette_index = 5'h18;
           endcase
       12'h018:
           casez (\$363 )
+            12'h000:
+                palette_index = 5'h1e;
             12'h001:
-                palette_index = 5'h1d;
+                palette_index = 5'h19;
             12'h002:
                 palette_index = 5'h1b;
             12'h003:
-                palette_index = 5'h16;
+                palette_index = 5'h18;
             12'h004:
-                palette_index = 5'h1e;
+                palette_index = 5'h1a;
             12'h005:
-                palette_index = 5'h19;
+                palette_index = 5'h1a;
             12'h006:
                 palette_index = 5'h1b;
             12'h007:
@@ -2933,9 +2445,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h008:
                 palette_index = 5'h1a;
             12'h009:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h1b;
+                palette_index = 5'h1a;
             12'h00b:
                 palette_index = 5'h18;
             12'h00c:
@@ -2947,72 +2459,48 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h1a;
+                palette_index = 5'h12;
             12'h011:
-                palette_index = 5'h18;
-            12'h012:
-                palette_index = 5'h1a;
-            12'h013:
-                palette_index = 5'h18;
-            12'h014:
-                palette_index = 5'h12;
-            12'h015:
                 palette_index = 5'h04;
+            12'h012:
+                palette_index = 5'h01;
+            12'h013:
+                palette_index = 5'h01;
+            12'h014:
+                palette_index = 5'h10;
+            12'h015:
+                palette_index = 5'h18;
             12'h016:
-                palette_index = 5'h01;
-            12'h017:
-                palette_index = 5'h01;
-            12'h018:
-                palette_index = 5'h10;
-            12'h019:
-                palette_index = 5'h18;
-            12'h01a:
                 palette_index = 5'h1a;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h10;
-            12'h01d:
-                palette_index = 5'h06;
-            12'h01e:
-                palette_index = 5'h06;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h09;
-            12'h021:
-                palette_index = 5'h0c;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
-                palette_index = 5'h10;
-            12'h024:
-                palette_index = 5'h12;
-            12'h025:
-                palette_index = 5'h10;
           endcase
       12'h019:
           casez (\$365 )
-            12'h002:
-                palette_index = 5'h1d;
-            12'h003:
-                palette_index = 5'h1e;
-            12'h004:
+            12'h000:
                 palette_index = 5'h19;
+            12'h001:
+                palette_index = 5'h1b;
+            12'h002:
+                palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h1a;
+            12'h004:
+                palette_index = 5'h18;
             12'h005:
                 palette_index = 5'h1b;
             12'h006:
-                palette_index = 5'h18;
-            12'h007:
                 palette_index = 5'h1a;
+            12'h007:
+                palette_index = 5'h1b;
             12'h008:
                 palette_index = 5'h18;
             12'h009:
-                palette_index = 5'h1b;
-            12'h00a:
                 palette_index = 5'h1a;
+            12'h00a:
+                palette_index = 5'h18;
             12'h00b:
-                palette_index = 5'h1b;
+                palette_index = 5'h1a;
             12'h00c:
                 palette_index = 5'h18;
             12'h00d:
@@ -3022,68 +2510,48 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h1a;
             12'h010:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h1a;
+                palette_index = 5'h04;
             12'h012:
-                palette_index = 5'h18;
+                palette_index = 5'h02;
             12'h013:
-                palette_index = 5'h1a;
+                palette_index = 5'h03;
             12'h014:
                 palette_index = 5'h10;
             12'h015:
-                palette_index = 5'h04;
+                palette_index = 5'h1a;
             12'h016:
-                palette_index = 5'h02;
-            12'h017:
-                palette_index = 5'h03;
-            12'h018:
-                palette_index = 5'h10;
-            12'h019:
-                palette_index = 5'h1a;
-            12'h01a:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h1a;
-            12'h01c:
-                palette_index = 5'h13;
-            12'h01d:
-                palette_index = 5'h0c;
-            12'h01e:
-                palette_index = 5'h05;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h09;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h10;
-            12'h023:
-                palette_index = 5'h12;
-            12'h024:
-                palette_index = 5'h10;
           endcase
       12'h01a:
           casez (\$367 )
-            12'h003:
+            12'h000:
                 palette_index = 5'h1b;
-            12'h004:
-                palette_index = 5'h1b;
-            12'h005:
+            12'h001:
                 palette_index = 5'h16;
-            12'h006:
+            12'h002:
                 palette_index = 5'h1a;
-            12'h007:
+            12'h003:
                 palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h1a;
+            12'h005:
+                palette_index = 5'h1a;
+            12'h006:
+                palette_index = 5'h1b;
+            12'h007:
+                palette_index = 5'h1a;
             12'h008:
                 palette_index = 5'h1a;
             12'h009:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h1b;
-            12'h00b:
                 palette_index = 5'h1a;
+            12'h00b:
+                palette_index = 5'h18;
             12'h00c:
                 palette_index = 5'h1a;
             12'h00d:
@@ -3093,66 +2561,50 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h1a;
+                palette_index = 5'h15;
             12'h011:
-                palette_index = 5'h18;
+                palette_index = 5'h04;
             12'h012:
-                palette_index = 5'h1a;
+                palette_index = 5'h01;
             12'h013:
-                palette_index = 5'h18;
+                palette_index = 5'h01;
             12'h014:
                 palette_index = 5'h15;
             12'h015:
-                palette_index = 5'h04;
-            12'h016:
-                palette_index = 5'h01;
-            12'h017:
-                palette_index = 5'h01;
-            12'h018:
-                palette_index = 5'h15;
-            12'h019:
                 palette_index = 5'h18;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h1a;
-            12'h01b:
-                palette_index = 5'h1a;
-            12'h01c:
-                palette_index = 5'h1a;
-            12'h01d:
-                palette_index = 5'h10;
-            12'h01e:
-                palette_index = 5'h0a;
-            12'h01f:
-                palette_index = 5'h09;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h10;
-            12'h022:
-                palette_index = 5'h12;
-            12'h023:
+            12'h017:
                 palette_index = 5'h1a;
           endcase
       12'h01b:
           casez (\$369 )
-            12'h004:
+            12'h000:
                 palette_index = 5'h16;
+            12'h001:
+                palette_index = 5'h18;
+            12'h002:
+                palette_index = 5'h18;
+            12'h003:
+                palette_index = 5'h18;
+            12'h004:
+                palette_index = 5'h18;
             12'h005:
-                palette_index = 5'h18;
+                palette_index = 5'h1b;
             12'h006:
-                palette_index = 5'h18;
+                palette_index = 5'h1b;
             12'h007:
-                palette_index = 5'h18;
-            12'h008:
-                palette_index = 5'h18;
-            12'h009:
-                palette_index = 5'h1b;
-            12'h00a:
-                palette_index = 5'h1b;
-            12'h00b:
                 palette_index = 5'h1e;
-            12'h00c:
+            12'h008:
                 palette_index = 5'h1b;
+            12'h009:
+                palette_index = 5'h1a;
+            12'h00a:
+                palette_index = 5'h18;
+            12'h00b:
+                palette_index = 5'h1a;
+            12'h00c:
+                palette_index = 5'h18;
             12'h00d:
                 palette_index = 5'h1a;
             12'h00e:
@@ -3160,64 +2612,50 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h1a;
             12'h010:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h1a;
-            12'h012:
-                palette_index = 5'h18;
-            12'h013:
-                palette_index = 5'h1a;
-            12'h014:
-                palette_index = 5'h10;
-            12'h015:
                 palette_index = 5'h09;
-            12'h016:
+            12'h012:
                 palette_index = 5'h01;
-            12'h017:
+            12'h013:
                 palette_index = 5'h04;
-            12'h018:
+            12'h014:
                 palette_index = 5'h15;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1a;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h1a;
-            12'h01c:
-                palette_index = 5'h18;
-            12'h01d:
-                palette_index = 5'h12;
-            12'h01e:
-                palette_index = 5'h0a;
-            12'h01f:
-                palette_index = 5'h12;
-            12'h020:
-                palette_index = 5'h10;
-            12'h021:
-                palette_index = 5'h1a;
-            12'h022:
-                palette_index = 5'h1e;
           endcase
       12'h01c:
           casez (\$371 )
-            12'h004:
+            12'h000:
                 palette_index = 5'h1f;
-            12'h005:
+            12'h001:
                 palette_index = 5'h16;
-            12'h006:
+            12'h002:
                 palette_index = 5'h18;
-            12'h007:
+            12'h003:
                 palette_index = 5'h13;
-            12'h008:
+            12'h004:
                 palette_index = 5'h18;
+            12'h005:
+                palette_index = 5'h18;
+            12'h006:
+                palette_index = 5'h1e;
+            12'h007:
+                palette_index = 5'h1b;
+            12'h008:
+                palette_index = 5'h1e;
             12'h009:
                 palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h1e;
+                palette_index = 5'h1a;
             12'h00b:
-                palette_index = 5'h1b;
+                palette_index = 5'h18;
             12'h00c:
-                palette_index = 5'h1e;
+                palette_index = 5'h1a;
             12'h00d:
                 palette_index = 5'h18;
             12'h00e:
@@ -3225,210 +2663,188 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h011:
-                palette_index = 5'h18;
+                palette_index = 5'h09;
             12'h012:
-                palette_index = 5'h1a;
+                palette_index = 5'h05;
             12'h013:
-                palette_index = 5'h18;
+                palette_index = 5'h05;
             12'h014:
                 palette_index = 5'h18;
             12'h015:
-                palette_index = 5'h09;
+                palette_index = 5'h18;
             12'h016:
-                palette_index = 5'h05;
-            12'h017:
-                palette_index = 5'h05;
-            12'h018:
-                palette_index = 5'h18;
-            12'h019:
-                palette_index = 5'h18;
-            12'h01a:
                 palette_index = 5'h1a;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h18;
-            12'h01d:
-                palette_index = 5'h10;
-            12'h01e:
-                palette_index = 5'h12;
-            12'h01f:
-                palette_index = 5'h15;
-            12'h020:
-                palette_index = 5'h1f;
           endcase
       12'h01d:
           casez (\$373 )
-            12'h005:
+            12'h001:
                 palette_index = 5'h1f;
-            12'h006:
+            12'h002:
                 palette_index = 5'h16;
-            12'h007:
+            12'h003:
                 palette_index = 5'h18;
-            12'h008:
+            12'h004:
                 palette_index = 5'h16;
+            12'h005:
+                palette_index = 5'h1a;
+            12'h006:
+                palette_index = 5'h18;
+            12'h007:
+                palette_index = 5'h1a;
+            12'h008:
+                palette_index = 5'h18;
             12'h009:
                 palette_index = 5'h1a;
             12'h00a:
                 palette_index = 5'h18;
             12'h00b:
-                palette_index = 5'h1a;
+                palette_index = 5'h18;
             12'h00c:
-                palette_index = 5'h18;
+                palette_index = 5'h15;
             12'h00d:
-                palette_index = 5'h1a;
+                palette_index = 5'h15;
             12'h00e:
-                palette_index = 5'h18;
+                palette_index = 5'h15;
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h011:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h012:
-                palette_index = 5'h15;
-            12'h013:
-                palette_index = 5'h18;
-            12'h014:
-                palette_index = 5'h10;
-            12'h015:
-                palette_index = 5'h10;
-            12'h016:
                 palette_index = 5'h09;
-            12'h017:
+            12'h013:
                 palette_index = 5'h10;
-            12'h018:
+            12'h014:
                 palette_index = 5'h13;
-            12'h019:
+            12'h015:
                 palette_index = 5'h18;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h13;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h18;
-            12'h01c:
-                palette_index = 5'h18;
-            12'h01d:
-                palette_index = 5'h1e;
           endcase
       12'h01e:
           casez (\$375 )
-            12'h006:
+            12'h002:
                 palette_index = 5'h1f;
-            12'h007:
+            12'h003:
                 palette_index = 5'h16;
-            12'h008:
+            12'h004:
                 palette_index = 5'h18;
-            12'h009:
+            12'h005:
                 palette_index = 5'h13;
+            12'h006:
+                palette_index = 5'h18;
+            12'h007:
+                palette_index = 5'h18;
+            12'h008:
+                palette_index = 5'h1a;
+            12'h009:
+                palette_index = 5'h18;
             12'h00a:
                 palette_index = 5'h18;
             12'h00b:
-                palette_index = 5'h18;
-            12'h00c:
-                palette_index = 5'h1a;
-            12'h00d:
-                palette_index = 5'h18;
-            12'h00e:
-                palette_index = 5'h18;
-            12'h00f:
                 palette_index = 5'h15;
+            12'h00c:
+                palette_index = 5'h15;
+            12'h00d:
+                palette_index = 5'h10;
+            12'h00e:
+                palette_index = 5'h15;
+            12'h00f:
+                palette_index = 5'h10;
             12'h010:
                 palette_index = 5'h15;
             12'h011:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h012:
-                palette_index = 5'h15;
+                palette_index = 5'h0c;
             12'h013:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h014:
                 palette_index = 5'h15;
             12'h015:
-                palette_index = 5'h0c;
-            12'h016:
-                palette_index = 5'h0c;
-            12'h017:
-                palette_index = 5'h0c;
-            12'h018:
-                palette_index = 5'h15;
-            12'h019:
                 palette_index = 5'h10;
-            12'h01a:
+            12'h016:
                 palette_index = 5'h18;
-            12'h01b:
+            12'h017:
                 palette_index = 5'h1b;
           endcase
       12'h01f:
           casez (\$377 )
-            12'h007:
+            12'h003:
                 palette_index = 5'h1f;
-            12'h008:
+            12'h004:
                 palette_index = 5'h11;
+            12'h005:
+                palette_index = 5'h18;
+            12'h006:
+                palette_index = 5'h13;
+            12'h007:
+                palette_index = 5'h18;
+            12'h008:
+                palette_index = 5'h18;
             12'h009:
                 palette_index = 5'h18;
             12'h00a:
-                palette_index = 5'h13;
+                palette_index = 5'h15;
             12'h00b:
-                palette_index = 5'h18;
+                palette_index = 5'h15;
             12'h00c:
-                palette_index = 5'h18;
+                palette_index = 5'h10;
             12'h00d:
-                palette_index = 5'h18;
+                palette_index = 5'h15;
             12'h00e:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h010:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h011:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h012:
-                palette_index = 5'h10;
+                palette_index = 5'h0c;
             12'h013:
-                palette_index = 5'h10;
-            12'h014:
-                palette_index = 5'h0c;
-            12'h015:
-                palette_index = 5'h10;
-            12'h016:
-                palette_index = 5'h0c;
-            12'h017:
                 palette_index = 5'h15;
-            12'h018:
+            12'h014:
                 palette_index = 5'h1a;
-            12'h019:
+            12'h015:
                 palette_index = 5'h1e;
           endcase
       12'h020:
           casez (\$379 )
-            12'h008:
+            12'h004:
                 palette_index = 5'h1b;
-            12'h009:
+            12'h005:
                 palette_index = 5'h11;
-            12'h00a:
+            12'h006:
                 palette_index = 5'h16;
-            12'h00b:
+            12'h007:
                 palette_index = 5'h16;
-            12'h00c:
+            12'h008:
                 palette_index = 5'h18;
-            12'h00d:
+            12'h009:
                 palette_index = 5'h13;
+            12'h00a:
+                palette_index = 5'h15;
+            12'h00b:
+                palette_index = 5'h10;
+            12'h00c:
+                palette_index = 5'h15;
+            12'h00d:
+                palette_index = 5'h0e;
             12'h00e:
-                palette_index = 5'h15;
+                palette_index = 5'h10;
             12'h00f:
-                palette_index = 5'h10;
+                palette_index = 5'h0e;
             12'h010:
-                palette_index = 5'h15;
-            12'h011:
-                palette_index = 5'h0e;
-            12'h012:
-                palette_index = 5'h10;
-            12'h013:
-                palette_index = 5'h0e;
-            12'h014:
                 palette_index = 5'h1b;
-            12'h015:
+            12'h011:
                 palette_index = 5'h1b;
           endcase
     endcase

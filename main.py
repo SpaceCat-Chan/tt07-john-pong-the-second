@@ -51,10 +51,10 @@ class Top(Elaboratable):
                 
                 with m.If(pope_location[10:20] <= 20):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity > 0, pope_v_velocity, -pope_v_velocity))
-                with m.If(pope_location[10:20] >= 480 - 40):
+                with m.If(pope_location[10:20] >= 480 - 24):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
 
-                with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
+                with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 24) & (pope_location[10:20] <= paddle_location + 150))):
                     m.d.pix += pope_h_velocity.eq(1)
                     with m.If(self.i_move_up):
                         with m.If(pope_v_velocity > -3):
@@ -63,11 +63,11 @@ class Top(Elaboratable):
                         with m.If(pope_v_velocity < 3):
                             m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
                     
-                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 0)):
+                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 24) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 0)):
                     m.d.pix += pope_h_velocity.eq(0)
                 
                 
-                with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
+                with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 24) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
                     m.d.pix += pope_h_velocity.eq(0)
                     with m.If(self.i_player_two_up):
                         with m.If(pope_v_velocity > -3):
@@ -221,11 +221,11 @@ class VGAOutput(Elaboratable):
                 for x in range(width):
                     with m.Case(x):
                         with m.Switch(clock[11:22] - self.i_pope_location[10:20]):
-                            for y in range(height - 4):
-                                data = image.getpixel((bbox[0] + x, bbox[1] + y + 2))
+                            for y in range(height - 16):
+                                data = image.getpixel((bbox[0] + x, bbox[1] + y + 4))
                                 if data == 0:
                                     continue
-                                with m.Case(y + 2):
+                                with m.Case(y):
                                     m.d.comb += [
                                         palette_index.eq(data),
                                     ]
