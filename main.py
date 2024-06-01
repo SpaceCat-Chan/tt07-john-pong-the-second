@@ -132,7 +132,6 @@ class VGAOutput(Elaboratable):
             palette = image.getpalette("RGB")
             
             palette_index = Signal(range(30))
-            magenta = Signal()
 
             with m.Switch(clock[0:11] - self.i_pope_location[0:10]):
                 for x in range(width - 2):
@@ -150,15 +149,10 @@ class VGAOutput(Elaboratable):
                 for palette_item in range(1,31):
                     with m.Case(palette_item):
                         m.d.comb += [
-                            magenta.eq((palette[palette_item * 3] >> 5) & 1),
-                            self.o_r[1:3].eq(palette[palette_item * 3] >> 6),
+                            self.o_r.eq(palette[palette_item * 3] >> 5),
                             self.o_g.eq(palette[palette_item * 3 + 1] >> 5),
-                            self.o_b[1:3].eq(palette[palette_item * 3 + 2] >> 6),
+                            self.o_b.eq(palette[palette_item * 3 + 2] >> 5),
                         ]
-            m.d.comb += [
-                self.o_r[0].eq(magenta),
-                self.o_b[0].eq(magenta),
-            ]
 
         with m.If(
             (clock[11:22] >= self.i_paddle_location) &
