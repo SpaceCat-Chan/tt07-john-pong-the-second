@@ -22,9 +22,9 @@ pinout:
   # Inputs
   ui[0]: "move paddle up"
   ui[1]: "move paddle down"
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
+  ui[2]: "move player 2 paddle up"
+  ui[3]: "move player 2 paddle down"
+  ui[4]: "high voltage to activate player 2, low for ai"
   ui[5]: ""
   ui[6]: ""
   ui[7]: ""

@@ -26,7 +26,7 @@ class Top(Elaboratable):
         prev_vsync = Signal(1)
         m.d.pix += prev_vsync.eq(self.vga.o_vsync)
 
-        pope_location = Signal(20, reset=0b01001011000011011111) # reset at (320-20),(240-17) which is the middle of the screen when accounting for the dimensions of the pope
+        pope_location = Signal(20, reset=((240 - 20) << 10) + (320 - 17)) # reset at (320-20),(240-17) which is the middle of the screen when accounting for the dimensions of the pope
         pope_h_velocity = Signal(1, reset=0)
         pope_v_velocity = Signal(signed(3), reset=-1)
         
@@ -54,7 +54,7 @@ class Top(Elaboratable):
                 with m.If(pope_location[10:20] >= 480 - 40):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
 
-                with m.If((pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
+                with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
                     m.d.pix += pope_h_velocity.eq(1)
                     with m.If(self.i_move_up):
                         with m.If(pope_v_velocity > -3):
@@ -67,7 +67,7 @@ class Top(Elaboratable):
                     m.d.pix += pope_h_velocity.eq(0)
                 
                 
-                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
+                with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
                     m.d.pix += pope_h_velocity.eq(0)
                     with m.If(self.i_player_two_up):
                         with m.If(pope_v_velocity > -3):
@@ -118,6 +118,7 @@ class Top(Elaboratable):
             self.vga.i_enemy_paddle_location.eq(enemy_paddle_location),
             self.vga.i_player_score.eq(player_score),
             self.vga.i_enemy_score.eq(enemy_score),
+            self.vga.i_timer.eq(time_until_start),
             self.o_r.eq(self.vga.o_r),
             self.o_g.eq(self.vga.o_g),
             self.o_b.eq(self.vga.o_b),
@@ -144,6 +145,7 @@ class VGAOutput(Elaboratable):
         self.i_enemy_paddle_location = Signal(10)
         self.i_player_score = Signal(3)
         self.i_enemy_score = Signal(3)
+        self.i_timer = Signal(range(180))
 
         self.o_r = Signal(3)
         self.o_g = Signal(3)
@@ -194,6 +196,17 @@ class VGAOutput(Elaboratable):
                 self.o_r.eq(7),
                 self.o_b.eq(~self.i_enemy_score),
                 self.o_g.eq(~self.i_enemy_score),
+            ]
+
+        #timer count down
+        with m.If((clock[0:11] >= 220) & 
+                  (clock[0:11] < 420) & 
+                  (clock[11:22] >= 100) & 
+                  (clock[11:22] < 200)):
+            m.d.comb += [
+                self.o_r.eq((self.i_timer > 120).replicate(3)),
+                self.o_b.eq(((self.i_timer > 60) & (self.i_timer <= 120)).replicate(3)),
+                self.o_g.eq(((self.i_timer <= 60) & (self.i_timer != 0)).replicate(3)),
             ]
 
         with Image.open("jp2smol_indexed.png") as image:

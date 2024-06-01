@@ -4,126 +4,134 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   reg \$auto$verilog_backend.cc:2352:dump_module$1  = 0;
   wire \$1 ;
   wire \$10 ;
-  wire [10:0] \$101 ;
-  wire \$103 ;
-  wire \$105 ;
+  wire \$101 ;
+  wire [10:0] \$103 ;
+  wire [10:0] \$105 ;
   wire \$107 ;
-  wire \$109 ;
+  wire [10:0] \$109 ;
   wire \$111 ;
   wire \$113 ;
-  wire [3:0] \$115 ;
-  wire [3:0] \$116 ;
-  wire \$118 ;
+  wire \$115 ;
+  wire \$117 ;
+  wire \$119 ;
   wire \$12 ;
-  wire [3:0] \$120 ;
-  wire [3:0] \$121 ;
-  wire \$123 ;
-  wire \$125 ;
-  wire \$127 ;
-  wire \$129 ;
+  wire \$121 ;
+  wire [3:0] \$123 ;
+  wire [3:0] \$124 ;
+  wire \$126 ;
+  wire [3:0] \$128 ;
+  wire [3:0] \$129 ;
   wire \$131 ;
   wire \$133 ;
-  wire [10:0] \$135 ;
-  wire [10:0] \$137 ;
+  wire \$135 ;
+  wire \$137 ;
   wire \$139 ;
   wire \$14 ;
-  wire [10:0] \$141 ;
+  wire \$141 ;
   wire \$143 ;
   wire \$145 ;
-  wire \$147 ;
-  wire \$149 ;
-  wire [10:0] \$151 ;
+  wire [10:0] \$147 ;
+  wire [10:0] \$149 ;
+  wire \$151 ;
   wire [10:0] \$153 ;
   wire \$155 ;
-  wire [10:0] \$157 ;
+  wire \$157 ;
   wire \$159 ;
   wire \$16 ;
   wire \$161 ;
-  wire \$163 ;
-  wire \$165 ;
+  wire [10:0] \$163 ;
+  wire [10:0] \$165 ;
   wire \$167 ;
-  wire \$169 ;
-  wire [10:0] \$171 ;
-  wire [10:0] \$173 ;
+  wire [10:0] \$169 ;
+  wire \$171 ;
+  wire \$173 ;
   wire \$175 ;
-  wire [10:0] \$177 ;
+  wire \$177 ;
   wire \$179 ;
   wire \$18 ;
   wire \$181 ;
   wire \$183 ;
   wire \$185 ;
-  wire \$187 ;
-  wire \$189 ;
+  wire [10:0] \$187 ;
+  wire [10:0] \$189 ;
   wire \$191 ;
-  wire \$193 ;
+  wire [10:0] \$193 ;
   wire \$195 ;
   wire \$197 ;
   wire \$199 ;
   wire [10:0] \$20 ;
   wire \$201 ;
-  wire [10:0] \$203 ;
-  wire [10:0] \$204 ;
-  wire \$206 ;
-  wire \$208 ;
+  wire \$203 ;
+  wire \$205 ;
+  wire \$207 ;
+  wire \$209 ;
   wire [10:0] \$21 ;
-  wire [10:0] \$210 ;
-  wire [10:0] \$211 ;
+  wire \$211 ;
   wire \$213 ;
   wire \$215 ;
   wire \$217 ;
-  wire \$219 ;
-  wire \$221 ;
-  wire [11:0] \$223 ;
-  wire [10:0] \$225 ;
-  wire [11:0] \$227 ;
+  wire [10:0] \$219 ;
+  wire [10:0] \$220 ;
+  wire \$222 ;
+  wire \$224 ;
+  wire [10:0] \$226 ;
+  wire [10:0] \$227 ;
   wire \$229 ;
   wire [10:0] \$23 ;
   wire \$231 ;
   wire \$233 ;
   wire \$235 ;
   wire \$237 ;
-  wire [10:0] \$239 ;
+  wire [11:0] \$239 ;
   wire [10:0] \$24 ;
-  wire [10:0] \$240 ;
-  wire [11:0] \$242 ;
-  wire [10:0] \$244 ;
-  wire [11:0] \$246 ;
-  wire \$248 ;
-  wire \$250 ;
-  wire \$252 ;
-  wire \$254 ;
-  wire \$256 ;
-  wire [10:0] \$258 ;
-  wire [10:0] \$259 ;
+  wire [10:0] \$241 ;
+  wire [11:0] \$243 ;
+  wire \$245 ;
+  wire \$247 ;
+  wire \$249 ;
+  wire \$251 ;
+  wire \$253 ;
+  wire [10:0] \$255 ;
+  wire [10:0] \$256 ;
+  wire [11:0] \$258 ;
   wire [11:0] \$26 ;
-  wire \$261 ;
-  wire \$263 ;
-  wire \$265 ;
-  wire [10:0] \$267 ;
-  wire [10:0] \$268 ;
+  wire [10:0] \$260 ;
+  wire [11:0] \$262 ;
+  wire \$264 ;
+  wire \$266 ;
+  wire \$268 ;
   wire [10:0] \$27 ;
   wire \$270 ;
   wire \$272 ;
-  wire \$274 ;
-  wire [10:0] \$276 ;
-  wire [10:0] \$277 ;
+  wire [10:0] \$274 ;
+  wire [10:0] \$275 ;
+  wire \$277 ;
   wire \$279 ;
   wire \$281 ;
-  wire \$283 ;
-  wire \$285 ;
-  wire \$287 ;
-  wire \$289 ;
+  wire [10:0] \$283 ;
+  wire [10:0] \$284 ;
+  wire \$286 ;
+  wire \$288 ;
   wire [10:0] \$29 ;
-  wire [3:0] \$291 ;
-  wire [3:0] \$292 ;
-  wire \$294 ;
-  wire \$296 ;
-  wire \$298 ;
+  wire \$290 ;
+  wire [10:0] \$292 ;
+  wire [10:0] \$293 ;
+  wire \$295 ;
+  wire \$297 ;
+  wire \$299 ;
   wire \$3 ;
   wire [4:0] \$30 ;
-  wire \$300 ;
-  wire [3:0] \$302 ;
-  wire [3:0] \$303 ;
+  wire \$301 ;
+  wire \$303 ;
+  wire \$305 ;
+  wire [3:0] \$307 ;
+  wire [3:0] \$308 ;
+  wire \$310 ;
+  wire \$312 ;
+  wire \$314 ;
+  wire \$316 ;
+  wire [3:0] \$318 ;
+  wire [3:0] \$319 ;
   wire [11:0] \$33 ;
   wire \$35 ;
   wire \$37 ;
@@ -144,24 +152,24 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   wire [3:0] \$63 ;
   wire \$64 ;
   wire \$67 ;
-  wire [10:0] \$69 ;
+  wire \$69 ;
   wire [8:0] \$7 ;
-  wire [10:0] \$71 ;
-  wire \$73 ;
+  wire \$71 ;
+  wire [10:0] \$73 ;
   wire [10:0] \$75 ;
   wire \$77 ;
-  wire \$79 ;
+  wire [10:0] \$79 ;
   wire [8:0] \$8 ;
   wire \$81 ;
   wire \$83 ;
-  wire [3:0] \$85 ;
-  wire [3:0] \$86 ;
-  wire \$88 ;
+  wire \$85 ;
+  wire \$87 ;
+  wire [3:0] \$89 ;
   wire [3:0] \$90 ;
-  wire [3:0] \$91 ;
-  wire \$93 ;
-  wire [10:0] \$95 ;
-  wire [10:0] \$97 ;
+  wire \$92 ;
+  wire [3:0] \$94 ;
+  wire [3:0] \$95 ;
+  wire \$97 ;
   wire \$99 ;
   reg [9:0] enemy_paddle_location = 10'h0a5;
   reg [9:0] \enemy_paddle_location$next ;
@@ -197,7 +205,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   reg [2:0] \player_score$next ;
   reg pope_h_velocity = 1'h0;
   reg \pope_h_velocity$next ;
-  reg [19:0] pope_location = 20'h4b0df;
+  reg [19:0] pope_location = 20'h3712f;
   reg [19:0] \pope_location$next ;
   reg [2:0] pope_v_velocity = 3'h7;
   reg [2:0] \pope_v_velocity$next ;
@@ -211,116 +219,126 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   wire [9:0] vga_i_paddle_location;
   wire [2:0] vga_i_player_score;
   wire [19:0] vga_i_pope_location;
+  wire [7:0] vga_i_timer;
   wire [2:0] vga_o_b;
   wire [2:0] vga_o_g;
   wire vga_o_hsync;
   wire [2:0] vga_o_r;
   wire vga_o_vsync;
-  assign \$99  = $signed(\$95 ) > $signed(\$97 );
-  assign \$101  = enemy_paddle_location + 8'h96;
-  assign \$103  = pope_location[19:10] <= \$101 ;
-  assign \$105  = \$99  & \$103 ;
-  assign \$107  = \$93  & \$105 ;
+  assign \$99  = pope_location[9:0] >= 10'h22c;
+  assign \$101  = \$97  & \$99 ;
+  assign \$103  = + pope_location[19:10];
+  assign \$105  = enemy_paddle_location - 6'h28;
+  assign \$107  = $signed(\$103 ) > $signed(\$105 );
   assign \$10  = pope_location[9:0] <= 3'h6;
-  assign \$111  = \$107  & \$109 ;
-  assign \$113  = $signed(pope_v_velocity) > $signed(3'h5);
-  assign \$116  = $signed(pope_v_velocity) - $signed(3'h1);
-  assign \$118  = $signed(pope_v_velocity) < $signed(3'h3);
-  assign \$121  = $signed(pope_v_velocity) + $signed(3'h1);
-  assign \$123  = pope_location[9:0] <= 3'h6;
-  assign \$125  = pope_location[9:0] >= 10'h25e;
-  assign \$127  = ~ vga_o_vsync;
+  assign \$109  = enemy_paddle_location + 8'h96;
+  assign \$111  = pope_location[19:10] <= \$109 ;
+  assign \$113  = \$107  & \$111 ;
+  assign \$115  = \$101  & \$113 ;
+  assign \$119  = \$115  & \$117 ;
+  assign \$121  = $signed(pope_v_velocity) > $signed(3'h5);
+  assign \$124  = $signed(pope_v_velocity) - $signed(3'h1);
+  assign \$126  = $signed(pope_v_velocity) < $signed(3'h3);
   assign \$12  = pope_location[9:0] >= 10'h25e;
-  assign \$129  = prev_vsync & \$127 ;
-  assign \$131  = time_until_start > 1'h0;
-  assign \$133  = pope_location[9:0] < 6'h32;
-  assign \$135  = + pope_location[19:10];
-  assign \$137  = paddle_location - 6'h28;
-  assign \$139  = $signed(\$135 ) > $signed(\$137 );
-  assign \$141  = paddle_location + 8'h96;
-  assign \$143  = pope_location[19:10] <= \$141 ;
-  assign \$145  = \$139  & \$143 ;
-  assign \$147  = \$133  & \$145 ;
+  assign \$129  = $signed(pope_v_velocity) + $signed(3'h1);
+  assign \$131  = pope_location[9:0] <= 3'h6;
+  assign \$133  = pope_location[9:0] >= 10'h25e;
+  assign \$135  = ~ vga_o_vsync;
+  assign \$137  = prev_vsync & \$135 ;
+  assign \$139  = time_until_start > 1'h0;
+  assign \$141  = ~ pope_h_velocity;
+  assign \$143  = pope_location[9:0] < 6'h32;
+  assign \$145  = \$141  & \$143 ;
+  assign \$147  = + pope_location[19:10];
   assign \$14  = ~ vga_o_vsync;
-  assign \$149  = pope_location[9:0] >= 10'h22c;
-  assign \$151  = + pope_location[19:10];
-  assign \$153  = enemy_paddle_location - 6'h28;
-  assign \$155  = $signed(\$151 ) > $signed(\$153 );
-  assign \$157  = enemy_paddle_location + 8'h96;
-  assign \$159  = pope_location[19:10] <= \$157 ;
-  assign \$161  = \$155  & \$159 ;
-  assign \$163  = \$149  & \$161 ;
-  assign \$165  = ~ i_player_two_active;
-  assign \$167  = \$163  & \$165 ;
+  assign \$149  = paddle_location - 6'h28;
+  assign \$151  = $signed(\$147 ) > $signed(\$149 );
+  assign \$153  = paddle_location + 8'h96;
+  assign \$155  = pope_location[19:10] <= \$153 ;
+  assign \$157  = \$151  & \$155 ;
+  assign \$159  = \$145  & \$157 ;
+  assign \$161  = pope_location[9:0] >= 10'h22c;
+  assign \$163  = + pope_location[19:10];
+  assign \$165  = enemy_paddle_location - 6'h28;
+  assign \$167  = $signed(\$163 ) > $signed(\$165 );
   assign \$16  = prev_vsync & \$14 ;
-  assign \$169  = pope_location[9:0] >= 10'h22c;
-  assign \$171  = + pope_location[19:10];
-  assign \$173  = enemy_paddle_location - 6'h28;
-  assign \$175  = $signed(\$171 ) > $signed(\$173 );
-  assign \$177  = enemy_paddle_location + 8'h96;
-  assign \$179  = pope_location[19:10] <= \$177 ;
-  assign \$181  = \$175  & \$179 ;
-  assign \$183  = \$169  & \$181 ;
-  assign \$187  = \$183  & \$185 ;
+  assign \$169  = enemy_paddle_location + 8'h96;
+  assign \$171  = pope_location[19:10] <= \$169 ;
+  assign \$173  = \$167  & \$171 ;
+  assign \$175  = \$161  & \$173 ;
+  assign \$177  = ~ i_player_two_active;
+  assign \$179  = \$175  & \$177 ;
+  assign \$183  = pope_location[9:0] >= 10'h22c;
+  assign \$185  = \$181  & \$183 ;
+  assign \$187  = + pope_location[19:10];
   assign \$18  = time_until_start > 1'h0;
-  assign \$189  = pope_location[9:0] <= 3'h6;
-  assign \$191  = pope_location[9:0] >= 10'h25e;
-  assign \$193  = ~ vga_o_vsync;
-  assign \$195  = prev_vsync & \$193 ;
-  assign \$197  = time_until_start > 1'h0;
+  assign \$189  = enemy_paddle_location - 6'h28;
+  assign \$191  = $signed(\$187 ) > $signed(\$189 );
+  assign \$193  = enemy_paddle_location + 8'h96;
+  assign \$195  = pope_location[19:10] <= \$193 ;
+  assign \$197  = \$191  & \$195 ;
   assign \$1  = ~ vga_o_vsync;
-  assign \$199  = paddle_location >= 2'h3;
-  assign \$201  = i_move_up & \$199 ;
-  assign \$204  = paddle_location - 2'h3;
-  assign \$206  = paddle_location < 9'h147;
-  assign \$208  = i_move_down & \$206 ;
-  assign \$211  = paddle_location + 2'h3;
-  assign \$213  = pope_location[9:0] <= 3'h6;
-  assign \$215  = pope_location[9:0] >= 10'h25e;
-  assign \$217  = ~ vga_o_vsync;
+  assign \$199  = \$185  & \$197 ;
+  assign \$203  = \$199  & \$201 ;
+  assign \$205  = pope_location[9:0] <= 3'h6;
+  assign \$207  = pope_location[9:0] >= 10'h25e;
+  assign \$209  = ~ vga_o_vsync;
+  assign \$211  = prev_vsync & \$209 ;
+  assign \$213  = time_until_start > 1'h0;
+  assign \$215  = paddle_location >= 2'h3;
+  assign \$217  = i_move_up & \$215 ;
   assign \$21  = pope_location[9:0] + 2'h3;
-  assign \$219  = prev_vsync & \$217 ;
-  assign \$221  = time_until_start > 1'h0;
-  assign \$223  = + pope_location[19:10];
-  assign \$225  = enemy_paddle_location + 7'h4b;
-  assign \$227  = \$225  - 5'h14;
-  assign \$229  = $signed(\$223 ) > $signed(\$227 );
-  assign \$231  = enemy_paddle_location < 9'h136;
-  assign \$233  = \$229  & \$231 ;
-  assign \$235  = ~ i_player_two_active;
-  assign \$237  = \$233  & \$235 ;
-  assign \$240  = enemy_paddle_location + 2'h2;
-  assign \$242  = + pope_location[19:10];
-  assign \$244  = enemy_paddle_location + 7'h4b;
-  assign \$246  = \$244  - 5'h14;
-  assign \$248  = $signed(\$242 ) < $signed(\$246 );
+  assign \$220  = paddle_location - 2'h3;
+  assign \$222  = paddle_location < 9'h147;
+  assign \$224  = i_move_down & \$222 ;
+  assign \$227  = paddle_location + 2'h3;
+  assign \$229  = pope_location[9:0] <= 3'h6;
+  assign \$231  = pope_location[9:0] >= 10'h25e;
+  assign \$233  = ~ vga_o_vsync;
+  assign \$235  = prev_vsync & \$233 ;
+  assign \$237  = time_until_start > 1'h0;
+  assign \$239  = + pope_location[19:10];
+  assign \$241  = enemy_paddle_location + 7'h4b;
+  assign \$243  = \$241  - 5'h14;
+  assign \$245  = $signed(\$239 ) > $signed(\$243 );
+  assign \$247  = enemy_paddle_location < 9'h136;
   assign \$24  = pope_location[9:0] - 2'h3;
-  assign \$250  = enemy_paddle_location > 5'h14;
-  assign \$252  = \$248  & \$250 ;
-  assign \$254  = ~ i_player_two_active;
-  assign \$256  = \$252  & \$254 ;
-  assign \$259  = enemy_paddle_location - 2'h2;
-  assign \$261  = enemy_paddle_location >= 2'h3;
-  assign \$263  = i_player_two_up & \$261 ;
-  assign \$265  = \$263  & i_player_two_active;
-  assign \$268  = enemy_paddle_location - 2'h3;
-  assign \$270  = enemy_paddle_location < 9'h147;
-  assign \$272  = i_player_two_down & \$270 ;
-  assign \$274  = \$272  & i_player_two_active;
-  assign \$277  = enemy_paddle_location + 2'h3;
+  assign \$249  = \$245  & \$247 ;
+  assign \$251  = ~ i_player_two_active;
+  assign \$253  = \$249  & \$251 ;
+  assign \$256  = enemy_paddle_location + 2'h2;
+  assign \$258  = + pope_location[19:10];
+  assign \$260  = enemy_paddle_location + 7'h4b;
+  assign \$262  = \$260  - 5'h14;
+  assign \$264  = $signed(\$258 ) < $signed(\$262 );
+  assign \$266  = enemy_paddle_location > 5'h14;
+  assign \$268  = \$264  & \$266 ;
+  assign \$270  = ~ i_player_two_active;
+  assign \$272  = \$268  & \$270 ;
+  assign \$275  = enemy_paddle_location - 2'h2;
+  assign \$277  = enemy_paddle_location >= 2'h3;
   assign \$27  = + pope_location[19:10];
-  assign \$279  = pope_location[9:0] <= 3'h6;
-  assign \$281  = pope_location[9:0] >= 10'h25e;
-  assign \$283  = ~ vga_o_vsync;
-  assign \$285  = prev_vsync & \$283 ;
-  assign \$287  = time_until_start > 1'h0;
-  assign \$289  = pope_location[9:0] <= 3'h6;
-  assign \$292  = enemy_score + 1'h1;
-  assign \$294  = ~ vga_o_vsync;
-  assign \$296  = prev_vsync & \$294 ;
-  assign \$298  = time_until_start > 1'h0;
-  assign \$300  = pope_location[9:0] >= 10'h25e;
-  assign \$303  = player_score + 1'h1;
+  assign \$279  = i_player_two_up & \$277 ;
+  assign \$281  = \$279  & i_player_two_active;
+  assign \$284  = enemy_paddle_location - 2'h3;
+  assign \$286  = enemy_paddle_location < 9'h147;
+  assign \$288  = i_player_two_down & \$286 ;
+  assign \$290  = \$288  & i_player_two_active;
+  assign \$293  = enemy_paddle_location + 2'h3;
+  assign \$295  = pope_location[9:0] <= 3'h6;
+  assign \$297  = pope_location[9:0] >= 10'h25e;
+  assign \$299  = ~ vga_o_vsync;
+  assign \$301  = prev_vsync & \$299 ;
+  assign \$303  = time_until_start > 1'h0;
+  assign \$305  = pope_location[9:0] <= 3'h6;
+  assign \$308  = enemy_score + 1'h1;
+  assign \$30  = $signed(3'h3) * $signed(pope_v_velocity);
+  assign \$310  = ~ vga_o_vsync;
+  assign \$312  = prev_vsync & \$310 ;
+  assign \$314  = time_until_start > 1'h0;
+  assign \$316  = pope_location[9:0] >= 10'h25e;
+  assign \$29  = + $signed(\$30 );
+  assign \$319  = player_score + 1'h1;
   always @(posedge pix_clk)
     prev_vsync <= \prev_vsync$next ;
   always @(posedge pix_clk)
@@ -331,7 +349,6 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
     pope_v_velocity <= \pope_v_velocity$next ;
   always @(posedge pix_clk)
     pope_h_velocity <= \pope_h_velocity$next ;
-  assign \$30  = $signed(3'h3) * $signed(pope_v_velocity);
   always @(posedge pix_clk)
     paddle_location <= \paddle_location$next ;
   always @(posedge pix_clk)
@@ -340,7 +357,6 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
     enemy_score <= \enemy_score$next ;
   always @(posedge pix_clk)
     player_score <= \player_score$next ;
-  assign \$29  = + $signed(\$30 );
   assign \$33  = $signed(\$27 ) + $signed(\$29 );
   assign \$35  = pope_location[9:0] <= 3'h6;
   assign \$37  = pope_location[9:0] >= 10'h25e;
@@ -359,22 +375,21 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$61  = - $signed(pope_v_velocity);
   assign \$64  = $signed(pope_v_velocity) < $signed(3'h0);
   assign \$63  = \$64  ? \$59  : \$61 ;
-  assign \$67  = pope_location[9:0] < 6'h32;
-  assign \$69  = + pope_location[19:10];
-  assign \$71  = paddle_location - 6'h28;
-  assign \$73  = $signed(\$69 ) > $signed(\$71 );
-  assign \$75  = paddle_location + 8'h96;
-  assign \$77  = pope_location[19:10] <= \$75 ;
-  assign \$79  = \$73  & \$77 ;
-  assign \$81  = \$67  & \$79 ;
-  assign \$83  = $signed(pope_v_velocity) > $signed(3'h5);
-  assign \$86  = $signed(pope_v_velocity) - $signed(3'h1);
-  assign \$88  = $signed(pope_v_velocity) < $signed(3'h3);
+  assign \$67  = ~ pope_h_velocity;
+  assign \$69  = pope_location[9:0] < 6'h32;
+  assign \$71  = \$67  & \$69 ;
+  assign \$73  = + pope_location[19:10];
+  assign \$75  = paddle_location - 6'h28;
+  assign \$77  = $signed(\$73 ) > $signed(\$75 );
+  assign \$79  = paddle_location + 8'h96;
+  assign \$81  = pope_location[19:10] <= \$79 ;
+  assign \$83  = \$77  & \$81 ;
+  assign \$85  = \$71  & \$83 ;
+  assign \$87  = $signed(pope_v_velocity) > $signed(3'h5);
   assign \$8  = time_until_start - 1'h1;
-  assign \$91  = $signed(pope_v_velocity) + $signed(3'h1);
-  assign \$93  = pope_location[9:0] >= 10'h22c;
-  assign \$95  = + pope_location[19:10];
-  assign \$97  = enemy_paddle_location - 6'h28;
+  assign \$90  = $signed(pope_v_velocity) - $signed(3'h1);
+  assign \$92  = $signed(pope_v_velocity) < $signed(3'h3);
+  assign \$95  = $signed(pope_v_velocity) + $signed(3'h1);
   \sphn_vga_top.vga  vga (
     .i_enable(1'h1),
     .i_enemy_paddle_location(vga_i_enemy_paddle_location),
@@ -382,6 +397,7 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
     .i_paddle_location(vga_i_paddle_location),
     .i_player_score(vga_i_player_score),
     .i_pope_location(vga_i_pope_location),
+    .i_timer(vga_i_timer),
     .o_b(vga_o_b),
     .o_g(vga_o_g),
     .o_hsync(vga_o_hsync),
@@ -434,15 +450,15 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
             \pope_location$next [19:10] = \$33 [9:0];
         end
         if (\$35 ) begin
-          \pope_location$next  = 20'h4b0df;
+          \pope_location$next  = 20'h3712f;
         end
         if (\$37 ) begin
-          \pope_location$next  = 20'h4b0df;
+          \pope_location$next  = 20'h3712f;
         end
       end
     end
     if (pix_rst) begin
-      \pope_location$next  = 20'h4b0df;
+      \pope_location$next  = 20'h3712f;
     end
   end
   always @* begin
@@ -458,34 +474,34 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
         if (\$56 ) begin
           \pope_v_velocity$next  = \$63 [2:0];
         end
-        if (\$81 ) begin
+        if (\$85 ) begin
           if (i_move_up) begin
-            if (\$83 ) begin
-              \pope_v_velocity$next  = \$86 [2:0];
+            if (\$87 ) begin
+              \pope_v_velocity$next  = \$90 [2:0];
             end
           end
           if (i_move_down) begin
-            if (\$88 ) begin
-              \pope_v_velocity$next  = \$91 [2:0];
+            if (\$92 ) begin
+              \pope_v_velocity$next  = \$95 [2:0];
             end
           end
         end
-        if (\$111 ) begin
+        if (\$119 ) begin
           if (i_player_two_up) begin
-            if (\$113 ) begin
-              \pope_v_velocity$next  = \$116 [2:0];
+            if (\$121 ) begin
+              \pope_v_velocity$next  = \$124 [2:0];
             end
           end
           if (i_player_two_down) begin
-            if (\$118 ) begin
-              \pope_v_velocity$next  = \$121 [2:0];
+            if (\$126 ) begin
+              \pope_v_velocity$next  = \$129 [2:0];
             end
           end
         end
-        if (\$123 ) begin
+        if (\$131 ) begin
           \pope_v_velocity$next  = 3'h7;
         end
-        if (\$125 ) begin
+        if (\$133 ) begin
           \pope_v_velocity$next  = 3'h7;
         end
       end
@@ -497,23 +513,23 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$1 ) begin end
     \pope_h_velocity$next  = pope_h_velocity;
-    if (\$129 ) begin
+    if (\$137 ) begin
       (* full_case = 32'd1 *)
-      if (\$131 ) begin
+      if (\$139 ) begin
       end else begin
-        if (\$147 ) begin
+        if (\$159 ) begin
           \pope_h_velocity$next  = 1'h1;
         end
-        if (\$167 ) begin
+        if (\$179 ) begin
           \pope_h_velocity$next  = 1'h0;
         end
-        if (\$187 ) begin
+        if (\$203 ) begin
           \pope_h_velocity$next  = 1'h0;
         end
-        if (\$189 ) begin
+        if (\$205 ) begin
           \pope_h_velocity$next  = 1'h0;
         end
-        if (\$191 ) begin
+        if (\$207 ) begin
           \pope_h_velocity$next  = 1'h0;
         end
       end
@@ -525,20 +541,20 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$1 ) begin end
     \paddle_location$next  = paddle_location;
-    if (\$195 ) begin
+    if (\$211 ) begin
       (* full_case = 32'd1 *)
-      if (\$197 ) begin
+      if (\$213 ) begin
       end else begin
-        if (\$201 ) begin
-          \paddle_location$next  = \$204 [9:0];
+        if (\$217 ) begin
+          \paddle_location$next  = \$220 [9:0];
         end
-        if (\$208 ) begin
-          \paddle_location$next  = \$211 [9:0];
+        if (\$224 ) begin
+          \paddle_location$next  = \$227 [9:0];
         end
-        if (\$213 ) begin
+        if (\$229 ) begin
           \paddle_location$next  = 10'h0a5;
         end
-        if (\$215 ) begin
+        if (\$231 ) begin
           \paddle_location$next  = 10'h0a5;
         end
       end
@@ -550,26 +566,26 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$1 ) begin end
     \enemy_paddle_location$next  = enemy_paddle_location;
-    if (\$219 ) begin
+    if (\$235 ) begin
       (* full_case = 32'd1 *)
-      if (\$221 ) begin
+      if (\$237 ) begin
       end else begin
-        if (\$237 ) begin
-          \enemy_paddle_location$next  = \$240 [9:0];
+        if (\$253 ) begin
+          \enemy_paddle_location$next  = \$256 [9:0];
         end
-        if (\$256 ) begin
-          \enemy_paddle_location$next  = \$259 [9:0];
-        end
-        if (\$265 ) begin
-          \enemy_paddle_location$next  = \$268 [9:0];
-        end
-        if (\$274 ) begin
-          \enemy_paddle_location$next  = \$277 [9:0];
-        end
-        if (\$279 ) begin
-          \enemy_paddle_location$next  = 10'h0a5;
+        if (\$272 ) begin
+          \enemy_paddle_location$next  = \$275 [9:0];
         end
         if (\$281 ) begin
+          \enemy_paddle_location$next  = \$284 [9:0];
+        end
+        if (\$290 ) begin
+          \enemy_paddle_location$next  = \$293 [9:0];
+        end
+        if (\$295 ) begin
+          \enemy_paddle_location$next  = 10'h0a5;
+        end
+        if (\$297 ) begin
           \enemy_paddle_location$next  = 10'h0a5;
         end
       end
@@ -581,12 +597,12 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$1 ) begin end
     \enemy_score$next  = enemy_score;
-    if (\$285 ) begin
+    if (\$301 ) begin
       (* full_case = 32'd1 *)
-      if (\$287 ) begin
+      if (\$303 ) begin
       end else begin
-        if (\$289 ) begin
-          \enemy_score$next  = \$292 [2:0];
+        if (\$305 ) begin
+          \enemy_score$next  = \$308 [2:0];
         end
       end
     end
@@ -597,12 +613,12 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$1 ) begin end
     \player_score$next  = player_score;
-    if (\$296 ) begin
+    if (\$312 ) begin
       (* full_case = 32'd1 *)
-      if (\$298 ) begin
+      if (\$314 ) begin
       end else begin
-        if (\$300 ) begin
-          \player_score$next  = \$303 [2:0];
+        if (\$316 ) begin
+          \player_score$next  = \$319 [2:0];
         end
       end
     end
@@ -616,38 +632,41 @@ module sphn_vga_top(o_g, o_b, o_hsync, o_vsync, i_move_up, i_move_down, i_player
   assign \$26  = \$33 ;
   assign \$47  = \$52 ;
   assign \$58  = \$63 ;
-  assign \$85  = \$86 ;
-  assign \$90  = \$91 ;
-  assign \$115  = \$116 ;
-  assign \$120  = \$121 ;
-  assign \$203  = \$204 ;
-  assign \$210  = \$211 ;
-  assign \$239  = \$240 ;
-  assign \$258  = \$259 ;
-  assign \$267  = \$268 ;
-  assign \$276  = \$277 ;
-  assign \$291  = \$292 ;
-  assign \$302  = \$303 ;
+  assign \$89  = \$90 ;
+  assign \$94  = \$95 ;
+  assign \$123  = \$124 ;
+  assign \$128  = \$129 ;
+  assign \$219  = \$220 ;
+  assign \$226  = \$227 ;
+  assign \$255  = \$256 ;
+  assign \$274  = \$275 ;
+  assign \$283  = \$284 ;
+  assign \$292  = \$293 ;
+  assign \$307  = \$308 ;
+  assign \$318  = \$319 ;
   assign o_vsync = vga_o_vsync;
   assign o_hsync = vga_o_hsync;
   assign o_b = vga_o_b;
   assign o_g = vga_o_g;
   assign o_r = vga_o_r;
+  assign vga_i_timer = time_until_start;
   assign vga_i_enemy_score = enemy_score;
   assign vga_i_player_score = player_score;
   assign vga_i_enemy_paddle_location = enemy_paddle_location;
   assign vga_i_paddle_location = paddle_location;
   assign vga_i_pope_location = pope_location;
   assign vga_i_enable = 1'h1;
-  assign \$109  = i_player_two_active;
-  assign \$185  = i_player_two_active;
+  assign \$97  = pope_h_velocity;
+  assign \$117  = i_player_two_active;
+  assign \$181  = pope_h_velocity;
+  assign \$201  = i_player_two_active;
 endmodule
 
-module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_paddle_location, i_player_score, i_enemy_score, o_r, o_g, o_b, o_hsync, pix_rst, pix_clk, i_enable);
+module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_paddle_location, i_player_score, i_enemy_score, i_timer, o_r, o_g, o_b, o_hsync, pix_rst, pix_clk, i_enable);
   reg \$auto$verilog_backend.cc:2352:dump_module$2  = 0;
   wire [11:0] \$1 ;
   wire \$101 ;
-  wire [2:0] \$103 ;
+  wire \$103 ;
   wire \$105 ;
   wire \$107 ;
   wire \$109 ;
@@ -656,9 +675,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$113 ;
   wire \$115 ;
   wire \$117 ;
-  wire [2:0] \$119 ;
+  wire \$119 ;
   wire \$121 ;
-  wire [10:0] \$123 ;
+  wire [2:0] \$123 ;
   wire \$125 ;
   wire \$127 ;
   wire \$129 ;
@@ -667,7 +686,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$133 ;
   wire \$135 ;
   wire \$137 ;
-  wire [10:0] \$139 ;
+  wire [2:0] \$139 ;
   wire \$141 ;
   wire \$143 ;
   wire \$145 ;
@@ -686,18 +705,18 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$169 ;
   wire \$17 ;
   wire \$171 ;
-  wire [2:0] \$173 ;
-  wire \$175 ;
+  wire \$173 ;
+  wire [10:0] \$175 ;
   wire \$177 ;
   wire \$179 ;
   wire \$181 ;
   wire \$183 ;
   wire \$185 ;
   wire \$187 ;
-  wire [2:0] \$189 ;
+  wire \$189 ;
   wire \$19 ;
-  wire \$191 ;
-  wire [10:0] \$193 ;
+  wire [10:0] \$191 ;
+  wire \$193 ;
   wire \$195 ;
   wire \$197 ;
   wire \$199 ;
@@ -706,7 +725,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$203 ;
   wire \$205 ;
   wire \$207 ;
-  wire [10:0] \$209 ;
+  wire \$209 ;
   wire \$21 ;
   wire \$211 ;
   wire \$213 ;
@@ -715,50 +734,92 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$219 ;
   wire \$221 ;
   wire \$223 ;
-  wire \$225 ;
+  wire [2:0] \$225 ;
   wire \$227 ;
-  wire [11:0] \$229 ;
+  wire \$229 ;
   wire \$23 ;
-  wire [11:0] \$231 ;
-  wire [11:0] \$233 ;
-  wire [11:0] \$235 ;
-  wire [11:0] \$237 ;
-  wire [11:0] \$239 ;
-  wire [11:0] \$241 ;
-  wire [11:0] \$243 ;
-  wire [11:0] \$245 ;
-  wire [11:0] \$247 ;
-  wire [11:0] \$249 ;
+  wire \$231 ;
+  wire \$233 ;
+  wire \$235 ;
+  wire \$237 ;
+  wire \$239 ;
+  wire [2:0] \$241 ;
+  wire \$243 ;
+  wire \$245 ;
+  wire \$247 ;
+  wire \$249 ;
   wire \$25 ;
-  wire [11:0] \$251 ;
-  wire [11:0] \$253 ;
-  wire [11:0] \$255 ;
-  wire [11:0] \$257 ;
-  wire [11:0] \$259 ;
-  wire [11:0] \$261 ;
-  wire [11:0] \$263 ;
-  wire [11:0] \$265 ;
-  wire [11:0] \$267 ;
-  wire [11:0] \$269 ;
+  wire \$251 ;
+  wire \$253 ;
+  wire \$255 ;
+  wire \$257 ;
+  wire \$259 ;
+  wire \$261 ;
+  wire \$263 ;
+  wire \$265 ;
+  wire \$267 ;
+  wire \$269 ;
   wire \$27 ;
-  wire [11:0] \$271 ;
-  wire [11:0] \$273 ;
-  wire [11:0] \$275 ;
-  wire [11:0] \$277 ;
-  wire [11:0] \$279 ;
-  wire [11:0] \$281 ;
-  wire [11:0] \$283 ;
-  wire [11:0] \$285 ;
-  wire [11:0] \$287 ;
-  wire [11:0] \$289 ;
+  wire \$271 ;
+  wire \$273 ;
+  wire \$275 ;
+  wire [10:0] \$277 ;
+  wire \$279 ;
+  wire \$281 ;
+  wire \$283 ;
+  wire \$285 ;
+  wire \$287 ;
+  wire \$289 ;
   wire \$29 ;
-  wire [11:0] \$291 ;
-  wire [11:0] \$293 ;
-  wire [11:0] \$295 ;
+  wire \$291 ;
+  wire [10:0] \$293 ;
+  wire \$295 ;
+  wire \$297 ;
+  wire \$299 ;
+  wire \$301 ;
+  wire \$303 ;
+  wire \$305 ;
+  wire \$307 ;
+  wire \$309 ;
   wire \$31 ;
+  wire \$311 ;
+  wire [11:0] \$313 ;
+  wire [11:0] \$315 ;
+  wire [11:0] \$317 ;
+  wire [11:0] \$319 ;
+  wire [11:0] \$321 ;
+  wire [11:0] \$323 ;
+  wire [11:0] \$325 ;
+  wire [11:0] \$327 ;
+  wire [11:0] \$329 ;
   wire \$33 ;
+  wire [11:0] \$331 ;
+  wire [11:0] \$333 ;
+  wire [11:0] \$335 ;
+  wire [11:0] \$337 ;
+  wire [11:0] \$339 ;
+  wire [11:0] \$341 ;
+  wire [11:0] \$343 ;
+  wire [11:0] \$345 ;
+  wire [11:0] \$347 ;
+  wire [11:0] \$349 ;
   wire \$35 ;
+  wire [11:0] \$351 ;
+  wire [11:0] \$353 ;
+  wire [11:0] \$355 ;
+  wire [11:0] \$357 ;
+  wire [11:0] \$359 ;
+  wire [11:0] \$361 ;
+  wire [11:0] \$363 ;
+  wire [11:0] \$365 ;
+  wire [11:0] \$367 ;
+  wire [11:0] \$369 ;
   wire \$37 ;
+  wire [11:0] \$371 ;
+  wire [11:0] \$373 ;
+  wire [11:0] \$375 ;
+  wire [11:0] \$377 ;
+  wire [11:0] \$379 ;
   wire \$39 ;
   wire \$4 ;
   wire \$41 ;
@@ -767,7 +828,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$47 ;
   wire \$49 ;
   wire \$51 ;
-  wire [10:0] \$53 ;
+  wire \$53 ;
   wire \$55 ;
   wire \$57 ;
   wire \$59 ;
@@ -776,10 +837,10 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$63 ;
   wire \$65 ;
   wire \$67 ;
-  wire [10:0] \$69 ;
+  wire \$69 ;
   wire [11:0] \$7 ;
   wire \$71 ;
-  wire \$73 ;
+  wire [10:0] \$73 ;
   wire \$75 ;
   wire \$77 ;
   wire \$79 ;
@@ -787,7 +848,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$83 ;
   wire \$85 ;
   wire \$87 ;
-  wire \$89 ;
+  wire [10:0] \$89 ;
   wire \$9 ;
   wire \$91 ;
   wire \$93 ;
@@ -808,6 +869,8 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [2:0] i_player_score;
   input [19:0] i_pope_location;
   wire [19:0] i_pope_location;
+  input [7:0] i_timer;
+  wire [7:0] i_timer;
   output [2:0] o_b;
   reg [2:0] o_b;
   output [2:0] o_g;
@@ -824,122 +887,164 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   input pix_rst;
   wire pix_rst;
   assign \$9  = clock[21:11] == 10'h20c;
-  assign \$99  = clock[21:11] < 7'h4b;
+  assign \$99  = clock[10:0] >= 10'h24e;
   assign \$101  = \$97  & \$99 ;
-  assign \$103  = ~ i_player_score;
-  assign \$105  = clock[10:0] >= 10'h203;
-  assign \$107  = clock[10:0] < 10'h21c;
-  assign \$109  = \$105  & \$107 ;
-  assign \$111  = clock[21:11] >= 6'h32;
+  assign \$103  = clock[10:0] >= 10'h280;
+  assign \$105  = clock[21:11] >= 9'h1e0;
+  assign \$107  = \$103  | \$105 ;
+  assign \$109  = clock[10:0] >= 7'h64;
+  assign \$111  = clock[10:0] < 7'h7d;
   assign \$113  = \$109  & \$111 ;
-  assign \$115  = clock[21:11] < 7'h4b;
+  assign \$115  = clock[21:11] >= 6'h32;
   assign \$117  = \$113  & \$115 ;
   assign \$11  = clock[10:0] >= 10'h290;
-  assign \$119  = ~ i_enemy_score;
-  assign \$121  = clock[21:11] >= i_paddle_location;
-  assign \$123  = i_paddle_location + 8'h96;
-  assign \$125  = clock[21:11] < \$123 ;
-  assign \$127  = \$121  & \$125 ;
-  assign \$129  = clock[10:0] >= 5'h19;
-  assign \$131  = \$127  & \$129 ;
-  assign \$133  = clock[10:0] < 6'h32;
-  assign \$135  = \$131  & \$133 ;
-  assign \$137  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$119  = clock[21:11] < 7'h4b;
+  assign \$121  = \$117  & \$119 ;
+  assign \$123  = ~ i_player_score;
+  assign \$125  = clock[10:0] >= 10'h203;
+  assign \$127  = clock[10:0] < 10'h21c;
+  assign \$129  = \$125  & \$127 ;
+  assign \$131  = clock[21:11] >= 6'h32;
+  assign \$133  = \$129  & \$131 ;
+  assign \$135  = clock[21:11] < 7'h4b;
+  assign \$137  = \$133  & \$135 ;
   assign \$13  = clock[10:0] < 10'h2f0;
-  assign \$139  = i_enemy_paddle_location + 8'h96;
-  assign \$141  = clock[21:11] < \$139 ;
-  assign \$143  = \$137  & \$141 ;
-  assign \$145  = clock[10:0] < 10'h267;
-  assign \$147  = \$143  & \$145 ;
-  assign \$149  = clock[10:0] >= 10'h24e;
-  assign \$151  = \$147  & \$149 ;
-  assign \$153  = clock[10:0] >= 10'h280;
-  assign \$155  = clock[21:11] >= 9'h1e0;
-  assign \$157  = \$153  | \$155 ;
+  assign \$139  = ~ i_enemy_score;
+  assign \$141  = clock[10:0] >= 8'hdc;
+  assign \$143  = clock[10:0] < 9'h1a4;
+  assign \$145  = \$141  & \$143 ;
+  assign \$147  = clock[21:11] >= 7'h64;
+  assign \$149  = \$145  & \$147 ;
+  assign \$151  = clock[21:11] < 8'hc8;
+  assign \$153  = \$149  & \$151 ;
+  assign \$155  = i_timer > 6'h3c;
+  assign \$157  = i_timer <= 7'h78;
   assign \$15  = \$11  & \$13 ;
-  assign \$159  = clock[10:0] >= 7'h64;
-  assign \$161  = clock[10:0] < 7'h7d;
-  assign \$163  = \$159  & \$161 ;
-  assign \$165  = clock[21:11] >= 6'h32;
-  assign \$167  = \$163  & \$165 ;
-  assign \$169  = clock[21:11] < 7'h4b;
+  assign \$159  = \$155  & \$157 ;
+  assign \$161  = i_timer > 6'h3c;
+  assign \$163  = i_timer <= 7'h78;
+  assign \$165  = \$161  & \$163 ;
+  assign \$167  = i_timer > 6'h3c;
+  assign \$169  = i_timer <= 7'h78;
   assign \$171  = \$167  & \$169 ;
-  assign \$173  = ~ i_player_score;
-  assign \$175  = clock[10:0] >= 10'h203;
-  assign \$177  = clock[10:0] < 10'h21c;
+  assign \$173  = clock[21:11] >= i_paddle_location;
+  assign \$175  = i_paddle_location + 8'h96;
+  assign \$177  = clock[21:11] < \$175 ;
   assign \$17  = clock[21:11] >= 9'h1ea;
-  assign \$179  = \$175  & \$177 ;
-  assign \$181  = clock[21:11] >= 6'h32;
+  assign \$179  = \$173  & \$177 ;
+  assign \$181  = clock[10:0] >= 5'h19;
   assign \$183  = \$179  & \$181 ;
-  assign \$185  = clock[21:11] < 7'h4b;
+  assign \$185  = clock[10:0] < 6'h32;
   assign \$187  = \$183  & \$185 ;
-  assign \$189  = ~ i_enemy_score;
-  assign \$191  = clock[21:11] >= i_paddle_location;
-  assign \$193  = i_paddle_location + 8'h96;
-  assign \$195  = clock[21:11] < \$193 ;
-  assign \$197  = \$191  & \$195 ;
+  assign \$189  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$191  = i_enemy_paddle_location + 8'h96;
+  assign \$193  = clock[21:11] < \$191 ;
+  assign \$195  = \$189  & \$193 ;
+  assign \$197  = clock[10:0] < 10'h267;
   assign \$19  = clock[21:11] < 9'h1ec;
-  assign \$199  = clock[10:0] >= 5'h19;
-  assign \$201  = \$197  & \$199 ;
-  assign \$203  = clock[10:0] < 6'h32;
-  assign \$205  = \$201  & \$203 ;
-  assign \$207  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$209  = i_enemy_paddle_location + 8'h96;
-  assign \$211  = clock[21:11] < \$209 ;
-  assign \$213  = \$207  & \$211 ;
-  assign \$215  = clock[10:0] < 10'h267;
-  assign \$217  = \$213  & \$215 ;
+  assign \$199  = \$195  & \$197 ;
+  assign \$201  = clock[10:0] >= 10'h24e;
+  assign \$203  = \$199  & \$201 ;
+  assign \$205  = clock[10:0] >= 10'h280;
+  assign \$207  = clock[21:11] >= 9'h1e0;
+  assign \$209  = \$205  | \$207 ;
+  assign \$211  = clock[10:0] >= 7'h64;
+  assign \$213  = clock[10:0] < 7'h7d;
+  assign \$215  = \$211  & \$213 ;
+  assign \$217  = clock[21:11] >= 6'h32;
   assign \$21  = \$17  & \$19 ;
-  assign \$219  = clock[10:0] >= 10'h24e;
-  assign \$221  = \$217  & \$219 ;
-  assign \$223  = clock[10:0] >= 10'h280;
-  assign \$225  = clock[21:11] >= 9'h1e0;
-  assign \$227  = \$223  | \$225 ;
-  assign \$229  = clock[10:0] - i_pope_location[9:0];
-  assign \$231  = clock[21:11] - i_pope_location[19:10];
-  assign \$233  = clock[21:11] - i_pope_location[19:10];
-  assign \$235  = clock[21:11] - i_pope_location[19:10];
-  assign \$237  = clock[21:11] - i_pope_location[19:10];
+  assign \$219  = \$215  & \$217 ;
+  assign \$221  = clock[21:11] < 7'h4b;
+  assign \$223  = \$219  & \$221 ;
+  assign \$225  = ~ i_player_score;
+  assign \$227  = clock[10:0] >= 10'h203;
+  assign \$229  = clock[10:0] < 10'h21c;
+  assign \$231  = \$227  & \$229 ;
+  assign \$233  = clock[21:11] >= 6'h32;
+  assign \$235  = \$231  & \$233 ;
+  assign \$237  = clock[21:11] < 7'h4b;
   assign \$23  = clock[10:0] >= 7'h64;
-  assign \$239  = clock[21:11] - i_pope_location[19:10];
-  assign \$241  = clock[21:11] - i_pope_location[19:10];
-  assign \$243  = clock[21:11] - i_pope_location[19:10];
-  assign \$245  = clock[21:11] - i_pope_location[19:10];
-  assign \$247  = clock[21:11] - i_pope_location[19:10];
-  assign \$249  = clock[21:11] - i_pope_location[19:10];
-  assign \$251  = clock[21:11] - i_pope_location[19:10];
-  assign \$253  = clock[21:11] - i_pope_location[19:10];
-  assign \$255  = clock[21:11] - i_pope_location[19:10];
-  assign \$257  = clock[21:11] - i_pope_location[19:10];
+  assign \$239  = \$235  & \$237 ;
+  assign \$241  = ~ i_enemy_score;
+  assign \$243  = clock[10:0] >= 8'hdc;
+  assign \$245  = clock[10:0] < 9'h1a4;
+  assign \$247  = \$243  & \$245 ;
+  assign \$249  = clock[21:11] >= 7'h64;
+  assign \$251  = \$247  & \$249 ;
+  assign \$253  = clock[21:11] < 8'hc8;
+  assign \$255  = \$251  & \$253 ;
+  assign \$257  = i_timer <= 6'h3c;
   assign \$25  = clock[10:0] < 7'h7d;
-  assign \$259  = clock[21:11] - i_pope_location[19:10];
-  assign \$261  = clock[21:11] - i_pope_location[19:10];
-  assign \$263  = clock[21:11] - i_pope_location[19:10];
-  assign \$265  = clock[21:11] - i_pope_location[19:10];
-  assign \$267  = clock[21:11] - i_pope_location[19:10];
-  assign \$269  = clock[21:11] - i_pope_location[19:10];
-  assign \$271  = clock[21:11] - i_pope_location[19:10];
-  assign \$273  = clock[21:11] - i_pope_location[19:10];
-  assign \$275  = clock[21:11] - i_pope_location[19:10];
-  assign \$277  = clock[21:11] - i_pope_location[19:10];
+  assign \$259  = | i_timer;
+  assign \$261  = \$257  & \$259 ;
+  assign \$263  = i_timer <= 6'h3c;
+  assign \$265  = | i_timer;
+  assign \$267  = \$263  & \$265 ;
+  assign \$269  = i_timer <= 6'h3c;
+  assign \$271  = | i_timer;
+  assign \$273  = \$269  & \$271 ;
+  assign \$275  = clock[21:11] >= i_paddle_location;
+  assign \$277  = i_paddle_location + 8'h96;
   assign \$27  = \$23  & \$25 ;
-  assign \$279  = clock[21:11] - i_pope_location[19:10];
-  assign \$281  = clock[21:11] - i_pope_location[19:10];
-  assign \$283  = clock[21:11] - i_pope_location[19:10];
-  assign \$285  = clock[21:11] - i_pope_location[19:10];
-  assign \$287  = clock[21:11] - i_pope_location[19:10];
-  assign \$289  = clock[21:11] - i_pope_location[19:10];
-  assign \$291  = clock[21:11] - i_pope_location[19:10];
-  assign \$293  = clock[21:11] - i_pope_location[19:10];
-  assign \$295  = clock[21:11] - i_pope_location[19:10];
-  always @(posedge pix_clk)
-    clock <= \clock$next ;
+  assign \$279  = clock[21:11] < \$277 ;
+  assign \$281  = \$275  & \$279 ;
+  assign \$283  = clock[10:0] >= 5'h19;
+  assign \$285  = \$281  & \$283 ;
+  assign \$287  = clock[10:0] < 6'h32;
+  assign \$289  = \$285  & \$287 ;
+  assign \$291  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$293  = i_enemy_paddle_location + 8'h96;
+  assign \$295  = clock[21:11] < \$293 ;
+  assign \$297  = \$291  & \$295 ;
   assign \$2  = clock[10:0] + 1'h1;
   assign \$29  = clock[21:11] >= 6'h32;
+  assign \$299  = clock[10:0] < 10'h267;
+  assign \$301  = \$297  & \$299 ;
+  assign \$303  = clock[10:0] >= 10'h24e;
+  assign \$305  = \$301  & \$303 ;
+  assign \$307  = clock[10:0] >= 10'h280;
+  assign \$309  = clock[21:11] >= 9'h1e0;
+  assign \$311  = \$307  | \$309 ;
+  assign \$313  = clock[10:0] - i_pope_location[9:0];
+  assign \$315  = clock[21:11] - i_pope_location[19:10];
+  assign \$317  = clock[21:11] - i_pope_location[19:10];
   assign \$31  = \$27  & \$29 ;
+  assign \$319  = clock[21:11] - i_pope_location[19:10];
+  assign \$321  = clock[21:11] - i_pope_location[19:10];
+  assign \$323  = clock[21:11] - i_pope_location[19:10];
+  assign \$325  = clock[21:11] - i_pope_location[19:10];
+  assign \$327  = clock[21:11] - i_pope_location[19:10];
+  assign \$329  = clock[21:11] - i_pope_location[19:10];
+  assign \$331  = clock[21:11] - i_pope_location[19:10];
+  assign \$333  = clock[21:11] - i_pope_location[19:10];
+  assign \$335  = clock[21:11] - i_pope_location[19:10];
+  assign \$337  = clock[21:11] - i_pope_location[19:10];
   assign \$33  = clock[21:11] < 7'h4b;
+  assign \$339  = clock[21:11] - i_pope_location[19:10];
+  assign \$341  = clock[21:11] - i_pope_location[19:10];
+  assign \$343  = clock[21:11] - i_pope_location[19:10];
+  assign \$345  = clock[21:11] - i_pope_location[19:10];
+  assign \$347  = clock[21:11] - i_pope_location[19:10];
+  assign \$349  = clock[21:11] - i_pope_location[19:10];
+  assign \$351  = clock[21:11] - i_pope_location[19:10];
+  assign \$353  = clock[21:11] - i_pope_location[19:10];
+  assign \$355  = clock[21:11] - i_pope_location[19:10];
+  assign \$357  = clock[21:11] - i_pope_location[19:10];
   assign \$35  = \$31  & \$33 ;
+  assign \$359  = clock[21:11] - i_pope_location[19:10];
+  assign \$361  = clock[21:11] - i_pope_location[19:10];
+  assign \$363  = clock[21:11] - i_pope_location[19:10];
+  assign \$365  = clock[21:11] - i_pope_location[19:10];
+  assign \$367  = clock[21:11] - i_pope_location[19:10];
+  assign \$369  = clock[21:11] - i_pope_location[19:10];
+  assign \$371  = clock[21:11] - i_pope_location[19:10];
+  assign \$373  = clock[21:11] - i_pope_location[19:10];
+  assign \$375  = clock[21:11] - i_pope_location[19:10];
+  assign \$377  = clock[21:11] - i_pope_location[19:10];
   assign \$37  = clock[10:0] >= 10'h203;
+  assign \$379  = clock[21:11] - i_pope_location[19:10];
+  always @(posedge pix_clk)
+    clock <= \clock$next ;
   assign \$39  = clock[10:0] < 10'h21c;
   assign \$41  = \$37  & \$39 ;
   assign \$43  = clock[21:11] >= 6'h32;
@@ -947,30 +1052,30 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   assign \$47  = clock[21:11] < 7'h4b;
   assign \$4  = clock[10:0] == 10'h31f;
   assign \$49  = \$45  & \$47 ;
-  assign \$51  = clock[21:11] >= i_paddle_location;
-  assign \$53  = i_paddle_location + 8'h96;
-  assign \$55  = clock[21:11] < \$53 ;
-  assign \$57  = \$51  & \$55 ;
-  assign \$59  = clock[10:0] >= 5'h19;
-  assign \$61  = \$57  & \$59 ;
-  assign \$63  = clock[10:0] < 6'h32;
-  assign \$65  = \$61  & \$63 ;
-  assign \$67  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$69  = i_enemy_paddle_location + 8'h96;
-  assign \$71  = clock[21:11] < \$69 ;
-  assign \$73  = \$67  & \$71 ;
-  assign \$75  = clock[10:0] < 10'h267;
-  assign \$77  = \$73  & \$75 ;
+  assign \$51  = clock[10:0] >= 8'hdc;
+  assign \$53  = clock[10:0] < 9'h1a4;
+  assign \$55  = \$51  & \$53 ;
+  assign \$57  = clock[21:11] >= 7'h64;
+  assign \$59  = \$55  & \$57 ;
+  assign \$61  = clock[21:11] < 8'hc8;
+  assign \$63  = \$59  & \$61 ;
+  assign \$65  = i_timer > 7'h78;
+  assign \$67  = i_timer > 7'h78;
+  assign \$69  = i_timer > 7'h78;
+  assign \$71  = clock[21:11] >= i_paddle_location;
+  assign \$73  = i_paddle_location + 8'h96;
+  assign \$75  = clock[21:11] < \$73 ;
+  assign \$77  = \$71  & \$75 ;
   assign \$7  = clock[21:11] + 1'h1;
-  assign \$79  = clock[10:0] >= 10'h24e;
+  assign \$79  = clock[10:0] >= 5'h19;
   assign \$81  = \$77  & \$79 ;
-  assign \$83  = clock[10:0] >= 10'h280;
-  assign \$85  = clock[21:11] >= 9'h1e0;
-  assign \$87  = \$83  | \$85 ;
-  assign \$89  = clock[10:0] >= 7'h64;
-  assign \$91  = clock[10:0] < 7'h7d;
-  assign \$93  = \$89  & \$91 ;
-  assign \$95  = clock[21:11] >= 6'h32;
+  assign \$83  = clock[10:0] < 6'h32;
+  assign \$85  = \$81  & \$83 ;
+  assign \$87  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$89  = i_enemy_paddle_location + 8'h96;
+  assign \$91  = clock[21:11] < \$89 ;
+  assign \$93  = \$87  & \$91 ;
+  assign \$95  = clock[10:0] < 10'h267;
   assign \$97  = \$93  & \$95 ;
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
@@ -1011,6 +1116,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     end
     if (\$49 ) begin
       o_r = 3'h7;
+    end
+    if (\$63 ) begin
+      o_r = { \$69 , \$67 , \$65  };
     end
     casez (palette_index)
       5'h01:
@@ -1074,24 +1182,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
       5'h1e:
           o_r = 3'h7;
     endcase
-    if (\$65 ) begin
+    if (\$85 ) begin
       o_r = 3'h7;
     end
-    if (\$81 ) begin
+    if (\$101 ) begin
       o_r = 3'h7;
     end
-    if (\$87 ) begin
+    if (\$107 ) begin
       o_r = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_b = 3'h0;
-    if (\$101 ) begin
-      o_b = \$103 ;
+    if (\$121 ) begin
+      o_b = \$123 ;
     end
-    if (\$117 ) begin
-      o_b = \$119 ;
+    if (\$137 ) begin
+      o_b = \$139 ;
+    end
+    if (\$153 ) begin
+      o_b = { \$171 , \$165 , \$159  };
     end
     casez (palette_index)
       5'h01:
@@ -1155,24 +1266,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
       5'h1e:
           o_b = 3'h5;
     endcase
-    if (\$135 ) begin
+    if (\$187 ) begin
       o_b = 3'h7;
     end
-    if (\$151 ) begin
+    if (\$203 ) begin
       o_b = 3'h7;
     end
-    if (\$157 ) begin
+    if (\$209 ) begin
       o_b = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_g = 3'h0;
-    if (\$171 ) begin
-      o_g = \$173 ;
+    if (\$223 ) begin
+      o_g = \$225 ;
     end
-    if (\$187 ) begin
-      o_g = \$189 ;
+    if (\$239 ) begin
+      o_g = \$241 ;
+    end
+    if (\$255 ) begin
+      o_g = { \$273 , \$267 , \$261  };
     end
     casez (palette_index)
       5'h01:
@@ -1236,22 +1350,22 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
       5'h1e:
           o_g = 3'h7;
     endcase
-    if (\$205 ) begin
+    if (\$289 ) begin
       o_g = 3'h7;
     end
-    if (\$221 ) begin
+    if (\$305 ) begin
       o_g = 3'h7;
     end
-    if (\$227 ) begin
+    if (\$311 ) begin
       o_g = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     palette_index = 5'h00;
-    casez (\$229 )
+    casez (\$313 )
       12'h000:
-          casez (\$231 )
+          casez (\$315 )
             12'h010:
                 palette_index = 5'h1e;
             12'h011:
@@ -1264,7 +1378,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h001:
-          casez (\$233 )
+          casez (\$317 )
             12'h010:
                 palette_index = 5'h13;
             12'h011:
@@ -1279,7 +1393,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h002:
-          casez (\$235 )
+          casez (\$319 )
             12'h00f:
                 palette_index = 5'h18;
             12'h010:
@@ -1302,7 +1416,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1a;
           endcase
       12'h003:
-          casez (\$237 )
+          casez (\$321 )
             12'h00f:
                 palette_index = 5'h0e;
             12'h010:
@@ -1327,7 +1441,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h004:
-          casez (\$239 )
+          casez (\$323 )
             12'h00a:
                 palette_index = 5'h1c;
             12'h00b:
@@ -1362,7 +1476,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h18;
           endcase
       12'h005:
-          casez (\$241 )
+          casez (\$325 )
             12'h008:
                 palette_index = 5'h1c;
             12'h009:
@@ -1417,7 +1531,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h0c;
           endcase
       12'h006:
-          casez (\$243 )
+          casez (\$327 )
             12'h007:
                 palette_index = 5'h0d;
             12'h008:
@@ -1476,7 +1590,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h007:
-          casez (\$245 )
+          casez (\$329 )
             12'h006:
                 palette_index = 5'h0b;
             12'h007:
@@ -1539,7 +1653,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h15;
           endcase
       12'h008:
-          casez (\$247 )
+          casez (\$331 )
             12'h005:
                 palette_index = 5'h07;
             12'h006:
@@ -1606,7 +1720,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1a;
           endcase
       12'h009:
-          casez (\$249 )
+          casez (\$333 )
             12'h004:
                 palette_index = 5'h0b;
             12'h005:
@@ -1675,7 +1789,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h09;
           endcase
       12'h00a:
-          casez (\$251 )
+          casez (\$335 )
             12'h003:
                 palette_index = 5'h1f;
             12'h004:
@@ -1748,7 +1862,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h18;
           endcase
       12'h00b:
-          casez (\$253 )
+          casez (\$337 )
             12'h002:
                 palette_index = 5'h1d;
             12'h003:
@@ -1823,7 +1937,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h0c;
           endcase
       12'h00c:
-          casez (\$255 )
+          casez (\$339 )
             12'h002:
                 palette_index = 5'h1b;
             12'h003:
@@ -1900,7 +2014,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h00d:
-          casez (\$257 )
+          casez (\$341 )
             12'h001:
                 palette_index = 5'h1f;
             12'h002:
@@ -1981,7 +2095,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h18;
           endcase
       12'h00e:
-          casez (\$259 )
+          casez (\$343 )
             12'h001:
                 palette_index = 5'h1f;
             12'h002:
@@ -2062,7 +2176,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h0c;
           endcase
       12'h00f:
-          casez (\$261 )
+          casez (\$345 )
             12'h001:
                 palette_index = 5'h1f;
             12'h002:
@@ -2143,7 +2257,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h010:
-          casez (\$263 )
+          casez (\$347 )
             12'h000:
                 palette_index = 5'h1f;
             12'h001:
@@ -2226,7 +2340,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h011:
-          casez (\$265 )
+          casez (\$349 )
             12'h000:
                 palette_index = 5'h1d;
             12'h001:
@@ -2309,7 +2423,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h12;
           endcase
       12'h012:
-          casez (\$267 )
+          casez (\$351 )
             12'h000:
                 palette_index = 5'h1f;
             12'h001:
@@ -2392,7 +2506,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h013:
-          casez (\$269 )
+          casez (\$353 )
             12'h000:
                 palette_index = 5'h1d;
             12'h001:
@@ -2475,7 +2589,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h17;
           endcase
       12'h014:
-          casez (\$271 )
+          casez (\$355 )
             12'h000:
                 palette_index = 5'h1f;
             12'h001:
@@ -2558,7 +2672,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h12;
           endcase
       12'h015:
-          casez (\$273 )
+          casez (\$357 )
             12'h000:
                 palette_index = 5'h1d;
             12'h001:
@@ -2641,7 +2755,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h17;
           endcase
       12'h016:
-          casez (\$275 )
+          casez (\$359 )
             12'h001:
                 palette_index = 5'h1d;
             12'h002:
@@ -2722,7 +2836,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1a;
           endcase
       12'h017:
-          casez (\$277 )
+          casez (\$361 )
             12'h001:
                 palette_index = 5'h1f;
             12'h002:
@@ -2801,7 +2915,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h18;
           endcase
       12'h018:
-          casez (\$279 )
+          casez (\$363 )
             12'h001:
                 palette_index = 5'h1d;
             12'h002:
@@ -2878,7 +2992,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h019:
-          casez (\$281 )
+          casez (\$365 )
             12'h002:
                 palette_index = 5'h1d;
             12'h003:
@@ -2951,7 +3065,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h10;
           endcase
       12'h01a:
-          casez (\$283 )
+          casez (\$367 )
             12'h003:
                 palette_index = 5'h1b;
             12'h004:
@@ -3020,7 +3134,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1a;
           endcase
       12'h01b:
-          casez (\$285 )
+          casez (\$369 )
             12'h004:
                 palette_index = 5'h16;
             12'h005:
@@ -3085,7 +3199,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h01c:
-          casez (\$287 )
+          casez (\$371 )
             12'h004:
                 palette_index = 5'h1f;
             12'h005:
@@ -3146,7 +3260,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1f;
           endcase
       12'h01d:
-          casez (\$289 )
+          casez (\$373 )
             12'h005:
                 palette_index = 5'h1f;
             12'h006:
@@ -3199,7 +3313,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h01e:
-          casez (\$291 )
+          casez (\$375 )
             12'h006:
                 palette_index = 5'h1f;
             12'h007:
@@ -3246,7 +3360,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1b;
           endcase
       12'h01f:
-          casez (\$293 )
+          casez (\$377 )
             12'h007:
                 palette_index = 5'h1f;
             12'h008:
@@ -3287,7 +3401,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 palette_index = 5'h1e;
           endcase
       12'h020:
-          casez (\$295 )
+          casez (\$379 )
             12'h008:
                 palette_index = 5'h1b;
             12'h009:
