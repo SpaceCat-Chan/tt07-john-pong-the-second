@@ -747,10 +747,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     casez (\$23 )
       12'h002:
           casez (\$25 )
-            12'h00c:
-                o_r = 3'h0;
-            12'h00d:
-                o_r = 3'h0;
             12'h00e:
                 o_r = 3'h7;
             12'h00f:
@@ -777,26 +773,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h01a:
                 o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h0;
-            12'h01c:
-                o_r = 3'h0;
-            12'h01d:
-                o_r = 3'h0;
-            12'h01e:
-                o_r = 3'h0;
-            12'h01f:
-                o_r = 3'h0;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h003:
           casez (\$27 )
@@ -830,26 +806,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h01a:
                 o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h0;
-            12'h01c:
-                o_r = 3'h0;
-            12'h01d:
-                o_r = 3'h0;
-            12'h01e:
-                o_r = 3'h0;
-            12'h01f:
-                o_r = 3'h0;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h004:
           casez (\$29 )
@@ -899,10 +855,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h022:
                 o_r = 3'h7;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h005:
           casez (\$31 )
@@ -954,8 +906,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h023:
                 o_r = 3'h7;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h006:
           casez (\$33 )
@@ -2173,8 +2123,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h023:
                 o_r = 3'h7;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h01d:
           casez (\$79 )
@@ -2222,12 +2170,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h021:
                 o_r = 3'h7;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h01e:
           casez (\$81 )
@@ -2271,16 +2213,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h01f:
                 o_r = 3'h6;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h01f:
           casez (\$83 )
@@ -2318,22 +2250,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h01c:
                 o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h0;
-            12'h01e:
-                o_r = 3'h0;
-            12'h01f:
-                o_r = 3'h0;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
       12'h020:
           casez (\$85 )
@@ -2369,24 +2285,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h01b:
                 o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h0;
-            12'h01d:
-                o_r = 3'h0;
-            12'h01e:
-                o_r = 3'h0;
-            12'h01f:
-                o_r = 3'h0;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
           endcase
     endcase
     if (\$101 ) begin
@@ -2405,10 +2303,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     casez (\$125 )
       12'h002:
           casez (\$127 )
-            12'h00c:
-                o_g = 3'h0;
-            12'h00d:
-                o_g = 3'h0;
             12'h00e:
                 o_g = 3'h7;
             12'h00f:
@@ -2435,26 +2329,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h6;
             12'h01a:
                 o_g = 3'h7;
-            12'h01b:
-                o_g = 3'h0;
-            12'h01c:
-                o_g = 3'h0;
-            12'h01d:
-                o_g = 3'h0;
-            12'h01e:
-                o_g = 3'h0;
-            12'h01f:
-                o_g = 3'h0;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h003:
           casez (\$129 )
@@ -2488,26 +2362,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h7;
             12'h01a:
                 o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h0;
-            12'h01c:
-                o_g = 3'h0;
-            12'h01d:
-                o_g = 3'h0;
-            12'h01e:
-                o_g = 3'h0;
-            12'h01f:
-                o_g = 3'h0;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h004:
           casez (\$131 )
@@ -2557,10 +2411,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h6;
             12'h022:
                 o_g = 3'h7;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h005:
           casez (\$133 )
@@ -2612,8 +2462,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h6;
             12'h023:
                 o_g = 3'h7;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h006:
           casez (\$135 )
@@ -3831,8 +3679,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h7;
             12'h023:
                 o_g = 3'h7;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h01d:
           casez (\$181 )
@@ -3880,12 +3726,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h6;
             12'h021:
                 o_g = 3'h7;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h01e:
           casez (\$183 )
@@ -3929,16 +3769,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h7;
             12'h01f:
                 o_g = 3'h6;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h01f:
           casez (\$185 )
@@ -3976,22 +3806,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h7;
             12'h01c:
                 o_g = 3'h7;
-            12'h01d:
-                o_g = 3'h0;
-            12'h01e:
-                o_g = 3'h0;
-            12'h01f:
-                o_g = 3'h0;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
       12'h020:
           casez (\$187 )
@@ -4027,24 +3841,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h7;
             12'h01b:
                 o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h0;
-            12'h01d:
-                o_g = 3'h0;
-            12'h01e:
-                o_g = 3'h0;
-            12'h01f:
-                o_g = 3'h0;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
           endcase
     endcase
     if (\$203 ) begin
@@ -4063,10 +3859,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     casez (\$227 )
       12'h002:
           casez (\$229 )
-            12'h00c:
-                o_b = 3'h0;
-            12'h00d:
-                o_b = 3'h0;
             12'h00e:
                 o_b = 3'h7;
             12'h00f:
@@ -4093,26 +3885,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h01a:
                 o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h003:
           casez (\$231 )
@@ -4146,26 +3918,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h5;
             12'h01a:
                 o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h004:
           casez (\$233 )
@@ -4215,10 +3967,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h022:
                 o_b = 3'h7;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h005:
           casez (\$235 )
@@ -4270,8 +4018,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h5;
             12'h023:
                 o_b = 3'h7;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h006:
           casez (\$237 )
@@ -5489,8 +5235,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h023:
                 o_b = 3'h7;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h01d:
           casez (\$283 )
@@ -5538,12 +5282,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h021:
                 o_b = 3'h7;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h01e:
           casez (\$285 )
@@ -5587,16 +5325,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h01f:
                 o_b = 3'h6;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h01f:
           casez (\$287 )
@@ -5634,22 +5362,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h01c:
                 o_b = 3'h7;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
       12'h020:
           casez (\$289 )
@@ -5685,24 +5397,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h7;
             12'h01b:
                 o_b = 3'h7;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
           endcase
     endcase
     if (\$305 ) begin
