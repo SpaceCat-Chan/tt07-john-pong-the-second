@@ -359,9 +359,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [11:0] \$1 ;
   wire \$101 ;
   wire \$103 ;
-  wire \$105 ;
+  wire [10:0] \$105 ;
   wire \$107 ;
-  wire [10:0] \$109 ;
+  wire \$109 ;
   wire \$11 ;
   wire \$111 ;
   wire \$113 ;
@@ -370,8 +370,8 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire \$119 ;
   wire \$121 ;
   wire \$123 ;
-  wire \$125 ;
-  wire \$127 ;
+  wire [11:0] \$125 ;
+  wire [11:0] \$127 ;
   wire [11:0] \$129 ;
   wire \$13 ;
   wire [11:0] \$131 ;
@@ -405,33 +405,33 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [11:0] \$183 ;
   wire [11:0] \$185 ;
   wire [11:0] \$187 ;
-  wire [11:0] \$189 ;
+  wire \$189 ;
   wire \$19 ;
-  wire [11:0] \$191 ;
-  wire [11:0] \$193 ;
-  wire [11:0] \$195 ;
+  wire [10:0] \$191 ;
+  wire \$193 ;
+  wire \$195 ;
   wire \$197 ;
-  wire [10:0] \$199 ;
+  wire \$199 ;
   wire [11:0] \$2 ;
   wire \$201 ;
   wire \$203 ;
   wire \$205 ;
-  wire \$207 ;
+  wire [10:0] \$207 ;
   wire \$209 ;
   wire \$21 ;
   wire \$211 ;
   wire \$213 ;
-  wire [10:0] \$215 ;
+  wire \$215 ;
   wire \$217 ;
   wire \$219 ;
   wire \$221 ;
   wire \$223 ;
   wire \$225 ;
-  wire \$227 ;
-  wire \$229 ;
+  wire [11:0] \$227 ;
+  wire [11:0] \$229 ;
   wire [11:0] \$23 ;
-  wire \$231 ;
-  wire \$233 ;
+  wire [11:0] \$231 ;
+  wire [11:0] \$233 ;
   wire [11:0] \$235 ;
   wire [11:0] \$237 ;
   wire [11:0] \$239 ;
@@ -463,33 +463,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [11:0] \$287 ;
   wire [11:0] \$289 ;
   wire [11:0] \$29 ;
-  wire [11:0] \$291 ;
-  wire [11:0] \$293 ;
-  wire [11:0] \$295 ;
-  wire [11:0] \$297 ;
-  wire [11:0] \$299 ;
-  wire [11:0] \$301 ;
+  wire \$291 ;
+  wire [10:0] \$293 ;
+  wire \$295 ;
+  wire \$297 ;
+  wire \$299 ;
+  wire \$301 ;
   wire \$303 ;
-  wire [10:0] \$305 ;
+  wire \$305 ;
   wire \$307 ;
-  wire \$309 ;
+  wire [10:0] \$309 ;
   wire [11:0] \$31 ;
   wire \$311 ;
   wire \$313 ;
   wire \$315 ;
   wire \$317 ;
   wire \$319 ;
-  wire [10:0] \$321 ;
+  wire \$321 ;
   wire \$323 ;
   wire \$325 ;
   wire \$327 ;
-  wire \$329 ;
   wire [11:0] \$33 ;
-  wire \$331 ;
-  wire \$333 ;
-  wire \$335 ;
-  wire \$337 ;
-  wire \$339 ;
   wire [11:0] \$35 ;
   wire [11:0] \$37 ;
   wire [11:0] \$39 ;
@@ -519,11 +513,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   wire [11:0] \$81 ;
   wire [11:0] \$83 ;
   wire [11:0] \$85 ;
-  wire [11:0] \$87 ;
-  wire [11:0] \$89 ;
+  wire \$87 ;
+  wire [10:0] \$89 ;
   wire \$9 ;
   wire \$91 ;
-  wire [10:0] \$93 ;
+  wire \$93 ;
   wire \$95 ;
   wire \$97 ;
   wire \$99 ;
@@ -552,23 +546,23 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   input pix_rst;
   wire pix_rst;
   assign \$9  = clock[21:11] == 10'h20c;
-  assign \$99  = clock[10:0] >= 5'h19;
+  assign \$99  = clock[10:0] < 6'h32;
   assign \$101  = \$97  & \$99 ;
-  assign \$103  = clock[10:0] < 6'h32;
-  assign \$105  = \$101  & \$103 ;
-  assign \$107  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$109  = i_enemy_paddle_location + 8'h96;
-  assign \$111  = clock[21:11] < \$109 ;
-  assign \$113  = \$107  & \$111 ;
-  assign \$115  = clock[10:0] < 10'h267;
+  assign \$103  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$105  = i_enemy_paddle_location + 8'h96;
+  assign \$107  = clock[21:11] < \$105 ;
+  assign \$109  = \$103  & \$107 ;
+  assign \$111  = clock[10:0] < 10'h267;
+  assign \$113  = \$109  & \$111 ;
+  assign \$115  = clock[10:0] >= 10'h24e;
   assign \$117  = \$113  & \$115 ;
   assign \$11  = clock[10:0] >= 10'h290;
-  assign \$119  = clock[10:0] >= 10'h24e;
-  assign \$121  = \$117  & \$119 ;
-  assign \$123  = clock[10:0] >= 10'h280;
-  assign \$125  = clock[21:11] >= 9'h1e0;
-  assign \$127  = \$123  | \$125 ;
-  assign \$129  = clock[10:0] - i_pope_location[9:0];
+  assign \$119  = clock[10:0] >= 10'h280;
+  assign \$121  = clock[21:11] >= 9'h1e0;
+  assign \$123  = \$119  | \$121 ;
+  assign \$125  = clock[10:0] - i_pope_location[9:0];
+  assign \$127  = clock[21:11] - i_pope_location[19:10];
+  assign \$129  = clock[21:11] - i_pope_location[19:10];
   assign \$131  = clock[21:11] - i_pope_location[19:10];
   assign \$133  = clock[21:11] - i_pope_location[19:10];
   assign \$135  = clock[21:11] - i_pope_location[19:10];
@@ -601,32 +595,32 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   assign \$183  = clock[21:11] - i_pope_location[19:10];
   assign \$185  = clock[21:11] - i_pope_location[19:10];
   assign \$187  = clock[21:11] - i_pope_location[19:10];
-  assign \$189  = clock[21:11] - i_pope_location[19:10];
-  assign \$191  = clock[21:11] - i_pope_location[19:10];
-  assign \$193  = clock[21:11] - i_pope_location[19:10];
-  assign \$195  = clock[21:11] - i_pope_location[19:10];
-  assign \$197  = clock[21:11] >= i_paddle_location;
+  assign \$189  = clock[21:11] >= i_paddle_location;
+  assign \$191  = i_paddle_location + 8'h96;
+  assign \$193  = clock[21:11] < \$191 ;
+  assign \$195  = \$189  & \$193 ;
+  assign \$197  = clock[10:0] >= 5'h19;
   assign \$19  = clock[21:11] < 9'h1ec;
-  assign \$199  = i_paddle_location + 8'h96;
-  assign \$201  = clock[21:11] < \$199 ;
-  assign \$203  = \$197  & \$201 ;
-  assign \$205  = clock[10:0] >= 5'h19;
-  assign \$207  = \$203  & \$205 ;
-  assign \$209  = clock[10:0] < 6'h32;
-  assign \$211  = \$207  & \$209 ;
-  assign \$213  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$215  = i_enemy_paddle_location + 8'h96;
-  assign \$217  = clock[21:11] < \$215 ;
+  assign \$199  = \$195  & \$197 ;
+  assign \$201  = clock[10:0] < 6'h32;
+  assign \$203  = \$199  & \$201 ;
+  assign \$205  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$207  = i_enemy_paddle_location + 8'h96;
+  assign \$209  = clock[21:11] < \$207 ;
+  assign \$211  = \$205  & \$209 ;
+  assign \$213  = clock[10:0] < 10'h267;
+  assign \$215  = \$211  & \$213 ;
+  assign \$217  = clock[10:0] >= 10'h24e;
   assign \$21  = \$17  & \$19 ;
-  assign \$219  = \$213  & \$217 ;
-  assign \$221  = clock[10:0] < 10'h267;
-  assign \$223  = \$219  & \$221 ;
-  assign \$225  = clock[10:0] >= 10'h24e;
-  assign \$227  = \$223  & \$225 ;
-  assign \$229  = clock[10:0] >= 10'h280;
-  assign \$231  = clock[21:11] >= 9'h1e0;
-  assign \$233  = \$229  | \$231 ;
-  assign \$235  = clock[10:0] - i_pope_location[9:0];
+  assign \$219  = \$215  & \$217 ;
+  assign \$221  = clock[10:0] >= 10'h280;
+  assign \$223  = clock[21:11] >= 9'h1e0;
+  assign \$225  = \$221  | \$223 ;
+  assign \$227  = clock[10:0] - i_pope_location[9:0];
+  assign \$229  = clock[21:11] - i_pope_location[19:10];
+  assign \$231  = clock[21:11] - i_pope_location[19:10];
+  assign \$233  = clock[21:11] - i_pope_location[19:10];
+  assign \$235  = clock[21:11] - i_pope_location[19:10];
   assign \$237  = clock[21:11] - i_pope_location[19:10];
   assign \$23  = clock[10:0] - i_pope_location[9:0];
   assign \$239  = clock[21:11] - i_pope_location[19:10];
@@ -657,37 +651,31 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   assign \$285  = clock[21:11] - i_pope_location[19:10];
   assign \$287  = clock[21:11] - i_pope_location[19:10];
   assign \$289  = clock[21:11] - i_pope_location[19:10];
-  assign \$291  = clock[21:11] - i_pope_location[19:10];
-  assign \$293  = clock[21:11] - i_pope_location[19:10];
-  assign \$295  = clock[21:11] - i_pope_location[19:10];
-  assign \$297  = clock[21:11] - i_pope_location[19:10];
+  assign \$291  = clock[21:11] >= i_paddle_location;
+  assign \$293  = i_paddle_location + 8'h96;
+  assign \$295  = clock[21:11] < \$293 ;
+  assign \$297  = \$291  & \$295 ;
   assign \$2  = clock[10:0] + 1'h1;
   assign \$29  = clock[21:11] - i_pope_location[19:10];
-  assign \$299  = clock[21:11] - i_pope_location[19:10];
-  assign \$301  = clock[21:11] - i_pope_location[19:10];
-  assign \$303  = clock[21:11] >= i_paddle_location;
-  assign \$305  = i_paddle_location + 8'h96;
-  assign \$307  = clock[21:11] < \$305 ;
-  assign \$309  = \$303  & \$307 ;
-  assign \$311  = clock[10:0] >= 5'h19;
-  assign \$313  = \$309  & \$311 ;
-  assign \$315  = clock[10:0] < 6'h32;
+  assign \$299  = clock[10:0] >= 5'h19;
+  assign \$301  = \$297  & \$299 ;
+  assign \$303  = clock[10:0] < 6'h32;
+  assign \$305  = \$301  & \$303 ;
+  assign \$307  = clock[21:11] >= i_enemy_paddle_location;
+  assign \$309  = i_enemy_paddle_location + 8'h96;
+  assign \$311  = clock[21:11] < \$309 ;
+  assign \$313  = \$307  & \$311 ;
+  assign \$315  = clock[10:0] < 10'h267;
   assign \$317  = \$313  & \$315 ;
   assign \$31  = clock[21:11] - i_pope_location[19:10];
-  assign \$319  = clock[21:11] >= i_enemy_paddle_location;
-  assign \$321  = i_enemy_paddle_location + 8'h96;
-  assign \$323  = clock[21:11] < \$321 ;
-  assign \$325  = \$319  & \$323 ;
-  assign \$327  = clock[10:0] < 10'h267;
-  assign \$329  = \$325  & \$327 ;
-  assign \$331  = clock[10:0] >= 10'h24e;
-  assign \$333  = \$329  & \$331 ;
-  assign \$335  = clock[10:0] >= 10'h280;
-  assign \$337  = clock[21:11] >= 9'h1e0;
-  assign \$33  = clock[21:11] - i_pope_location[19:10];
-  assign \$339  = \$335  | \$337 ;
+  assign \$319  = clock[10:0] >= 10'h24e;
+  assign \$321  = \$317  & \$319 ;
+  assign \$323  = clock[10:0] >= 10'h280;
+  assign \$325  = clock[21:11] >= 9'h1e0;
+  assign \$327  = \$323  | \$325 ;
   always @(posedge pix_clk)
     clock <= \clock$next ;
+  assign \$33  = clock[21:11] - i_pope_location[19:10];
   assign \$35  = clock[21:11] - i_pope_location[19:10];
   assign \$37  = clock[21:11] - i_pope_location[19:10];
   assign \$39  = clock[21:11] - i_pope_location[19:10];
@@ -716,12 +704,12 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
   assign \$81  = clock[21:11] - i_pope_location[19:10];
   assign \$83  = clock[21:11] - i_pope_location[19:10];
   assign \$85  = clock[21:11] - i_pope_location[19:10];
-  assign \$87  = clock[21:11] - i_pope_location[19:10];
-  assign \$89  = clock[21:11] - i_pope_location[19:10];
-  assign \$91  = clock[21:11] >= i_paddle_location;
-  assign \$93  = i_paddle_location + 8'h96;
-  assign \$95  = clock[21:11] < \$93 ;
-  assign \$97  = \$91  & \$95 ;
+  assign \$87  = clock[21:11] >= i_paddle_location;
+  assign \$89  = i_paddle_location + 8'h96;
+  assign \$91  = clock[21:11] < \$89 ;
+  assign \$93  = \$87  & \$91 ;
+  assign \$95  = clock[10:0] >= 5'h19;
+  assign \$97  = \$93  & \$95 ;
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     \clock$next  = clock;
@@ -757,7 +745,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_r = 3'h0;
     casez (\$23 )
-      12'h000:
+      12'h002:
           casez (\$25 )
             12'h000:
                 o_r = 3'h0;
@@ -788,31 +776,31 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00d:
                 o_r = 3'h0;
             12'h00e:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00f:
                 o_r = 3'h7;
             12'h010:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h011:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h012:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h013:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h014:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h015:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h016:
                 o_r = 3'h7;
             12'h017:
                 o_r = 3'h7;
             12'h018:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h019:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01a:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01b:
                 o_r = 3'h0;
             12'h01c:
@@ -835,10 +823,8 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h001:
+      12'h003:
           casez (\$27 )
             12'h000:
                 o_r = 3'h0;
@@ -861,19 +847,19 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h009:
                 o_r = 3'h0;
             12'h00a:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00b:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00c:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00d:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00e:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00f:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h010:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h011:
                 o_r = 3'h6;
             12'h012:
@@ -881,9 +867,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h013:
                 o_r = 3'h6;
             12'h014:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h015:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h016:
                 o_r = 3'h7;
             12'h017:
@@ -893,7 +879,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h019:
                 o_r = 3'h7;
             12'h01a:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01b:
                 o_r = 3'h0;
             12'h01c:
@@ -916,10 +902,8 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h002:
+      12'h004:
           casez (\$29 )
             12'h000:
                 o_r = 3'h0;
@@ -938,29 +922,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h007:
                 o_r = 3'h0;
             12'h008:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h009:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h00a:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h00b:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h00c:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h00d:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h00e:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00f:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h010:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h011:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h012:
                 o_r = 3'h6;
             12'h013:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h014:
                 o_r = 3'h6;
             12'h015:
@@ -968,7 +952,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h016:
                 o_r = 3'h7;
             12'h017:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h018:
                 o_r = 3'h7;
             12'h019:
@@ -976,31 +960,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01a:
                 o_r = 3'h7;
             12'h01b:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01c:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01d:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01e:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h01f:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h020:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h021:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h022:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h023:
                 o_r = 3'h0;
             12'h024:
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h003:
+      12'h005:
           casez (\$31 )
             12'h000:
                 o_r = 3'h0;
@@ -1015,73 +997,71 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_r = 3'h0;
             12'h006:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h007:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h008:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h009:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h00a:
-                o_r = 3'h7;
+                o_r = 3'h3;
             12'h00b:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00c:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00d:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00e:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00f:
-                o_r = 3'h5;
+                o_r = 3'h4;
             12'h010:
-                o_r = 3'h6;
+                o_r = 3'h4;
             12'h011:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h012:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h013:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h014:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h015:
                 o_r = 3'h6;
             12'h016:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h017:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h018:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h019:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01a:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h01b:
-                o_r = 3'h0;
+                o_r = 3'h6;
             12'h01c:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h01d:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h01e:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h01f:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h020:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h021:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h022:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h023:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h024:
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h004:
+      12'h006:
           casez (\$33 )
             12'h000:
                 o_r = 3'h0;
@@ -1096,27 +1076,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_r = 3'h0;
             12'h006:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h007:
-                o_r = 3'h0;
+                o_r = 3'h4;
             12'h008:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h009:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h00a:
-                o_r = 3'h5;
+                o_r = 3'h4;
             12'h00b:
                 o_r = 3'h4;
             12'h00c:
-                o_r = 3'h5;
+                o_r = 3'h4;
             12'h00d:
                 o_r = 3'h4;
             12'h00e:
-                o_r = 3'h4;
-            12'h00f:
-                o_r = 3'h4;
-            12'h010:
                 o_r = 3'h5;
+            12'h00f:
+                o_r = 3'h5;
+            12'h010:
+                o_r = 3'h6;
             12'h011:
                 o_r = 3'h5;
             12'h012:
@@ -1126,43 +1106,41 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h014:
                 o_r = 3'h6;
             12'h015:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h016:
-                o_r = 3'h7;
-            12'h017:
                 o_r = 3'h6;
+            12'h017:
+                o_r = 3'h5;
             12'h018:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h019:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h01a:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01b:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h01c:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01d:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h01e:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01f:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h020:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h021:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h022:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h023:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h024:
-                o_r = 3'h0;
+                o_r = 3'h6;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h005:
+      12'h007:
           casez (\$35 )
             12'h000:
                 o_r = 3'h0;
@@ -1175,35 +1153,35 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h004:
                 o_r = 3'h0;
             12'h005:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h006:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h007:
-                o_r = 3'h7;
+                o_r = 3'h4;
             12'h008:
                 o_r = 3'h4;
             12'h009:
-                o_r = 3'h4;
-            12'h00a:
-                o_r = 3'h3;
-            12'h00b:
-                o_r = 3'h4;
-            12'h00c:
-                o_r = 3'h4;
-            12'h00d:
-                o_r = 3'h4;
-            12'h00e:
-                o_r = 3'h4;
-            12'h00f:
-                o_r = 3'h4;
-            12'h010:
-                o_r = 3'h4;
-            12'h011:
                 o_r = 3'h5;
+            12'h00a:
+                o_r = 3'h5;
+            12'h00b:
+                o_r = 3'h6;
+            12'h00c:
+                o_r = 3'h5;
+            12'h00d:
+                o_r = 3'h6;
+            12'h00e:
+                o_r = 3'h5;
+            12'h00f:
+                o_r = 3'h6;
+            12'h010:
+                o_r = 3'h5;
+            12'h011:
+                o_r = 3'h6;
             12'h012:
                 o_r = 3'h5;
             12'h013:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h014:
                 o_r = 3'h5;
             12'h015:
@@ -1213,7 +1191,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h017:
                 o_r = 3'h6;
             12'h018:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h019:
                 o_r = 3'h6;
             12'h01a:
@@ -1223,27 +1201,25 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01c:
                 o_r = 3'h5;
             12'h01d:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01e:
-                o_r = 3'h4;
-            12'h01f:
-                o_r = 3'h4;
-            12'h020:
-                o_r = 3'h4;
-            12'h021:
                 o_r = 3'h5;
+            12'h01f:
+                o_r = 3'h6;
+            12'h020:
+                o_r = 3'h5;
+            12'h021:
+                o_r = 3'h6;
             12'h022:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h023:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h024:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h025:
-                o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
+                o_r = 3'h7;
           endcase
-      12'h006:
+      12'h008:
           casez (\$37 )
             12'h000:
                 o_r = 3'h0;
@@ -1252,29 +1228,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_r = 3'h0;
             12'h003:
-                o_r = 3'h0;
+                o_r = 3'h5;
             12'h004:
-                o_r = 3'h0;
-            12'h005:
-                o_r = 3'h0;
-            12'h006:
                 o_r = 3'h7;
+            12'h005:
+                o_r = 3'h4;
+            12'h006:
+                o_r = 3'h4;
             12'h007:
                 o_r = 3'h4;
             12'h008:
-                o_r = 3'h4;
-            12'h009:
-                o_r = 3'h4;
-            12'h00a:
-                o_r = 3'h4;
-            12'h00b:
-                o_r = 3'h4;
-            12'h00c:
-                o_r = 3'h4;
-            12'h00d:
-                o_r = 3'h4;
-            12'h00e:
                 o_r = 3'h5;
+            12'h009:
+                o_r = 3'h5;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h6;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h6;
+            12'h00e:
+                o_r = 3'h6;
             12'h00f:
                 o_r = 3'h5;
             12'h010:
@@ -1282,21 +1258,21 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h011:
                 o_r = 3'h5;
             12'h012:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h013:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h014:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h015:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h016:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h017:
-                o_r = 3'h5;
-            12'h018:
                 o_r = 3'h6;
+            12'h018:
+                o_r = 3'h7;
             12'h019:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01a:
                 o_r = 3'h6;
             12'h01b:
@@ -1310,21 +1286,19 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01f:
                 o_r = 3'h5;
             12'h020:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h021:
                 o_r = 3'h5;
             12'h022:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h023:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h024:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h025:
-                o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
+                o_r = 3'h7;
           endcase
-      12'h007:
+      12'h009:
           casez (\$39 )
             12'h000:
                 o_r = 3'h0;
@@ -1333,53 +1307,53 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_r = 3'h0;
             12'h003:
-                o_r = 3'h0;
-            12'h004:
-                o_r = 3'h0;
-            12'h005:
                 o_r = 3'h7;
+            12'h004:
+                o_r = 3'h4;
+            12'h005:
+                o_r = 3'h4;
             12'h006:
                 o_r = 3'h4;
             12'h007:
-                o_r = 3'h4;
+                o_r = 3'h6;
             12'h008:
-                o_r = 3'h4;
+                o_r = 3'h6;
             12'h009:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h00a:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h00b:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00c:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h00d:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00e:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h00f:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h010:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h011:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h012:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h013:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h014:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h015:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h016:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h017:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h018:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h019:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01a:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01b:
                 o_r = 3'h6;
             12'h01c:
@@ -1389,44 +1363,42 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01e:
                 o_r = 3'h5;
             12'h01f:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h020:
                 o_r = 3'h5;
             12'h021:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h022:
                 o_r = 3'h5;
             12'h023:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h024:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h008:
+      12'h00a:
           casez (\$41 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
                 o_r = 3'h0;
             12'h002:
-                o_r = 3'h0;
-            12'h003:
-                o_r = 3'h5;
-            12'h004:
                 o_r = 3'h7;
+            12'h003:
+                o_r = 3'h6;
+            12'h004:
+                o_r = 3'h4;
             12'h005:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h006:
-                o_r = 3'h4;
+                o_r = 3'h6;
             12'h007:
-                o_r = 3'h4;
+                o_r = 3'h6;
             12'h008:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h009:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h00a:
                 o_r = 3'h7;
             12'h00b:
@@ -1436,13 +1408,13 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00d:
                 o_r = 3'h6;
             12'h00e:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00f:
-                o_r = 3'h5;
-            12'h010:
                 o_r = 3'h6;
+            12'h010:
+                o_r = 3'h7;
             12'h011:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h012:
                 o_r = 3'h7;
             12'h013:
@@ -1450,29 +1422,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h014:
                 o_r = 3'h7;
             12'h015:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h016:
                 o_r = 3'h7;
             12'h017:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h018:
                 o_r = 3'h7;
             12'h019:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01a:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01b:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01c:
                 o_r = 3'h6;
             12'h01d:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01e:
                 o_r = 3'h6;
             12'h01f:
                 o_r = 3'h5;
             12'h020:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h021:
                 o_r = 3'h5;
             12'h022:
@@ -1480,30 +1452,28 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h023:
                 o_r = 3'h5;
             12'h024:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h009:
+      12'h00b:
           casez (\$43 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
-                o_r = 3'h0;
-            12'h002:
-                o_r = 3'h0;
-            12'h003:
                 o_r = 3'h7;
+            12'h002:
+                o_r = 3'h7;
+            12'h003:
+                o_r = 3'h5;
             12'h004:
                 o_r = 3'h4;
             12'h005:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h006:
-                o_r = 3'h4;
-            12'h007:
                 o_r = 3'h6;
+            12'h007:
+                o_r = 3'h7;
             12'h008:
                 o_r = 3'h6;
             12'h009:
@@ -1541,21 +1511,21 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h019:
                 o_r = 3'h7;
             12'h01a:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01b:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01c:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01d:
                 o_r = 3'h6;
             12'h01e:
                 o_r = 3'h5;
             12'h01f:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h020:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h021:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h022:
                 o_r = 3'h5;
             12'h023:
@@ -1563,26 +1533,24 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_r = 3'h5;
             12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
+                o_r = 3'h5;
           endcase
-      12'h00a:
+      12'h00c:
           casez (\$45 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
-                o_r = 3'h0;
+                o_r = 3'h7;
             12'h002:
                 o_r = 3'h7;
             12'h003:
-                o_r = 3'h6;
+                o_r = 3'h3;
             12'h004:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h005:
                 o_r = 3'h5;
             12'h006:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h007:
                 o_r = 3'h6;
             12'h008:
@@ -1608,11 +1576,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h012:
                 o_r = 3'h7;
             12'h013:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h014:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h015:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h016:
                 o_r = 3'h7;
             12'h017:
@@ -1624,199 +1592,35 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01a:
                 o_r = 3'h7;
             12'h01b:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01c:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01d:
                 o_r = 3'h6;
             12'h01e:
                 o_r = 3'h6;
             12'h01f:
-                o_r = 3'h5;
-            12'h020:
                 o_r = 3'h6;
+            12'h020:
+                o_r = 3'h7;
             12'h021:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h022:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h023:
                 o_r = 3'h5;
             12'h024:
                 o_r = 3'h5;
             12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
+                o_r = 3'h5;
           endcase
-      12'h00b:
+      12'h00d:
           casez (\$47 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
                 o_r = 3'h7;
             12'h002:
-                o_r = 3'h7;
-            12'h003:
-                o_r = 3'h5;
-            12'h004:
-                o_r = 3'h4;
-            12'h005:
-                o_r = 3'h5;
-            12'h006:
-                o_r = 3'h6;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h6;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h6;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h6;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h6;
-            12'h00f:
-                o_r = 3'h7;
-            12'h010:
-                o_r = 3'h6;
-            12'h011:
-                o_r = 3'h7;
-            12'h012:
-                o_r = 3'h6;
-            12'h013:
-                o_r = 3'h7;
-            12'h014:
-                o_r = 3'h6;
-            12'h015:
-                o_r = 3'h7;
-            12'h016:
-                o_r = 3'h7;
-            12'h017:
-                o_r = 3'h7;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h6;
-            12'h01d:
-                o_r = 3'h6;
-            12'h01e:
-                o_r = 3'h5;
-            12'h01f:
-                o_r = 3'h7;
-            12'h020:
-                o_r = 3'h6;
-            12'h021:
-                o_r = 3'h6;
-            12'h022:
-                o_r = 3'h5;
-            12'h023:
-                o_r = 3'h5;
-            12'h024:
-                o_r = 3'h5;
-            12'h025:
-                o_r = 3'h5;
-            12'h026:
-                o_r = 3'h7;
-          endcase
-      12'h00c:
-          casez (\$49 )
-            12'h000:
-                o_r = 3'h0;
-            12'h001:
-                o_r = 3'h7;
-            12'h002:
-                o_r = 3'h7;
-            12'h003:
-                o_r = 3'h3;
-            12'h004:
-                o_r = 3'h5;
-            12'h005:
-                o_r = 3'h5;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h6;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h6;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h6;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h6;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h6;
-            12'h010:
-                o_r = 3'h7;
-            12'h011:
-                o_r = 3'h6;
-            12'h012:
-                o_r = 3'h7;
-            12'h013:
-                o_r = 3'h5;
-            12'h014:
-                o_r = 3'h6;
-            12'h015:
-                o_r = 3'h6;
-            12'h016:
-                o_r = 3'h7;
-            12'h017:
-                o_r = 3'h7;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h6;
-            12'h01e:
-                o_r = 3'h6;
-            12'h01f:
-                o_r = 3'h6;
-            12'h020:
-                o_r = 3'h7;
-            12'h021:
-                o_r = 3'h6;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h5;
-            12'h024:
-                o_r = 3'h5;
-            12'h025:
-                o_r = 3'h5;
-            12'h026:
-                o_r = 3'h6;
-          endcase
-      12'h00d:
-          casez (\$51 )
-            12'h000:
-                o_r = 3'h0;
-            12'h001:
-                o_r = 3'h7;
-            12'h002:
                 o_r = 3'h4;
             12'h003:
                 o_r = 3'h3;
@@ -1888,10 +1692,166 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h6;
             12'h025:
                 o_r = 3'h6;
-            12'h026:
-                o_r = 3'h5;
           endcase
       12'h00e:
+          casez (\$49 )
+            12'h000:
+                o_r = 3'h7;
+            12'h001:
+                o_r = 3'h6;
+            12'h002:
+                o_r = 3'h4;
+            12'h003:
+                o_r = 3'h3;
+            12'h004:
+                o_r = 3'h5;
+            12'h005:
+                o_r = 3'h6;
+            12'h006:
+                o_r = 3'h6;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h6;
+            12'h00c:
+                o_r = 3'h6;
+            12'h00d:
+                o_r = 3'h6;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h6;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h6;
+            12'h012:
+                o_r = 3'h7;
+            12'h013:
+                o_r = 3'h5;
+            12'h014:
+                o_r = 3'h3;
+            12'h015:
+                o_r = 3'h4;
+            12'h016:
+                o_r = 3'h6;
+            12'h017:
+                o_r = 3'h7;
+            12'h018:
+                o_r = 3'h7;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h7;
+            12'h01d:
+                o_r = 3'h5;
+            12'h01e:
+                o_r = 3'h7;
+            12'h01f:
+                o_r = 3'h6;
+            12'h020:
+                o_r = 3'h7;
+            12'h021:
+                o_r = 3'h6;
+            12'h022:
+                o_r = 3'h7;
+            12'h023:
+                o_r = 3'h7;
+            12'h024:
+                o_r = 3'h7;
+            12'h025:
+                o_r = 3'h6;
+          endcase
+      12'h00f:
+          casez (\$51 )
+            12'h000:
+                o_r = 3'h7;
+            12'h001:
+                o_r = 3'h7;
+            12'h002:
+                o_r = 3'h4;
+            12'h003:
+                o_r = 3'h3;
+            12'h004:
+                o_r = 3'h5;
+            12'h005:
+                o_r = 3'h6;
+            12'h006:
+                o_r = 3'h6;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h7;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h7;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h7;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h7;
+            12'h012:
+                o_r = 3'h6;
+            12'h013:
+                o_r = 3'h4;
+            12'h014:
+                o_r = 3'h3;
+            12'h015:
+                o_r = 3'h3;
+            12'h016:
+                o_r = 3'h5;
+            12'h017:
+                o_r = 3'h7;
+            12'h018:
+                o_r = 3'h7;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h6;
+            12'h01d:
+                o_r = 3'h7;
+            12'h01e:
+                o_r = 3'h6;
+            12'h01f:
+                o_r = 3'h7;
+            12'h020:
+                o_r = 3'h6;
+            12'h021:
+                o_r = 3'h7;
+            12'h022:
+                o_r = 3'h7;
+            12'h023:
+                o_r = 3'h7;
+            12'h024:
+                o_r = 3'h7;
+            12'h025:
+                o_r = 3'h7;
+          endcase
+      12'h010:
           casez (\$53 )
             12'h000:
                 o_r = 3'h7;
@@ -1906,7 +1866,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_r = 3'h6;
             12'h006:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h007:
                 o_r = 3'h7;
             12'h008:
@@ -1916,31 +1876,31 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00a:
                 o_r = 3'h7;
             12'h00b:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00c:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00d:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h00e:
                 o_r = 3'h7;
             12'h00f:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h010:
                 o_r = 3'h7;
             12'h011:
-                o_r = 3'h6;
-            12'h012:
                 o_r = 3'h7;
+            12'h012:
+                o_r = 3'h6;
             12'h013:
-                o_r = 3'h5;
+                o_r = 3'h4;
             12'h014:
                 o_r = 3'h3;
             12'h015:
-                o_r = 3'h4;
+                o_r = 3'h3;
             12'h016:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h017:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h018:
                 o_r = 3'h7;
             12'h019:
@@ -1948,19 +1908,19 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01a:
                 o_r = 3'h7;
             12'h01b:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01c:
                 o_r = 3'h7;
             12'h01d:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h01e:
                 o_r = 3'h7;
             12'h01f:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h020:
                 o_r = 3'h7;
             12'h021:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h022:
                 o_r = 3'h7;
             12'h023:
@@ -1968,11 +1928,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_r = 3'h7;
             12'h025:
-                o_r = 3'h6;
-            12'h026:
-                o_r = 3'h6;
+                o_r = 3'h7;
           endcase
-      12'h00f:
+      12'h011:
           casez (\$55 )
             12'h000:
                 o_r = 3'h7;
@@ -1983,168 +1941,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h003:
                 o_r = 3'h3;
             12'h004:
-                o_r = 3'h5;
-            12'h005:
-                o_r = 3'h6;
-            12'h006:
-                o_r = 3'h6;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h7;
-            12'h010:
-                o_r = 3'h7;
-            12'h011:
-                o_r = 3'h7;
-            12'h012:
-                o_r = 3'h6;
-            12'h013:
-                o_r = 3'h4;
-            12'h014:
-                o_r = 3'h3;
-            12'h015:
-                o_r = 3'h3;
-            12'h016:
-                o_r = 3'h5;
-            12'h017:
-                o_r = 3'h7;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h6;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h6;
-            12'h01f:
-                o_r = 3'h7;
-            12'h020:
-                o_r = 3'h6;
-            12'h021:
-                o_r = 3'h7;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h7;
-            12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h6;
-          endcase
-      12'h010:
-          casez (\$57 )
-            12'h000:
-                o_r = 3'h7;
-            12'h001:
-                o_r = 3'h6;
-            12'h002:
-                o_r = 3'h4;
-            12'h003:
-                o_r = 3'h3;
-            12'h004:
-                o_r = 3'h5;
-            12'h005:
-                o_r = 3'h6;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h7;
-            12'h010:
-                o_r = 3'h7;
-            12'h011:
-                o_r = 3'h7;
-            12'h012:
-                o_r = 3'h6;
-            12'h013:
-                o_r = 3'h4;
-            12'h014:
-                o_r = 3'h3;
-            12'h015:
-                o_r = 3'h3;
-            12'h016:
-                o_r = 3'h5;
-            12'h017:
-                o_r = 3'h5;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h6;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h7;
-            12'h020:
-                o_r = 3'h7;
-            12'h021:
-                o_r = 3'h7;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h7;
-            12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
-          endcase
-      12'h011:
-          casez (\$59 )
-            12'h000:
-                o_r = 3'h7;
-            12'h001:
-                o_r = 3'h7;
-            12'h002:
-                o_r = 3'h4;
-            12'h003:
-                o_r = 3'h3;
-            12'h004:
                 o_r = 3'h4;
             12'h005:
                 o_r = 3'h6;
@@ -2212,11 +2008,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
           endcase
       12'h012:
-          casez (\$61 )
+          casez (\$57 )
             12'h000:
                 o_r = 3'h7;
             12'h001:
@@ -2293,10 +2087,166 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
           endcase
       12'h013:
+          casez (\$59 )
+            12'h000:
+                o_r = 3'h7;
+            12'h001:
+                o_r = 3'h7;
+            12'h002:
+                o_r = 3'h5;
+            12'h003:
+                o_r = 3'h4;
+            12'h004:
+                o_r = 3'h4;
+            12'h005:
+                o_r = 3'h6;
+            12'h006:
+                o_r = 3'h7;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h7;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h7;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h7;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h7;
+            12'h012:
+                o_r = 3'h7;
+            12'h013:
+                o_r = 3'h7;
+            12'h014:
+                o_r = 3'h5;
+            12'h015:
+                o_r = 3'h4;
+            12'h016:
+                o_r = 3'h5;
+            12'h017:
+                o_r = 3'h7;
+            12'h018:
+                o_r = 3'h7;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h7;
+            12'h01d:
+                o_r = 3'h7;
+            12'h01e:
+                o_r = 3'h6;
+            12'h01f:
+                o_r = 3'h7;
+            12'h020:
+                o_r = 3'h6;
+            12'h021:
+                o_r = 3'h7;
+            12'h022:
+                o_r = 3'h6;
+            12'h023:
+                o_r = 3'h7;
+            12'h024:
+                o_r = 3'h7;
+            12'h025:
+                o_r = 3'h7;
+          endcase
+      12'h014:
+          casez (\$61 )
+            12'h000:
+                o_r = 3'h7;
+            12'h001:
+                o_r = 3'h7;
+            12'h002:
+                o_r = 3'h5;
+            12'h003:
+                o_r = 3'h4;
+            12'h004:
+                o_r = 3'h5;
+            12'h005:
+                o_r = 3'h6;
+            12'h006:
+                o_r = 3'h7;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h7;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h7;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h7;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h7;
+            12'h012:
+                o_r = 3'h7;
+            12'h013:
+                o_r = 3'h7;
+            12'h014:
+                o_r = 3'h6;
+            12'h015:
+                o_r = 3'h5;
+            12'h016:
+                o_r = 3'h7;
+            12'h017:
+                o_r = 3'h7;
+            12'h018:
+                o_r = 3'h7;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h7;
+            12'h01d:
+                o_r = 3'h7;
+            12'h01e:
+                o_r = 3'h7;
+            12'h01f:
+                o_r = 3'h5;
+            12'h020:
+                o_r = 3'h7;
+            12'h021:
+                o_r = 3'h6;
+            12'h022:
+                o_r = 3'h7;
+            12'h023:
+                o_r = 3'h6;
+            12'h024:
+                o_r = 3'h7;
+            12'h025:
+                o_r = 3'h7;
+          endcase
+      12'h015:
           casez (\$63 )
             12'h000:
                 o_r = 3'h7;
@@ -2305,9 +2255,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_r = 3'h5;
             12'h003:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h004:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h005:
                 o_r = 3'h6;
             12'h006:
@@ -2339,11 +2289,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h013:
                 o_r = 3'h7;
             12'h014:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h015:
-                o_r = 3'h4;
+                o_r = 3'h7;
             12'h016:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h017:
                 o_r = 3'h7;
             12'h018:
@@ -2361,9 +2311,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01e:
                 o_r = 3'h6;
             12'h01f:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h020:
-                o_r = 3'h6;
+                o_r = 3'h5;
             12'h021:
                 o_r = 3'h7;
             12'h022:
@@ -2374,23 +2324,21 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
           endcase
-      12'h014:
+      12'h016:
           casez (\$65 )
             12'h000:
                 o_r = 3'h7;
             12'h001:
                 o_r = 3'h7;
             12'h002:
-                o_r = 3'h5;
-            12'h003:
-                o_r = 3'h4;
-            12'h004:
-                o_r = 3'h5;
-            12'h005:
                 o_r = 3'h6;
+            12'h003:
+                o_r = 3'h5;
+            12'h004:
+                o_r = 3'h6;
+            12'h005:
+                o_r = 3'h7;
             12'h006:
                 o_r = 3'h7;
             12'h007:
@@ -2424,9 +2372,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h015:
                 o_r = 3'h5;
             12'h016:
-                o_r = 3'h7;
+                o_r = 3'h5;
             12'h017:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h018:
                 o_r = 3'h7;
             12'h019:
@@ -2444,7 +2392,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01f:
                 o_r = 3'h5;
             12'h020:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h021:
                 o_r = 3'h6;
             12'h022:
@@ -2455,178 +2403,14 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h025:
                 o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
           endcase
-      12'h015:
+      12'h017:
           casez (\$67 )
             12'h000:
                 o_r = 3'h7;
             12'h001:
                 o_r = 3'h7;
             12'h002:
-                o_r = 3'h5;
-            12'h003:
-                o_r = 3'h5;
-            12'h004:
-                o_r = 3'h5;
-            12'h005:
-                o_r = 3'h6;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h7;
-            12'h010:
-                o_r = 3'h7;
-            12'h011:
-                o_r = 3'h7;
-            12'h012:
-                o_r = 3'h7;
-            12'h013:
-                o_r = 3'h7;
-            12'h014:
-                o_r = 3'h6;
-            12'h015:
-                o_r = 3'h7;
-            12'h016:
-                o_r = 3'h6;
-            12'h017:
-                o_r = 3'h7;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h6;
-            12'h01f:
-                o_r = 3'h5;
-            12'h020:
-                o_r = 3'h5;
-            12'h021:
-                o_r = 3'h7;
-            12'h022:
-                o_r = 3'h6;
-            12'h023:
-                o_r = 3'h7;
-            12'h024:
-                o_r = 3'h7;
-            12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
-          endcase
-      12'h016:
-          casez (\$69 )
-            12'h000:
-                o_r = 3'h7;
-            12'h001:
-                o_r = 3'h7;
-            12'h002:
-                o_r = 3'h6;
-            12'h003:
-                o_r = 3'h5;
-            12'h004:
-                o_r = 3'h6;
-            12'h005:
-                o_r = 3'h7;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h7;
-            12'h010:
-                o_r = 3'h7;
-            12'h011:
-                o_r = 3'h7;
-            12'h012:
-                o_r = 3'h7;
-            12'h013:
-                o_r = 3'h7;
-            12'h014:
-                o_r = 3'h6;
-            12'h015:
-                o_r = 3'h5;
-            12'h016:
-                o_r = 3'h5;
-            12'h017:
-                o_r = 3'h6;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h5;
-            12'h020:
-                o_r = 3'h6;
-            12'h021:
-                o_r = 3'h6;
-            12'h022:
-                o_r = 3'h7;
-            12'h023:
-                o_r = 3'h6;
-            12'h024:
-                o_r = 3'h7;
-            12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
-          endcase
-      12'h017:
-          casez (\$71 )
-            12'h000:
-                o_r = 3'h7;
-            12'h001:
-                o_r = 3'h7;
-            12'h002:
                 o_r = 3'h6;
             12'h003:
                 o_r = 3'h6;
@@ -2697,12 +2481,10 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_r = 3'h7;
             12'h025:
-                o_r = 3'h7;
-            12'h026:
                 o_r = 3'h7;
           endcase
       12'h018:
-          casez (\$73 )
+          casez (\$69 )
             12'h000:
                 o_r = 3'h6;
             12'h001:
@@ -2779,21 +2561,177 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h7;
             12'h025:
                 o_r = 3'h6;
-            12'h026:
-                o_r = 3'h7;
           endcase
       12'h019:
+          casez (\$71 )
+            12'h000:
+                o_r = 3'h0;
+            12'h001:
+                o_r = 3'h7;
+            12'h002:
+                o_r = 3'h7;
+            12'h003:
+                o_r = 3'h6;
+            12'h004:
+                o_r = 3'h7;
+            12'h005:
+                o_r = 3'h7;
+            12'h006:
+                o_r = 3'h7;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h7;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h7;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h7;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h7;
+            12'h012:
+                o_r = 3'h7;
+            12'h013:
+                o_r = 3'h7;
+            12'h014:
+                o_r = 3'h6;
+            12'h015:
+                o_r = 3'h3;
+            12'h016:
+                o_r = 3'h2;
+            12'h017:
+                o_r = 3'h2;
+            12'h018:
+                o_r = 3'h6;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h7;
+            12'h01d:
+                o_r = 3'h5;
+            12'h01e:
+                o_r = 3'h5;
+            12'h01f:
+                o_r = 3'h5;
+            12'h020:
+                o_r = 3'h5;
+            12'h021:
+                o_r = 3'h6;
+            12'h022:
+                o_r = 3'h6;
+            12'h023:
+                o_r = 3'h7;
+            12'h024:
+                o_r = 3'h6;
+            12'h025:
+                o_r = 3'h7;
+          endcase
+      12'h01a:
+          casez (\$73 )
+            12'h000:
+                o_r = 3'h0;
+            12'h001:
+                o_r = 3'h7;
+            12'h002:
+                o_r = 3'h7;
+            12'h003:
+                o_r = 3'h7;
+            12'h004:
+                o_r = 3'h7;
+            12'h005:
+                o_r = 3'h6;
+            12'h006:
+                o_r = 3'h7;
+            12'h007:
+                o_r = 3'h7;
+            12'h008:
+                o_r = 3'h7;
+            12'h009:
+                o_r = 3'h7;
+            12'h00a:
+                o_r = 3'h7;
+            12'h00b:
+                o_r = 3'h7;
+            12'h00c:
+                o_r = 3'h7;
+            12'h00d:
+                o_r = 3'h7;
+            12'h00e:
+                o_r = 3'h7;
+            12'h00f:
+                o_r = 3'h7;
+            12'h010:
+                o_r = 3'h7;
+            12'h011:
+                o_r = 3'h7;
+            12'h012:
+                o_r = 3'h7;
+            12'h013:
+                o_r = 3'h7;
+            12'h014:
+                o_r = 3'h6;
+            12'h015:
+                o_r = 3'h3;
+            12'h016:
+                o_r = 3'h2;
+            12'h017:
+                o_r = 3'h2;
+            12'h018:
+                o_r = 3'h6;
+            12'h019:
+                o_r = 3'h7;
+            12'h01a:
+                o_r = 3'h7;
+            12'h01b:
+                o_r = 3'h7;
+            12'h01c:
+                o_r = 3'h7;
+            12'h01d:
+                o_r = 3'h6;
+            12'h01e:
+                o_r = 3'h6;
+            12'h01f:
+                o_r = 3'h5;
+            12'h020:
+                o_r = 3'h6;
+            12'h021:
+                o_r = 3'h6;
+            12'h022:
+                o_r = 3'h7;
+            12'h023:
+                o_r = 3'h7;
+            12'h024:
+                o_r = 3'h7;
+            12'h025:
+                o_r = 3'h7;
+          endcase
+      12'h01b:
           casez (\$75 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h002:
                 o_r = 3'h7;
             12'h003:
-                o_r = 3'h6;
-            12'h004:
                 o_r = 3'h7;
+            12'h004:
+                o_r = 3'h6;
             12'h005:
                 o_r = 3'h7;
             12'h006:
@@ -2827,11 +2765,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h014:
                 o_r = 3'h6;
             12'h015:
-                o_r = 3'h3;
+                o_r = 3'h5;
             12'h016:
                 o_r = 3'h2;
             12'h017:
-                o_r = 3'h2;
+                o_r = 3'h3;
             12'h018:
                 o_r = 3'h6;
             12'h019:
@@ -2843,34 +2781,32 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01c:
                 o_r = 3'h7;
             12'h01d:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h01e:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h01f:
-                o_r = 3'h5;
+                o_r = 3'h7;
             12'h020:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h021:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h022:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h023:
                 o_r = 3'h7;
             12'h024:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h7;
+                o_r = 3'h0;
           endcase
-      12'h01a:
+      12'h01c:
           casez (\$77 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h002:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h003:
                 o_r = 3'h7;
             12'h004:
@@ -2906,15 +2842,15 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h013:
                 o_r = 3'h7;
             12'h014:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h015:
-                o_r = 3'h3;
+                o_r = 3'h5;
             12'h016:
-                o_r = 3'h2;
+                o_r = 3'h4;
             12'h017:
-                o_r = 3'h2;
+                o_r = 3'h4;
             12'h018:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h019:
                 o_r = 3'h7;
             12'h01a:
@@ -2926,44 +2862,42 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01d:
                 o_r = 3'h6;
             12'h01e:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01f:
-                o_r = 3'h5;
+                o_r = 3'h6;
             12'h020:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h021:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h022:
                 o_r = 3'h7;
             12'h023:
                 o_r = 3'h7;
             12'h024:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h025:
-                o_r = 3'h7;
-            12'h026:
-                o_r = 3'h6;
+                o_r = 3'h0;
           endcase
-      12'h01b:
+      12'h01d:
           casez (\$79 )
             12'h000:
                 o_r = 3'h0;
             12'h001:
                 o_r = 3'h0;
             12'h002:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h003:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h004:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h005:
                 o_r = 3'h7;
             12'h006:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h007:
                 o_r = 3'h7;
             12'h008:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h009:
                 o_r = 3'h7;
             12'h00a:
@@ -2979,23 +2913,23 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00f:
                 o_r = 3'h7;
             12'h010:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h011:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h012:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h013:
                 o_r = 3'h7;
             12'h014:
                 o_r = 3'h6;
             12'h015:
-                o_r = 3'h5;
-            12'h016:
-                o_r = 3'h2;
-            12'h017:
-                o_r = 3'h3;
-            12'h018:
                 o_r = 3'h6;
+            12'h016:
+                o_r = 3'h5;
+            12'h017:
+                o_r = 3'h6;
+            12'h018:
+                o_r = 3'h7;
             12'h019:
                 o_r = 3'h7;
             12'h01a:
@@ -3007,25 +2941,23 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01d:
                 o_r = 3'h7;
             12'h01e:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01f:
                 o_r = 3'h7;
             12'h020:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h021:
                 o_r = 3'h7;
             12'h022:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h023:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h024:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h01c:
+      12'h01e:
           casez (\$81 )
             12'h000:
                 o_r = 3'h0;
@@ -3034,15 +2966,15 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_r = 3'h0;
             12'h003:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h004:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h005:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h006:
                 o_r = 3'h7;
             12'h007:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h008:
                 o_r = 3'h7;
             12'h009:
@@ -3058,27 +2990,27 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 o_r = 3'h7;
             12'h00f:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h010:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h011:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h012:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h013:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h014:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h015:
                 o_r = 3'h5;
             12'h016:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h017:
-                o_r = 3'h4;
+                o_r = 3'h5;
             12'h018:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h019:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h01a:
                 o_r = 3'h7;
             12'h01b:
@@ -3086,27 +3018,25 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01c:
                 o_r = 3'h7;
             12'h01d:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h01e:
                 o_r = 3'h7;
             12'h01f:
                 o_r = 3'h6;
             12'h020:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h021:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h022:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h023:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h024:
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h01d:
+      12'h01f:
           casez (\$83 )
             12'h000:
                 o_r = 3'h0;
@@ -3117,11 +3047,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h003:
                 o_r = 3'h0;
             12'h004:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h005:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h006:
-                o_r = 3'h6;
+                o_r = 3'h7;
             12'h007:
                 o_r = 3'h7;
             12'h008:
@@ -3137,9 +3067,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00d:
                 o_r = 3'h7;
             12'h00e:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h00f:
-                o_r = 3'h7;
+                o_r = 3'h6;
             12'h010:
                 o_r = 3'h6;
             12'h011:
@@ -3147,9 +3077,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h012:
                 o_r = 3'h6;
             12'h013:
-                o_r = 3'h7;
-            12'h014:
                 o_r = 3'h6;
+            12'h014:
+                o_r = 3'h5;
             12'h015:
                 o_r = 3'h6;
             12'h016:
@@ -3167,15 +3097,15 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01c:
                 o_r = 3'h7;
             12'h01d:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h01e:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h01f:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h020:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h021:
-                o_r = 3'h7;
+                o_r = 3'h0;
             12'h022:
                 o_r = 3'h0;
             12'h023:
@@ -3184,10 +3114,8 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_r = 3'h0;
             12'h025:
                 o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
           endcase
-      12'h01e:
+      12'h020:
           casez (\$85 )
             12'h000:
                 o_r = 3'h0;
@@ -3200,168 +3128,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h004:
                 o_r = 3'h0;
             12'h005:
-                o_r = 3'h7;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h6;
-            12'h008:
-                o_r = 3'h7;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h7;
-            12'h00f:
-                o_r = 3'h6;
-            12'h010:
-                o_r = 3'h6;
-            12'h011:
-                o_r = 3'h6;
-            12'h012:
-                o_r = 3'h6;
-            12'h013:
-                o_r = 3'h6;
-            12'h014:
-                o_r = 3'h6;
-            12'h015:
-                o_r = 3'h5;
-            12'h016:
-                o_r = 3'h5;
-            12'h017:
-                o_r = 3'h5;
-            12'h018:
-                o_r = 3'h6;
-            12'h019:
-                o_r = 3'h6;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h7;
-            12'h01e:
-                o_r = 3'h7;
-            12'h01f:
-                o_r = 3'h6;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
-            12'h025:
-                o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
-          endcase
-      12'h01f:
-          casez (\$87 )
-            12'h000:
-                o_r = 3'h0;
-            12'h001:
-                o_r = 3'h0;
-            12'h002:
-                o_r = 3'h0;
-            12'h003:
-                o_r = 3'h0;
-            12'h004:
-                o_r = 3'h0;
-            12'h005:
-                o_r = 3'h0;
-            12'h006:
-                o_r = 3'h7;
-            12'h007:
-                o_r = 3'h7;
-            12'h008:
-                o_r = 3'h6;
-            12'h009:
-                o_r = 3'h7;
-            12'h00a:
-                o_r = 3'h7;
-            12'h00b:
-                o_r = 3'h7;
-            12'h00c:
-                o_r = 3'h7;
-            12'h00d:
-                o_r = 3'h7;
-            12'h00e:
-                o_r = 3'h6;
-            12'h00f:
-                o_r = 3'h6;
-            12'h010:
-                o_r = 3'h6;
-            12'h011:
-                o_r = 3'h6;
-            12'h012:
-                o_r = 3'h6;
-            12'h013:
-                o_r = 3'h6;
-            12'h014:
-                o_r = 3'h5;
-            12'h015:
-                o_r = 3'h6;
-            12'h016:
-                o_r = 3'h5;
-            12'h017:
-                o_r = 3'h6;
-            12'h018:
-                o_r = 3'h7;
-            12'h019:
-                o_r = 3'h7;
-            12'h01a:
-                o_r = 3'h7;
-            12'h01b:
-                o_r = 3'h7;
-            12'h01c:
-                o_r = 3'h7;
-            12'h01d:
-                o_r = 3'h0;
-            12'h01e:
-                o_r = 3'h0;
-            12'h01f:
-                o_r = 3'h0;
-            12'h020:
-                o_r = 3'h0;
-            12'h021:
-                o_r = 3'h0;
-            12'h022:
-                o_r = 3'h0;
-            12'h023:
-                o_r = 3'h0;
-            12'h024:
-                o_r = 3'h0;
-            12'h025:
-                o_r = 3'h0;
-            12'h026:
-                o_r = 3'h0;
-          endcase
-      12'h020:
-          casez (\$89 )
-            12'h000:
-                o_r = 3'h0;
-            12'h001:
-                o_r = 3'h0;
-            12'h002:
-                o_r = 3'h0;
-            12'h003:
-                o_r = 3'h0;
-            12'h004:
-                o_r = 3'h0;
-            12'h005:
                 o_r = 3'h0;
             12'h006:
                 o_r = 3'h0;
@@ -3426,26 +3192,182 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_r = 3'h0;
             12'h025:
-                o_r = 3'h0;
-            12'h026:
                 o_r = 3'h0;
           endcase
     endcase
-    if (\$105 ) begin
+    if (\$101 ) begin
       o_r = 3'h7;
     end
-    if (\$121 ) begin
+    if (\$117 ) begin
       o_r = 3'h7;
     end
-    if (\$127 ) begin
+    if (\$123 ) begin
       o_r = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_g = 3'h0;
-    casez (\$129 )
-      12'h000:
+    casez (\$125 )
+      12'h002:
+          casez (\$127 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h0;
+            12'h002:
+                o_g = 3'h0;
+            12'h003:
+                o_g = 3'h0;
+            12'h004:
+                o_g = 3'h0;
+            12'h005:
+                o_g = 3'h0;
+            12'h006:
+                o_g = 3'h0;
+            12'h007:
+                o_g = 3'h0;
+            12'h008:
+                o_g = 3'h0;
+            12'h009:
+                o_g = 3'h0;
+            12'h00a:
+                o_g = 3'h0;
+            12'h00b:
+                o_g = 3'h0;
+            12'h00c:
+                o_g = 3'h0;
+            12'h00d:
+                o_g = 3'h0;
+            12'h00e:
+                o_g = 3'h7;
+            12'h00f:
+                o_g = 3'h5;
+            12'h010:
+                o_g = 3'h5;
+            12'h011:
+                o_g = 3'h4;
+            12'h012:
+                o_g = 3'h5;
+            12'h013:
+                o_g = 3'h4;
+            12'h014:
+                o_g = 3'h5;
+            12'h015:
+                o_g = 3'h4;
+            12'h016:
+                o_g = 3'h5;
+            12'h017:
+                o_g = 3'h4;
+            12'h018:
+                o_g = 3'h6;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h7;
+            12'h01b:
+                o_g = 3'h0;
+            12'h01c:
+                o_g = 3'h0;
+            12'h01d:
+                o_g = 3'h0;
+            12'h01e:
+                o_g = 3'h0;
+            12'h01f:
+                o_g = 3'h0;
+            12'h020:
+                o_g = 3'h0;
+            12'h021:
+                o_g = 3'h0;
+            12'h022:
+                o_g = 3'h0;
+            12'h023:
+                o_g = 3'h0;
+            12'h024:
+                o_g = 3'h0;
+            12'h025:
+                o_g = 3'h0;
+          endcase
+      12'h003:
+          casez (\$129 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h0;
+            12'h002:
+                o_g = 3'h0;
+            12'h003:
+                o_g = 3'h0;
+            12'h004:
+                o_g = 3'h0;
+            12'h005:
+                o_g = 3'h0;
+            12'h006:
+                o_g = 3'h0;
+            12'h007:
+                o_g = 3'h0;
+            12'h008:
+                o_g = 3'h0;
+            12'h009:
+                o_g = 3'h0;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h7;
+            12'h00c:
+                o_g = 3'h6;
+            12'h00d:
+                o_g = 3'h7;
+            12'h00e:
+                o_g = 3'h6;
+            12'h00f:
+                o_g = 3'h4;
+            12'h010:
+                o_g = 3'h4;
+            12'h011:
+                o_g = 3'h5;
+            12'h012:
+                o_g = 3'h4;
+            12'h013:
+                o_g = 3'h4;
+            12'h014:
+                o_g = 3'h4;
+            12'h015:
+                o_g = 3'h5;
+            12'h016:
+                o_g = 3'h4;
+            12'h017:
+                o_g = 3'h5;
+            12'h018:
+                o_g = 3'h4;
+            12'h019:
+                o_g = 3'h7;
+            12'h01a:
+                o_g = 3'h6;
+            12'h01b:
+                o_g = 3'h0;
+            12'h01c:
+                o_g = 3'h0;
+            12'h01d:
+                o_g = 3'h0;
+            12'h01e:
+                o_g = 3'h0;
+            12'h01f:
+                o_g = 3'h0;
+            12'h020:
+                o_g = 3'h0;
+            12'h021:
+                o_g = 3'h0;
+            12'h022:
+                o_g = 3'h0;
+            12'h023:
+                o_g = 3'h0;
+            12'h024:
+                o_g = 3'h0;
+            12'h025:
+                o_g = 3'h0;
+          endcase
+      12'h004:
           casez (\$131 )
             12'h000:
                 o_g = 3'h0;
@@ -3464,69 +3386,67 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h007:
                 o_g = 3'h0;
             12'h008:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h009:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h00a:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h00b:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h00c:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h00d:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h00e:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h00f:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h010:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h011:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h012:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h013:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h014:
-                o_g = 3'h7;
+                o_g = 3'h5;
             12'h015:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h017:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h018:
-                o_g = 3'h0;
+                o_g = 3'h5;
             12'h019:
-                o_g = 3'h0;
+                o_g = 3'h5;
             12'h01a:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h01b:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h01c:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h01d:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h01e:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h01f:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h020:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h021:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h022:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h023:
                 o_g = 3'h0;
             12'h024:
                 o_g = 3'h0;
             12'h025:
                 o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
           endcase
-      12'h001:
+      12'h005:
           casez (\$133 )
             12'h000:
                 o_g = 3'h0;
@@ -3541,73 +3461,71 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_g = 3'h0;
             12'h006:
-                o_g = 3'h0;
+                o_g = 3'h5;
             12'h007:
-                o_g = 3'h0;
-            12'h008:
-                o_g = 3'h0;
-            12'h009:
-                o_g = 3'h0;
-            12'h00a:
-                o_g = 3'h0;
-            12'h00b:
-                o_g = 3'h0;
-            12'h00c:
-                o_g = 3'h0;
-            12'h00d:
-                o_g = 3'h0;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
                 o_g = 3'h7;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h3;
+            12'h00a:
+                o_g = 3'h3;
+            12'h00b:
+                o_g = 3'h3;
+            12'h00c:
+                o_g = 3'h3;
+            12'h00d:
+                o_g = 3'h3;
+            12'h00e:
+                o_g = 3'h3;
+            12'h00f:
+                o_g = 3'h4;
             12'h010:
                 o_g = 3'h4;
             12'h011:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h012:
                 o_g = 3'h4;
             12'h013:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h014:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h015:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h016:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h017:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h018:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h019:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01a:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01b:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h01c:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01d:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01e:
-                o_g = 3'h0;
+                o_g = 3'h2;
             12'h01f:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h020:
-                o_g = 3'h0;
+                o_g = 3'h2;
             12'h021:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h022:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h023:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h024:
                 o_g = 3'h0;
             12'h025:
                 o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
           endcase
-      12'h002:
+      12'h006:
           casez (\$135 )
             12'h000:
                 o_g = 3'h0;
@@ -3622,73 +3540,71 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_g = 3'h0;
             12'h006:
-                o_g = 3'h0;
-            12'h007:
-                o_g = 3'h0;
-            12'h008:
-                o_g = 3'h0;
-            12'h009:
-                o_g = 3'h0;
-            12'h00a:
-                o_g = 3'h0;
-            12'h00b:
-                o_g = 3'h0;
-            12'h00c:
-                o_g = 3'h0;
-            12'h00d:
-                o_g = 3'h0;
-            12'h00e:
                 o_g = 3'h7;
+            12'h007:
+                o_g = 3'h4;
+            12'h008:
+                o_g = 3'h4;
+            12'h009:
+                o_g = 3'h3;
+            12'h00a:
+                o_g = 3'h3;
+            12'h00b:
+                o_g = 3'h3;
+            12'h00c:
+                o_g = 3'h4;
+            12'h00d:
+                o_g = 3'h3;
+            12'h00e:
+                o_g = 3'h4;
             12'h00f:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h010:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h011:
                 o_g = 3'h4;
             12'h012:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h013:
-                o_g = 3'h4;
+                o_g = 3'h3;
             12'h014:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h015:
-                o_g = 3'h4;
+                o_g = 3'h3;
             12'h016:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h017:
-                o_g = 3'h4;
+                o_g = 3'h3;
             12'h018:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h019:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h01a:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01b:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01c:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01d:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01e:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01f:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h020:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h021:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h022:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h023:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h024:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h025:
                 o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
           endcase
-      12'h003:
+      12'h007:
           casez (\$137 )
             12'h000:
                 o_g = 3'h0;
@@ -3701,31 +3617,31 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h004:
                 o_g = 3'h0;
             12'h005:
-                o_g = 3'h0;
+                o_g = 3'h7;
             12'h006:
-                o_g = 3'h0;
+                o_g = 3'h4;
             12'h007:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h008:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h009:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h00a:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h00b:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h00c:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h00d:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h00e:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h00f:
                 o_g = 3'h4;
             12'h010:
                 o_g = 3'h4;
             12'h011:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h012:
                 o_g = 3'h4;
             12'h013:
@@ -3733,43 +3649,41 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h014:
                 o_g = 3'h4;
             12'h015:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h4;
+                o_g = 3'h3;
             12'h017:
-                o_g = 3'h5;
-            12'h018:
                 o_g = 3'h4;
+            12'h018:
+                o_g = 3'h3;
             12'h019:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01a:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h01b:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01c:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01d:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01e:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h01f:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h020:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h021:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h022:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h023:
-                o_g = 3'h0;
+                o_g = 3'h5;
             12'h024:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h7;
           endcase
-      12'h004:
+      12'h008:
           casez (\$139 )
             12'h000:
                 o_g = 3'h0;
@@ -3778,21 +3692,21 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_g = 3'h0;
             12'h003:
-                o_g = 3'h0;
+                o_g = 3'h5;
             12'h004:
-                o_g = 3'h0;
-            12'h005:
-                o_g = 3'h0;
-            12'h006:
-                o_g = 3'h0;
-            12'h007:
-                o_g = 3'h0;
-            12'h008:
                 o_g = 3'h7;
+            12'h005:
+                o_g = 3'h3;
+            12'h006:
+                o_g = 3'h3;
+            12'h007:
+                o_g = 3'h3;
+            12'h008:
+                o_g = 3'h4;
             12'h009:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h00a:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h00b:
                 o_g = 3'h4;
             12'h00c:
@@ -3802,7 +3716,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 o_g = 3'h4;
             12'h00f:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h010:
                 o_g = 3'h4;
             12'h011:
@@ -3812,7 +3726,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h013:
                 o_g = 3'h4;
             12'h014:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h015:
                 o_g = 3'h4;
             12'h016:
@@ -3820,37 +3734,35 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h017:
                 o_g = 3'h4;
             12'h018:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h019:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h01a:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01b:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h01c:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01d:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01e:
-                o_g = 3'h7;
+                o_g = 3'h3;
             12'h01f:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h020:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h021:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h022:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h023:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h024:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h6;
           endcase
-      12'h005:
+      12'h009:
           casez (\$141 )
             12'h000:
                 o_g = 3'h0;
@@ -3859,29 +3771,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_g = 3'h0;
             12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h0;
-            12'h005:
-                o_g = 3'h0;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
                 o_g = 3'h7;
+            12'h004:
+                o_g = 3'h4;
+            12'h005:
+                o_g = 3'h3;
+            12'h006:
+                o_g = 3'h3;
+            12'h007:
+                o_g = 3'h4;
             12'h008:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h009:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00a:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00b:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00c:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00d:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00e:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00f:
                 o_g = 3'h4;
             12'h010:
@@ -3893,17 +3805,17 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h013:
                 o_g = 3'h4;
             12'h014:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h015:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h016:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h017:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h018:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h019:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h01a:
                 o_g = 3'h3;
             12'h01b:
@@ -3913,54 +3825,52 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01d:
                 o_g = 3'h3;
             12'h01e:
-                o_g = 3'h2;
-            12'h01f:
                 o_g = 3'h3;
+            12'h01f:
+                o_g = 3'h4;
             12'h020:
-                o_g = 3'h2;
+                o_g = 3'h3;
             12'h021:
                 o_g = 3'h4;
             12'h022:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h023:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h024:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h7;
           endcase
-      12'h006:
+      12'h00a:
           casez (\$143 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
                 o_g = 3'h0;
             12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h0;
-            12'h005:
-                o_g = 3'h0;
-            12'h006:
                 o_g = 3'h7;
+            12'h003:
+                o_g = 3'h6;
+            12'h004:
+                o_g = 3'h3;
+            12'h005:
+                o_g = 3'h3;
+            12'h006:
+                o_g = 3'h4;
             12'h007:
                 o_g = 3'h4;
             12'h008:
                 o_g = 3'h4;
             12'h009:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00a:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00b:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00c:
                 o_g = 3'h4;
             12'h00d:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00e:
                 o_g = 3'h4;
             12'h00f:
@@ -3972,70 +3882,68 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h012:
                 o_g = 3'h4;
             12'h013:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h014:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h015:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h017:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h018:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h019:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01a:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h01b:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01c:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01d:
                 o_g = 3'h3;
             12'h01e:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01f:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h020:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h021:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h022:
                 o_g = 3'h4;
             12'h023:
-                o_g = 3'h6;
+                o_g = 3'h3;
             12'h024:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h5;
           endcase
-      12'h007:
+      12'h00b:
           casez (\$145 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h0;
-            12'h005:
                 o_g = 3'h7;
+            12'h002:
+                o_g = 3'h6;
+            12'h003:
+                o_g = 3'h4;
+            12'h004:
+                o_g = 3'h3;
+            12'h005:
+                o_g = 3'h4;
             12'h006:
                 o_g = 3'h4;
             12'h007:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h008:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h009:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00a:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h00b:
                 o_g = 3'h4;
             12'h00c:
@@ -4057,60 +3965,58 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h014:
                 o_g = 3'h4;
             12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h3;
-            12'h019:
-                o_g = 3'h3;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h3;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h3;
-            12'h022:
-                o_g = 3'h3;
-            12'h023:
                 o_g = 3'h5;
-            12'h024:
+            12'h016:
+                o_g = 3'h5;
+            12'h017:
                 o_g = 3'h6;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h5;
+            12'h01b:
+                o_g = 3'h5;
+            12'h01c:
+                o_g = 3'h4;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h4;
+            12'h01f:
+                o_g = 3'h4;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h4;
+            12'h024:
+                o_g = 3'h3;
             12'h025:
-                o_g = 3'h7;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h4;
           endcase
-      12'h008:
+      12'h00c:
           casez (\$147 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h002:
-                o_g = 3'h0;
+                o_g = 3'h6;
             12'h003:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h004:
-                o_g = 3'h7;
+                o_g = 3'h4;
             12'h005:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h006:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h007:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h008:
                 o_g = 3'h4;
             12'h009:
@@ -4140,369 +4046,43 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h015:
                 o_g = 3'h4;
             12'h016:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h017:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h018:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h019:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h01a:
-                o_g = 3'h3;
+                o_g = 3'h6;
             12'h01b:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01c:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01d:
                 o_g = 3'h3;
             12'h01e:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h01f:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h020:
                 o_g = 3'h4;
             12'h021:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h022:
                 o_g = 3'h4;
             12'h023:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h024:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h025:
-                o_g = 3'h6;
-            12'h026:
-                o_g = 3'h0;
+                o_g = 3'h3;
           endcase
-      12'h009:
+      12'h00d:
           casez (\$149 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h7;
-            12'h004:
-                o_g = 3'h4;
-            12'h005:
-                o_g = 3'h3;
-            12'h006:
-                o_g = 3'h3;
-            12'h007:
-                o_g = 3'h4;
-            12'h008:
-                o_g = 3'h4;
-            12'h009:
-                o_g = 3'h4;
-            12'h00a:
-                o_g = 3'h4;
-            12'h00b:
-                o_g = 3'h4;
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h5;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h3;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h3;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h3;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h3;
-            12'h025:
-                o_g = 3'h7;
-            12'h026:
-                o_g = 3'h6;
-          endcase
-      12'h00a:
-          casez (\$151 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h7;
-            12'h003:
-                o_g = 3'h6;
-            12'h004:
-                o_g = 3'h3;
-            12'h005:
-                o_g = 3'h3;
-            12'h006:
-                o_g = 3'h4;
-            12'h007:
-                o_g = 3'h4;
-            12'h008:
-                o_g = 3'h4;
-            12'h009:
-                o_g = 3'h4;
-            12'h00a:
-                o_g = 3'h4;
-            12'h00b:
-                o_g = 3'h4;
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h3;
-            12'h024:
-                o_g = 3'h4;
-            12'h025:
-                o_g = 3'h5;
-            12'h026:
-                o_g = 3'h7;
-          endcase
-      12'h00b:
-          casez (\$153 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h7;
-            12'h002:
-                o_g = 3'h6;
-            12'h003:
-                o_g = 3'h4;
-            12'h004:
-                o_g = 3'h3;
-            12'h005:
-                o_g = 3'h4;
-            12'h006:
-                o_g = 3'h4;
-            12'h007:
-                o_g = 3'h4;
-            12'h008:
-                o_g = 3'h4;
-            12'h009:
-                o_g = 3'h4;
-            12'h00a:
-                o_g = 3'h4;
-            12'h00b:
-                o_g = 3'h4;
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h5;
-            12'h016:
-                o_g = 3'h5;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h3;
-            12'h025:
-                o_g = 3'h4;
-            12'h026:
-                o_g = 3'h6;
-          endcase
-      12'h00c:
-          casez (\$155 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h6;
-            12'h002:
-                o_g = 3'h6;
-            12'h003:
-                o_g = 3'h3;
-            12'h004:
-                o_g = 3'h4;
-            12'h005:
-                o_g = 3'h4;
-            12'h006:
-                o_g = 3'h4;
-            12'h007:
-                o_g = 3'h4;
-            12'h008:
-                o_g = 3'h4;
-            12'h009:
-                o_g = 3'h4;
-            12'h00a:
-                o_g = 3'h4;
-            12'h00b:
-                o_g = 3'h4;
-            12'h00c:
-                o_g = 3'h4;
-            12'h00d:
-                o_g = 3'h4;
-            12'h00e:
-                o_g = 3'h4;
-            12'h00f:
-                o_g = 3'h4;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h6;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h3;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-            12'h025:
-                o_g = 3'h3;
-            12'h026:
-                o_g = 3'h4;
-          endcase
-      12'h00d:
-          casez (\$157 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
                 o_g = 3'h7;
             12'h002:
                 o_g = 3'h4;
@@ -4576,10 +4156,324 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h4;
             12'h025:
                 o_g = 3'h4;
-            12'h026:
-                o_g = 3'h3;
           endcase
       12'h00e:
+          casez (\$151 )
+            12'h000:
+                o_g = 3'h7;
+            12'h001:
+                o_g = 3'h6;
+            12'h002:
+                o_g = 3'h4;
+            12'h003:
+                o_g = 3'h1;
+            12'h004:
+                o_g = 3'h4;
+            12'h005:
+                o_g = 3'h4;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h4;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h4;
+            12'h00a:
+                o_g = 3'h5;
+            12'h00b:
+                o_g = 3'h5;
+            12'h00c:
+                o_g = 3'h5;
+            12'h00d:
+                o_g = 3'h4;
+            12'h00e:
+                o_g = 3'h4;
+            12'h00f:
+                o_g = 3'h4;
+            12'h010:
+                o_g = 3'h4;
+            12'h011:
+                o_g = 3'h4;
+            12'h012:
+                o_g = 3'h4;
+            12'h013:
+                o_g = 3'h2;
+            12'h014:
+                o_g = 3'h2;
+            12'h015:
+                o_g = 3'h2;
+            12'h016:
+                o_g = 3'h5;
+            12'h017:
+                o_g = 3'h5;
+            12'h018:
+                o_g = 3'h6;
+            12'h019:
+                o_g = 3'h5;
+            12'h01a:
+                o_g = 3'h6;
+            12'h01b:
+                o_g = 3'h4;
+            12'h01c:
+                o_g = 3'h4;
+            12'h01d:
+                o_g = 3'h3;
+            12'h01e:
+                o_g = 3'h4;
+            12'h01f:
+                o_g = 3'h4;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h4;
+            12'h024:
+                o_g = 3'h4;
+            12'h025:
+                o_g = 3'h4;
+          endcase
+      12'h00f:
+          casez (\$153 )
+            12'h000:
+                o_g = 3'h6;
+            12'h001:
+                o_g = 3'h7;
+            12'h002:
+                o_g = 3'h3;
+            12'h003:
+                o_g = 3'h2;
+            12'h004:
+                o_g = 3'h3;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h5;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h5;
+            12'h00b:
+                o_g = 3'h6;
+            12'h00c:
+                o_g = 3'h4;
+            12'h00d:
+                o_g = 3'h5;
+            12'h00e:
+                o_g = 3'h4;
+            12'h00f:
+                o_g = 3'h5;
+            12'h010:
+                o_g = 3'h5;
+            12'h011:
+                o_g = 3'h6;
+            12'h012:
+                o_g = 3'h4;
+            12'h013:
+                o_g = 3'h3;
+            12'h014:
+                o_g = 3'h1;
+            12'h015:
+                o_g = 3'h2;
+            12'h016:
+                o_g = 3'h3;
+            12'h017:
+                o_g = 3'h4;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h5;
+            12'h01b:
+                o_g = 3'h5;
+            12'h01c:
+                o_g = 3'h3;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h4;
+            12'h01f:
+                o_g = 3'h4;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h5;
+            12'h024:
+                o_g = 3'h4;
+            12'h025:
+                o_g = 3'h4;
+          endcase
+      12'h010:
+          casez (\$155 )
+            12'h000:
+                o_g = 3'h7;
+            12'h001:
+                o_g = 3'h7;
+            12'h002:
+                o_g = 3'h3;
+            12'h003:
+                o_g = 3'h1;
+            12'h004:
+                o_g = 3'h3;
+            12'h005:
+                o_g = 3'h4;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h5;
+            12'h008:
+                o_g = 3'h6;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h5;
+            12'h00c:
+                o_g = 3'h6;
+            12'h00d:
+                o_g = 3'h5;
+            12'h00e:
+                o_g = 3'h6;
+            12'h00f:
+                o_g = 3'h5;
+            12'h010:
+                o_g = 3'h6;
+            12'h011:
+                o_g = 3'h5;
+            12'h012:
+                o_g = 3'h5;
+            12'h013:
+                o_g = 3'h2;
+            12'h014:
+                o_g = 3'h2;
+            12'h015:
+                o_g = 3'h1;
+            12'h016:
+                o_g = 3'h3;
+            12'h017:
+                o_g = 3'h4;
+            12'h018:
+                o_g = 3'h6;
+            12'h019:
+                o_g = 3'h5;
+            12'h01a:
+                o_g = 3'h5;
+            12'h01b:
+                o_g = 3'h4;
+            12'h01c:
+                o_g = 3'h4;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h5;
+            12'h01f:
+                o_g = 3'h4;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h5;
+            12'h023:
+                o_g = 3'h4;
+            12'h024:
+                o_g = 3'h5;
+            12'h025:
+                o_g = 3'h4;
+          endcase
+      12'h011:
+          casez (\$157 )
+            12'h000:
+                o_g = 3'h6;
+            12'h001:
+                o_g = 3'h6;
+            12'h002:
+                o_g = 3'h3;
+            12'h003:
+                o_g = 3'h3;
+            12'h004:
+                o_g = 3'h3;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h4;
+            12'h007:
+                o_g = 3'h6;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h6;
+            12'h00c:
+                o_g = 3'h6;
+            12'h00d:
+                o_g = 3'h6;
+            12'h00e:
+                o_g = 3'h5;
+            12'h00f:
+                o_g = 3'h6;
+            12'h010:
+                o_g = 3'h5;
+            12'h011:
+                o_g = 3'h6;
+            12'h012:
+                o_g = 3'h5;
+            12'h013:
+                o_g = 3'h3;
+            12'h014:
+                o_g = 3'h1;
+            12'h015:
+                o_g = 3'h2;
+            12'h016:
+                o_g = 3'h2;
+            12'h017:
+                o_g = 3'h4;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h4;
+            12'h01b:
+                o_g = 3'h4;
+            12'h01c:
+                o_g = 3'h4;
+            12'h01d:
+                o_g = 3'h5;
+            12'h01e:
+                o_g = 3'h5;
+            12'h01f:
+                o_g = 3'h5;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h5;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h5;
+            12'h024:
+                o_g = 3'h4;
+            12'h025:
+                o_g = 3'h5;
+          endcase
+      12'h012:
           casez (\$159 )
             12'h000:
                 o_g = 3'h7;
@@ -4588,7 +4482,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_g = 3'h4;
             12'h003:
-                o_g = 3'h1;
+                o_g = 3'h3;
             12'h004:
                 o_g = 3'h4;
             12'h005:
@@ -4596,53 +4490,53 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h006:
                 o_g = 3'h5;
             12'h007:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h008:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h009:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h00a:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h00b:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h00c:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h00d:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h00e:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h00f:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h010:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h011:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h012:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h013:
-                o_g = 3'h2;
+                o_g = 3'h4;
             12'h014:
                 o_g = 3'h2;
             12'h015:
-                o_g = 3'h2;
+                o_g = 3'h1;
             12'h016:
-                o_g = 3'h5;
+                o_g = 3'h3;
             12'h017:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h018:
-                o_g = 3'h6;
-            12'h019:
                 o_g = 3'h5;
+            12'h019:
+                o_g = 3'h4;
             12'h01a:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h01b:
                 o_g = 3'h4;
             12'h01c:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h01d:
-                o_g = 3'h3;
-            12'h01e:
                 o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h5;
             12'h01f:
                 o_g = 3'h4;
             12'h020:
@@ -4650,17 +4544,15 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h021:
                 o_g = 3'h4;
             12'h022:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h023:
                 o_g = 3'h4;
             12'h024:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h025:
                 o_g = 3'h4;
-            12'h026:
-                o_g = 3'h4;
           endcase
-      12'h00f:
+      12'h013:
           casez (\$161 )
             12'h000:
                 o_g = 3'h6;
@@ -4669,15 +4561,15 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_g = 3'h3;
             12'h003:
-                o_g = 3'h2;
-            12'h004:
                 o_g = 3'h3;
+            12'h004:
+                o_g = 3'h4;
             12'h005:
                 o_g = 3'h5;
             12'h006:
                 o_g = 3'h5;
             12'h007:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h008:
                 o_g = 3'h5;
             12'h009:
@@ -4687,39 +4579,39 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00b:
                 o_g = 3'h6;
             12'h00c:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h00d:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h00e:
-                o_g = 3'h4;
-            12'h00f:
                 o_g = 3'h5;
+            12'h00f:
+                o_g = 3'h6;
             12'h010:
                 o_g = 3'h5;
             12'h011:
                 o_g = 3'h6;
             12'h012:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h013:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h014:
-                o_g = 3'h1;
-            12'h015:
                 o_g = 3'h2;
+            12'h015:
+                o_g = 3'h3;
             12'h016:
                 o_g = 3'h3;
             12'h017:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h018:
                 o_g = 3'h5;
             12'h019:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h01a:
                 o_g = 3'h5;
             12'h01b:
                 o_g = 3'h5;
             12'h01c:
-                o_g = 3'h3;
+                o_g = 3'h5;
             12'h01d:
                 o_g = 3'h4;
             12'h01e:
@@ -4733,28 +4625,26 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h022:
                 o_g = 3'h4;
             12'h023:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h024:
                 o_g = 3'h4;
             12'h025:
-                o_g = 3'h4;
-            12'h026:
-                o_g = 3'h4;
+                o_g = 3'h5;
           endcase
-      12'h010:
+      12'h014:
           casez (\$163 )
             12'h000:
                 o_g = 3'h7;
             12'h001:
-                o_g = 3'h7;
+                o_g = 3'h6;
             12'h002:
-                o_g = 3'h3;
-            12'h003:
-                o_g = 3'h1;
-            12'h004:
-                o_g = 3'h3;
-            12'h005:
                 o_g = 3'h4;
+            12'h003:
+                o_g = 3'h3;
+            12'h004:
+                o_g = 3'h5;
+            12'h005:
+                o_g = 3'h5;
             12'h006:
                 o_g = 3'h5;
             12'h007:
@@ -4762,7 +4652,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h008:
                 o_g = 3'h6;
             12'h009:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00a:
                 o_g = 3'h6;
             12'h00b:
@@ -4780,64 +4670,62 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h011:
                 o_g = 3'h5;
             12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h2;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h1;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
                 o_g = 3'h6;
-            12'h019:
+            12'h013:
+                o_g = 3'h4;
+            12'h014:
+                o_g = 3'h4;
+            12'h015:
+                o_g = 3'h3;
+            12'h016:
+                o_g = 3'h4;
+            12'h017:
                 o_g = 3'h5;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h4;
             12'h01a:
                 o_g = 3'h5;
             12'h01b:
-                o_g = 3'h4;
-            12'h01c:
-                o_g = 3'h4;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
                 o_g = 3'h5;
-            12'h01f:
+            12'h01c:
+                o_g = 3'h6;
+            12'h01d:
+                o_g = 3'h5;
+            12'h01e:
                 o_g = 3'h4;
+            12'h01f:
+                o_g = 3'h3;
             12'h020:
                 o_g = 3'h4;
             12'h021:
                 o_g = 3'h4;
             12'h022:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h023:
                 o_g = 3'h4;
             12'h024:
                 o_g = 3'h5;
             12'h025:
                 o_g = 3'h4;
-            12'h026:
-                o_g = 3'h4;
           endcase
-      12'h011:
+      12'h015:
           casez (\$165 )
             12'h000:
                 o_g = 3'h6;
             12'h001:
-                o_g = 3'h6;
+                o_g = 3'h7;
             12'h002:
-                o_g = 3'h3;
-            12'h003:
-                o_g = 3'h3;
-            12'h004:
-                o_g = 3'h3;
-            12'h005:
-                o_g = 3'h5;
-            12'h006:
                 o_g = 3'h4;
+            12'h003:
+                o_g = 3'h4;
+            12'h004:
+                o_g = 3'h5;
+            12'h005:
+                o_g = 3'h6;
+            12'h006:
+                o_g = 3'h5;
             12'h007:
                 o_g = 3'h6;
             12'h008:
@@ -4845,11 +4733,11 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h009:
                 o_g = 3'h6;
             12'h00a:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00b:
                 o_g = 3'h6;
             12'h00c:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00d:
                 o_g = 3'h6;
             12'h00e:
@@ -4863,72 +4751,70 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h012:
                 o_g = 3'h5;
             12'h013:
-                o_g = 3'h3;
+                o_g = 3'h6;
             12'h014:
-                o_g = 3'h1;
-            12'h015:
-                o_g = 3'h2;
-            12'h016:
-                o_g = 3'h2;
-            12'h017:
                 o_g = 3'h4;
+            12'h015:
+                o_g = 3'h4;
+            12'h016:
+                o_g = 3'h4;
+            12'h017:
+                o_g = 3'h6;
             12'h018:
                 o_g = 3'h5;
             12'h019:
                 o_g = 3'h6;
             12'h01a:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h01b:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h01c:
-                o_g = 3'h4;
+                o_g = 3'h6;
             12'h01d:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h01e:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h01f:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h020:
                 o_g = 3'h4;
             12'h021:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h022:
                 o_g = 3'h4;
             12'h023:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h024:
                 o_g = 3'h4;
             12'h025:
                 o_g = 3'h5;
-            12'h026:
-                o_g = 3'h4;
           endcase
-      12'h012:
+      12'h016:
           casez (\$167 )
             12'h000:
                 o_g = 3'h7;
             12'h001:
                 o_g = 3'h6;
             12'h002:
-                o_g = 3'h4;
-            12'h003:
-                o_g = 3'h3;
-            12'h004:
-                o_g = 3'h4;
-            12'h005:
-                o_g = 3'h4;
-            12'h006:
                 o_g = 3'h5;
+            12'h003:
+                o_g = 3'h4;
+            12'h004:
+                o_g = 3'h5;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h6;
             12'h007:
                 o_g = 3'h5;
             12'h008:
                 o_g = 3'h6;
             12'h009:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00a:
                 o_g = 3'h6;
             12'h00b:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00c:
                 o_g = 3'h6;
             12'h00d:
@@ -4944,29 +4830,29 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h012:
                 o_g = 3'h6;
             12'h013:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h014:
-                o_g = 3'h2;
+                o_g = 3'h5;
             12'h015:
-                o_g = 3'h1;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h017:
                 o_g = 3'h4;
             12'h018:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h019:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h01a:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h01b:
-                o_g = 3'h4;
-            12'h01c:
                 o_g = 3'h5;
+            12'h01c:
+                o_g = 3'h6;
             12'h01d:
                 o_g = 3'h4;
             12'h01e:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h01f:
                 o_g = 3'h4;
             12'h020:
@@ -4974,347 +4860,21 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h021:
                 o_g = 3'h4;
             12'h022:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h023:
                 o_g = 3'h4;
             12'h024:
                 o_g = 3'h5;
             12'h025:
                 o_g = 3'h4;
-            12'h026:
-                o_g = 3'h5;
           endcase
-      12'h013:
+      12'h017:
           casez (\$169 )
             12'h000:
                 o_g = 3'h6;
             12'h001:
                 o_g = 3'h7;
             12'h002:
-                o_g = 3'h3;
-            12'h003:
-                o_g = 3'h3;
-            12'h004:
-                o_g = 3'h4;
-            12'h005:
-                o_g = 3'h5;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
-                o_g = 3'h6;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h6;
-            12'h00a:
-                o_g = 3'h5;
-            12'h00b:
-                o_g = 3'h6;
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h2;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-            12'h025:
-                o_g = 3'h5;
-            12'h026:
-                o_g = 3'h4;
-          endcase
-      12'h014:
-          casez (\$171 )
-            12'h000:
-                o_g = 3'h7;
-            12'h001:
-                o_g = 3'h6;
-            12'h002:
-                o_g = 3'h4;
-            12'h003:
-                o_g = 3'h3;
-            12'h004:
-                o_g = 3'h5;
-            12'h005:
-                o_g = 3'h5;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
-                o_g = 3'h5;
-            12'h008:
-                o_g = 3'h6;
-            12'h009:
-                o_g = 3'h5;
-            12'h00a:
-                o_g = 3'h6;
-            12'h00b:
-                o_g = 3'h5;
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h5;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-            12'h025:
-                o_g = 3'h4;
-            12'h026:
-                o_g = 3'h5;
-          endcase
-      12'h015:
-          casez (\$173 )
-            12'h000:
-                o_g = 3'h6;
-            12'h001:
-                o_g = 3'h7;
-            12'h002:
-                o_g = 3'h4;
-            12'h003:
-                o_g = 3'h4;
-            12'h004:
-                o_g = 3'h5;
-            12'h005:
-                o_g = 3'h6;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
-                o_g = 3'h6;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h6;
-            12'h00a:
-                o_g = 3'h5;
-            12'h00b:
-                o_g = 3'h6;
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h6;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h6;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h6;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h6;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h6;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h6;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-            12'h025:
-                o_g = 3'h5;
-            12'h026:
-                o_g = 3'h4;
-          endcase
-      12'h016:
-          casez (\$175 )
-            12'h000:
-                o_g = 3'h7;
-            12'h001:
-                o_g = 3'h6;
-            12'h002:
-                o_g = 3'h5;
-            12'h003:
-                o_g = 3'h4;
-            12'h004:
-                o_g = 3'h5;
-            12'h005:
-                o_g = 3'h5;
-            12'h006:
-                o_g = 3'h6;
-            12'h007:
-                o_g = 3'h5;
-            12'h008:
-                o_g = 3'h6;
-            12'h009:
-                o_g = 3'h5;
-            12'h00a:
-                o_g = 3'h6;
-            12'h00b:
-                o_g = 3'h5;
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h4;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h5;
-            12'h025:
-                o_g = 3'h4;
-            12'h026:
-                o_g = 3'h5;
-          endcase
-      12'h017:
-          casez (\$177 )
-            12'h000:
-                o_g = 3'h6;
-            12'h001:
-                o_g = 3'h7;
-            12'h002:
                 o_g = 3'h5;
             12'h003:
                 o_g = 3'h5;
@@ -5385,12 +4945,10 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_g = 3'h4;
             12'h025:
-                o_g = 3'h5;
-            12'h026:
                 o_g = 3'h5;
           endcase
       12'h018:
-          casez (\$179 )
+          casez (\$171 )
             12'h000:
                 o_g = 3'h6;
             12'h001:
@@ -5467,33 +5025,347 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_g = 3'h4;
             12'h025:
                 o_g = 3'h4;
-            12'h026:
-                o_g = 3'h7;
           endcase
       12'h019:
+          casez (\$173 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h7;
+            12'h002:
+                o_g = 3'h6;
+            12'h003:
+                o_g = 3'h6;
+            12'h004:
+                o_g = 3'h5;
+            12'h005:
+                o_g = 3'h6;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h6;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h6;
+            12'h00c:
+                o_g = 3'h5;
+            12'h00d:
+                o_g = 3'h6;
+            12'h00e:
+                o_g = 3'h5;
+            12'h00f:
+                o_g = 3'h6;
+            12'h010:
+                o_g = 3'h5;
+            12'h011:
+                o_g = 3'h6;
+            12'h012:
+                o_g = 3'h5;
+            12'h013:
+                o_g = 3'h6;
+            12'h014:
+                o_g = 3'h4;
+            12'h015:
+                o_g = 3'h2;
+            12'h016:
+                o_g = 3'h0;
+            12'h017:
+                o_g = 3'h2;
+            12'h018:
+                o_g = 3'h4;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h5;
+            12'h01b:
+                o_g = 3'h6;
+            12'h01c:
+                o_g = 3'h4;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h2;
+            12'h01f:
+                o_g = 3'h3;
+            12'h020:
+                o_g = 3'h3;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h4;
+            12'h024:
+                o_g = 3'h4;
+            12'h025:
+                o_g = 3'h7;
+          endcase
+      12'h01a:
+          casez (\$175 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h5;
+            12'h002:
+                o_g = 3'h7;
+            12'h003:
+                o_g = 3'h6;
+            12'h004:
+                o_g = 3'h6;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h6;
+            12'h007:
+                o_g = 3'h5;
+            12'h008:
+                o_g = 3'h6;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h6;
+            12'h00c:
+                o_g = 3'h6;
+            12'h00d:
+                o_g = 3'h5;
+            12'h00e:
+                o_g = 3'h6;
+            12'h00f:
+                o_g = 3'h5;
+            12'h010:
+                o_g = 3'h6;
+            12'h011:
+                o_g = 3'h5;
+            12'h012:
+                o_g = 3'h6;
+            12'h013:
+                o_g = 3'h5;
+            12'h014:
+                o_g = 3'h5;
+            12'h015:
+                o_g = 3'h2;
+            12'h016:
+                o_g = 3'h1;
+            12'h017:
+                o_g = 3'h1;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h5;
+            12'h01a:
+                o_g = 3'h6;
+            12'h01b:
+                o_g = 3'h6;
+            12'h01c:
+                o_g = 3'h6;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h3;
+            12'h01f:
+                o_g = 3'h3;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h4;
+            12'h022:
+                o_g = 3'h4;
+            12'h023:
+                o_g = 3'h6;
+            12'h024:
+                o_g = 3'h7;
+            12'h025:
+                o_g = 3'h6;
+          endcase
+      12'h01b:
+          casez (\$177 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h0;
+            12'h002:
+                o_g = 3'h6;
+            12'h003:
+                o_g = 3'h7;
+            12'h004:
+                o_g = 3'h5;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h5;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h6;
+            12'h00a:
+                o_g = 3'h6;
+            12'h00b:
+                o_g = 3'h7;
+            12'h00c:
+                o_g = 3'h6;
+            12'h00d:
+                o_g = 3'h6;
+            12'h00e:
+                o_g = 3'h5;
+            12'h00f:
+                o_g = 3'h6;
+            12'h010:
+                o_g = 3'h5;
+            12'h011:
+                o_g = 3'h6;
+            12'h012:
+                o_g = 3'h5;
+            12'h013:
+                o_g = 3'h6;
+            12'h014:
+                o_g = 3'h4;
+            12'h015:
+                o_g = 3'h3;
+            12'h016:
+                o_g = 3'h1;
+            12'h017:
+                o_g = 3'h2;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h6;
+            12'h01a:
+                o_g = 3'h5;
+            12'h01b:
+                o_g = 3'h6;
+            12'h01c:
+                o_g = 3'h5;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h3;
+            12'h01f:
+                o_g = 3'h4;
+            12'h020:
+                o_g = 3'h4;
+            12'h021:
+                o_g = 3'h7;
+            12'h022:
+                o_g = 3'h7;
+            12'h023:
+                o_g = 3'h7;
+            12'h024:
+                o_g = 3'h6;
+            12'h025:
+                o_g = 3'h0;
+          endcase
+      12'h01c:
+          casez (\$179 )
+            12'h000:
+                o_g = 3'h0;
+            12'h001:
+                o_g = 3'h0;
+            12'h002:
+                o_g = 3'h0;
+            12'h003:
+                o_g = 3'h6;
+            12'h004:
+                o_g = 3'h7;
+            12'h005:
+                o_g = 3'h5;
+            12'h006:
+                o_g = 3'h5;
+            12'h007:
+                o_g = 3'h4;
+            12'h008:
+                o_g = 3'h5;
+            12'h009:
+                o_g = 3'h5;
+            12'h00a:
+                o_g = 3'h7;
+            12'h00b:
+                o_g = 3'h6;
+            12'h00c:
+                o_g = 3'h7;
+            12'h00d:
+                o_g = 3'h5;
+            12'h00e:
+                o_g = 3'h6;
+            12'h00f:
+                o_g = 3'h5;
+            12'h010:
+                o_g = 3'h6;
+            12'h011:
+                o_g = 3'h5;
+            12'h012:
+                o_g = 3'h6;
+            12'h013:
+                o_g = 3'h5;
+            12'h014:
+                o_g = 3'h5;
+            12'h015:
+                o_g = 3'h3;
+            12'h016:
+                o_g = 3'h2;
+            12'h017:
+                o_g = 3'h2;
+            12'h018:
+                o_g = 3'h5;
+            12'h019:
+                o_g = 3'h5;
+            12'h01a:
+                o_g = 3'h6;
+            12'h01b:
+                o_g = 3'h5;
+            12'h01c:
+                o_g = 3'h5;
+            12'h01d:
+                o_g = 3'h4;
+            12'h01e:
+                o_g = 3'h4;
+            12'h01f:
+                o_g = 3'h5;
+            12'h020:
+                o_g = 3'h7;
+            12'h021:
+                o_g = 3'h6;
+            12'h022:
+                o_g = 3'h7;
+            12'h023:
+                o_g = 3'h7;
+            12'h024:
+                o_g = 3'h0;
+            12'h025:
+                o_g = 3'h0;
+          endcase
+      12'h01d:
           casez (\$181 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h002:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h003:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h004:
-                o_g = 3'h5;
-            12'h005:
                 o_g = 3'h6;
+            12'h005:
+                o_g = 3'h7;
             12'h006:
                 o_g = 3'h5;
             12'h007:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h008:
                 o_g = 3'h5;
             12'h009:
                 o_g = 3'h6;
             12'h00a:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00b:
                 o_g = 3'h6;
             12'h00c:
@@ -5503,217 +5375,211 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h00e:
                 o_g = 3'h5;
             12'h00f:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h010:
                 o_g = 3'h5;
             12'h011:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h012:
                 o_g = 3'h5;
             12'h013:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h014:
                 o_g = 3'h4;
             12'h015:
-                o_g = 3'h2;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h0;
+                o_g = 3'h3;
             12'h017:
-                o_g = 3'h2;
+                o_g = 3'h4;
             12'h018:
                 o_g = 3'h4;
             12'h019:
-                o_g = 3'h6;
-            12'h01a:
                 o_g = 3'h5;
+            12'h01a:
+                o_g = 3'h4;
             12'h01b:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h01c:
-                o_g = 3'h4;
+                o_g = 3'h5;
             12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h2;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h3;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h4;
-            12'h024:
-                o_g = 3'h4;
-            12'h025:
                 o_g = 3'h7;
-            12'h026:
+            12'h01e:
+                o_g = 3'h7;
+            12'h01f:
+                o_g = 3'h7;
+            12'h020:
                 o_g = 3'h6;
+            12'h021:
+                o_g = 3'h7;
+            12'h022:
+                o_g = 3'h0;
+            12'h023:
+                o_g = 3'h0;
+            12'h024:
+                o_g = 3'h0;
+            12'h025:
+                o_g = 3'h0;
           endcase
-      12'h01a:
+      12'h01e:
           casez (\$183 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
-                o_g = 3'h5;
+                o_g = 3'h0;
             12'h002:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h003:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h004:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h005:
-                o_g = 3'h5;
-            12'h006:
                 o_g = 3'h6;
+            12'h006:
+                o_g = 3'h7;
             12'h007:
                 o_g = 3'h5;
             12'h008:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h009:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h00a:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00b:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00c:
                 o_g = 3'h6;
             12'h00d:
                 o_g = 3'h5;
             12'h00e:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00f:
                 o_g = 3'h5;
             12'h010:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h011:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h012:
-                o_g = 3'h6;
-            12'h013:
                 o_g = 3'h5;
+            12'h013:
+                o_g = 3'h4;
             12'h014:
                 o_g = 3'h5;
             12'h015:
-                o_g = 3'h2;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h1;
+                o_g = 3'h4;
             12'h017:
-                o_g = 3'h1;
+                o_g = 3'h4;
             12'h018:
                 o_g = 3'h5;
             12'h019:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h01a:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h01b:
                 o_g = 3'h6;
             12'h01c:
-                o_g = 3'h6;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h3;
-            12'h01f:
-                o_g = 3'h3;
-            12'h020:
-                o_g = 3'h4;
-            12'h021:
-                o_g = 3'h4;
-            12'h022:
-                o_g = 3'h4;
-            12'h023:
-                o_g = 3'h6;
-            12'h024:
                 o_g = 3'h7;
+            12'h01d:
+                o_g = 3'h6;
+            12'h01e:
+                o_g = 3'h7;
+            12'h01f:
+                o_g = 3'h6;
+            12'h020:
+                o_g = 3'h0;
+            12'h021:
+                o_g = 3'h0;
+            12'h022:
+                o_g = 3'h0;
+            12'h023:
+                o_g = 3'h0;
+            12'h024:
+                o_g = 3'h0;
             12'h025:
-                o_g = 3'h6;
-            12'h026:
-                o_g = 3'h6;
+                o_g = 3'h0;
           endcase
-      12'h01b:
+      12'h01f:
           casez (\$185 )
             12'h000:
                 o_g = 3'h0;
             12'h001:
                 o_g = 3'h0;
             12'h002:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h003:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h004:
-                o_g = 3'h5;
+                o_g = 3'h0;
             12'h005:
-                o_g = 3'h5;
+                o_g = 3'h0;
             12'h006:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h007:
-                o_g = 3'h5;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h6;
-            12'h00a:
-                o_g = 3'h6;
-            12'h00b:
                 o_g = 3'h7;
+            12'h008:
+                o_g = 3'h4;
+            12'h009:
+                o_g = 3'h5;
+            12'h00a:
+                o_g = 3'h4;
+            12'h00b:
+                o_g = 3'h5;
             12'h00c:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00d:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h00e:
                 o_g = 3'h5;
             12'h00f:
-                o_g = 3'h6;
+                o_g = 3'h5;
             12'h010:
-                o_g = 3'h5;
+                o_g = 3'h4;
             12'h011:
-                o_g = 3'h6;
-            12'h012:
                 o_g = 3'h5;
+            12'h012:
+                o_g = 3'h4;
             12'h013:
-                o_g = 3'h6;
+                o_g = 3'h4;
             12'h014:
                 o_g = 3'h4;
             12'h015:
-                o_g = 3'h3;
+                o_g = 3'h4;
             12'h016:
-                o_g = 3'h1;
+                o_g = 3'h4;
             12'h017:
-                o_g = 3'h2;
+                o_g = 3'h5;
             12'h018:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h019:
-                o_g = 3'h6;
+                o_g = 3'h7;
             12'h01a:
-                o_g = 3'h5;
+                o_g = 3'h6;
             12'h01b:
-                o_g = 3'h6;
+                o_g = 3'h7;
             12'h01c:
-                o_g = 3'h5;
+                o_g = 3'h7;
             12'h01d:
-                o_g = 3'h4;
+                o_g = 3'h0;
             12'h01e:
-                o_g = 3'h3;
+                o_g = 3'h0;
             12'h01f:
-                o_g = 3'h4;
+                o_g = 3'h0;
             12'h020:
-                o_g = 3'h4;
+                o_g = 3'h0;
             12'h021:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h022:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h023:
-                o_g = 3'h7;
+                o_g = 3'h0;
             12'h024:
-                o_g = 3'h6;
+                o_g = 3'h0;
             12'h025:
                 o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
           endcase
-      12'h01c:
+      12'h020:
           casez (\$187 )
             12'h000:
                 o_g = 3'h0;
@@ -5722,330 +5588,6 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_g = 3'h0;
             12'h003:
-                o_g = 3'h6;
-            12'h004:
-                o_g = 3'h7;
-            12'h005:
-                o_g = 3'h5;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
-                o_g = 3'h4;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h5;
-            12'h00a:
-                o_g = 3'h7;
-            12'h00b:
-                o_g = 3'h6;
-            12'h00c:
-                o_g = 3'h7;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h6;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h6;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h6;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h3;
-            12'h016:
-                o_g = 3'h2;
-            12'h017:
-                o_g = 3'h2;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h4;
-            12'h01e:
-                o_g = 3'h4;
-            12'h01f:
-                o_g = 3'h5;
-            12'h020:
-                o_g = 3'h7;
-            12'h021:
-                o_g = 3'h6;
-            12'h022:
-                o_g = 3'h7;
-            12'h023:
-                o_g = 3'h7;
-            12'h024:
-                o_g = 3'h0;
-            12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
-          endcase
-      12'h01d:
-          casez (\$189 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h6;
-            12'h005:
-                o_g = 3'h7;
-            12'h006:
-                o_g = 3'h5;
-            12'h007:
-                o_g = 3'h5;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h6;
-            12'h00a:
-                o_g = 3'h5;
-            12'h00b:
-                o_g = 3'h6;
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h6;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h5;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h3;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h4;
-            12'h019:
-                o_g = 3'h5;
-            12'h01a:
-                o_g = 3'h4;
-            12'h01b:
-                o_g = 3'h5;
-            12'h01c:
-                o_g = 3'h5;
-            12'h01d:
-                o_g = 3'h7;
-            12'h01e:
-                o_g = 3'h7;
-            12'h01f:
-                o_g = 3'h7;
-            12'h020:
-                o_g = 3'h6;
-            12'h021:
-                o_g = 3'h7;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
-            12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
-          endcase
-      12'h01e:
-          casez (\$191 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h0;
-            12'h005:
-                o_g = 3'h6;
-            12'h006:
-                o_g = 3'h7;
-            12'h007:
-                o_g = 3'h5;
-            12'h008:
-                o_g = 3'h5;
-            12'h009:
-                o_g = 3'h4;
-            12'h00a:
-                o_g = 3'h5;
-            12'h00b:
-                o_g = 3'h5;
-            12'h00c:
-                o_g = 3'h6;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h5;
-            12'h011:
-                o_g = 3'h4;
-            12'h012:
-                o_g = 3'h5;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h5;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h4;
-            12'h018:
-                o_g = 3'h5;
-            12'h019:
-                o_g = 3'h4;
-            12'h01a:
-                o_g = 3'h5;
-            12'h01b:
-                o_g = 3'h6;
-            12'h01c:
-                o_g = 3'h7;
-            12'h01d:
-                o_g = 3'h6;
-            12'h01e:
-                o_g = 3'h7;
-            12'h01f:
-                o_g = 3'h6;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
-            12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
-          endcase
-      12'h01f:
-          casez (\$193 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
-                o_g = 3'h0;
-            12'h004:
-                o_g = 3'h0;
-            12'h005:
-                o_g = 3'h0;
-            12'h006:
-                o_g = 3'h6;
-            12'h007:
-                o_g = 3'h7;
-            12'h008:
-                o_g = 3'h4;
-            12'h009:
-                o_g = 3'h5;
-            12'h00a:
-                o_g = 3'h4;
-            12'h00b:
-                o_g = 3'h5;
-            12'h00c:
-                o_g = 3'h5;
-            12'h00d:
-                o_g = 3'h5;
-            12'h00e:
-                o_g = 3'h5;
-            12'h00f:
-                o_g = 3'h5;
-            12'h010:
-                o_g = 3'h4;
-            12'h011:
-                o_g = 3'h5;
-            12'h012:
-                o_g = 3'h4;
-            12'h013:
-                o_g = 3'h4;
-            12'h014:
-                o_g = 3'h4;
-            12'h015:
-                o_g = 3'h4;
-            12'h016:
-                o_g = 3'h4;
-            12'h017:
-                o_g = 3'h5;
-            12'h018:
-                o_g = 3'h6;
-            12'h019:
-                o_g = 3'h7;
-            12'h01a:
-                o_g = 3'h6;
-            12'h01b:
-                o_g = 3'h7;
-            12'h01c:
-                o_g = 3'h7;
-            12'h01d:
-                o_g = 3'h0;
-            12'h01e:
-                o_g = 3'h0;
-            12'h01f:
-                o_g = 3'h0;
-            12'h020:
-                o_g = 3'h0;
-            12'h021:
-                o_g = 3'h0;
-            12'h022:
-                o_g = 3'h0;
-            12'h023:
-                o_g = 3'h0;
-            12'h024:
-                o_g = 3'h0;
-            12'h025:
-                o_g = 3'h0;
-            12'h026:
-                o_g = 3'h0;
-          endcase
-      12'h020:
-          casez (\$195 )
-            12'h000:
-                o_g = 3'h0;
-            12'h001:
-                o_g = 3'h0;
-            12'h002:
-                o_g = 3'h0;
-            12'h003:
                 o_g = 3'h0;
             12'h004:
                 o_g = 3'h0;
@@ -6114,26 +5656,340 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_g = 3'h0;
             12'h025:
-                o_g = 3'h0;
-            12'h026:
                 o_g = 3'h0;
           endcase
     endcase
-    if (\$211 ) begin
+    if (\$203 ) begin
       o_g = 3'h7;
     end
-    if (\$227 ) begin
+    if (\$219 ) begin
       o_g = 3'h7;
     end
-    if (\$233 ) begin
+    if (\$225 ) begin
       o_g = 3'h0;
     end
   end
   always @* begin
     if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
     o_b = 3'h0;
-    casez (\$235 )
-      12'h000:
+    casez (\$227 )
+      12'h002:
+          casez (\$229 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h0;
+            12'h005:
+                o_b = 3'h0;
+            12'h006:
+                o_b = 3'h0;
+            12'h007:
+                o_b = 3'h0;
+            12'h008:
+                o_b = 3'h0;
+            12'h009:
+                o_b = 3'h0;
+            12'h00a:
+                o_b = 3'h0;
+            12'h00b:
+                o_b = 3'h0;
+            12'h00c:
+                o_b = 3'h0;
+            12'h00d:
+                o_b = 3'h0;
+            12'h00e:
+                o_b = 3'h7;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h2;
+            12'h011:
+                o_b = 3'h2;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h2;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h2;
+            12'h016:
+                o_b = 3'h3;
+            12'h017:
+                o_b = 3'h3;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h7;
+            12'h01a:
+                o_b = 3'h7;
+            12'h01b:
+                o_b = 3'h0;
+            12'h01c:
+                o_b = 3'h0;
+            12'h01d:
+                o_b = 3'h0;
+            12'h01e:
+                o_b = 3'h0;
+            12'h01f:
+                o_b = 3'h0;
+            12'h020:
+                o_b = 3'h0;
+            12'h021:
+                o_b = 3'h0;
+            12'h022:
+                o_b = 3'h0;
+            12'h023:
+                o_b = 3'h0;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h003:
+          casez (\$231 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h0;
+            12'h005:
+                o_b = 3'h0;
+            12'h006:
+                o_b = 3'h0;
+            12'h007:
+                o_b = 3'h0;
+            12'h008:
+                o_b = 3'h0;
+            12'h009:
+                o_b = 3'h0;
+            12'h00a:
+                o_b = 3'h7;
+            12'h00b:
+                o_b = 3'h7;
+            12'h00c:
+                o_b = 3'h7;
+            12'h00d:
+                o_b = 3'h7;
+            12'h00e:
+                o_b = 3'h7;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h2;
+            12'h011:
+                o_b = 3'h2;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h2;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h2;
+            12'h016:
+                o_b = 3'h3;
+            12'h017:
+                o_b = 3'h3;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h5;
+            12'h01a:
+                o_b = 3'h7;
+            12'h01b:
+                o_b = 3'h0;
+            12'h01c:
+                o_b = 3'h0;
+            12'h01d:
+                o_b = 3'h0;
+            12'h01e:
+                o_b = 3'h0;
+            12'h01f:
+                o_b = 3'h0;
+            12'h020:
+                o_b = 3'h0;
+            12'h021:
+                o_b = 3'h0;
+            12'h022:
+                o_b = 3'h0;
+            12'h023:
+                o_b = 3'h0;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h004:
+          casez (\$233 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h0;
+            12'h005:
+                o_b = 3'h0;
+            12'h006:
+                o_b = 3'h0;
+            12'h007:
+                o_b = 3'h0;
+            12'h008:
+                o_b = 3'h7;
+            12'h009:
+                o_b = 3'h7;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h4;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h4;
+            12'h00e:
+                o_b = 3'h2;
+            12'h00f:
+                o_b = 3'h2;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h1;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h2;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h2;
+            12'h018:
+                o_b = 3'h1;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h7;
+            12'h01b:
+                o_b = 3'h7;
+            12'h01c:
+                o_b = 3'h7;
+            12'h01d:
+                o_b = 3'h5;
+            12'h01e:
+                o_b = 3'h5;
+            12'h01f:
+                o_b = 3'h5;
+            12'h020:
+                o_b = 3'h5;
+            12'h021:
+                o_b = 3'h7;
+            12'h022:
+                o_b = 3'h7;
+            12'h023:
+                o_b = 3'h0;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h005:
+          casez (\$235 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h0;
+            12'h005:
+                o_b = 3'h0;
+            12'h006:
+                o_b = 3'h7;
+            12'h007:
+                o_b = 3'h7;
+            12'h008:
+                o_b = 3'h4;
+            12'h009:
+                o_b = 3'h2;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h2;
+            12'h00c:
+                o_b = 3'h2;
+            12'h00d:
+                o_b = 3'h2;
+            12'h00e:
+                o_b = 3'h2;
+            12'h00f:
+                o_b = 3'h2;
+            12'h010:
+                o_b = 3'h2;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h1;
+            12'h013:
+                o_b = 3'h1;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h0;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h0;
+            12'h018:
+                o_b = 3'h1;
+            12'h019:
+                o_b = 3'h0;
+            12'h01a:
+                o_b = 3'h1;
+            12'h01b:
+                o_b = 3'h2;
+            12'h01c:
+                o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h0;
+            12'h01f:
+                o_b = 3'h0;
+            12'h020:
+                o_b = 3'h0;
+            12'h021:
+                o_b = 3'h1;
+            12'h022:
+                o_b = 3'h5;
+            12'h023:
+                o_b = 3'h7;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h006:
           casez (\$237 )
             12'h000:
                 o_b = 3'h0;
@@ -6148,73 +6004,71 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h005:
                 o_b = 3'h0;
             12'h006:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h007:
-                o_b = 3'h0;
+                o_b = 3'h4;
             12'h008:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h009:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h00a:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h00b:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h00c:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h00d:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h00e:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h00f:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h010:
-                o_b = 3'h5;
+                o_b = 3'h2;
             12'h011:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h012:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h013:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h014:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h015:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h016:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h017:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h018:
                 o_b = 3'h0;
             12'h019:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01a:
                 o_b = 3'h0;
             12'h01b:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01c:
                 o_b = 3'h0;
             12'h01d:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01e:
                 o_b = 3'h0;
             12'h01f:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h020:
                 o_b = 3'h0;
             12'h021:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h022:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h023:
-                o_b = 3'h0;
+                o_b = 3'h5;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h6;
             12'h025:
                 o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
           endcase
-      12'h001:
+      12'h007:
           casez (\$239 )
             12'h000:
                 o_b = 3'h0;
@@ -6227,75 +6081,73 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h004:
                 o_b = 3'h0;
             12'h005:
-                o_b = 3'h0;
-            12'h006:
-                o_b = 3'h0;
-            12'h007:
-                o_b = 3'h0;
-            12'h008:
-                o_b = 3'h0;
-            12'h009:
-                o_b = 3'h0;
-            12'h00a:
-                o_b = 3'h0;
-            12'h00b:
-                o_b = 3'h0;
-            12'h00c:
-                o_b = 3'h0;
-            12'h00d:
-                o_b = 3'h0;
-            12'h00e:
-                o_b = 3'h6;
-            12'h00f:
                 o_b = 3'h7;
+            12'h006:
+                o_b = 3'h2;
+            12'h007:
+                o_b = 3'h2;
+            12'h008:
+                o_b = 3'h2;
+            12'h009:
+                o_b = 3'h1;
+            12'h00a:
+                o_b = 3'h1;
+            12'h00b:
+                o_b = 3'h2;
+            12'h00c:
+                o_b = 3'h1;
+            12'h00d:
+                o_b = 3'h2;
+            12'h00e:
+                o_b = 3'h1;
+            12'h00f:
+                o_b = 3'h2;
             12'h010:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h011:
                 o_b = 3'h2;
             12'h012:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h3;
-            12'h015:
-                o_b = 3'h5;
-            12'h016:
-                o_b = 3'h7;
-            12'h017:
-                o_b = 3'h7;
-            12'h018:
-                o_b = 3'h7;
-            12'h019:
-                o_b = 3'h7;
-            12'h01a:
                 o_b = 3'h0;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h0;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h0;
+            12'h018:
+                o_b = 3'h0;
+            12'h019:
+                o_b = 3'h0;
+            12'h01a:
+                o_b = 3'h1;
             12'h01b:
                 o_b = 3'h0;
             12'h01c:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01d:
                 o_b = 3'h0;
             12'h01e:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01f:
                 o_b = 3'h0;
             12'h020:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h021:
                 o_b = 3'h0;
             12'h022:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h7;
           endcase
-      12'h002:
+      12'h008:
           casez (\$241 )
             12'h000:
                 o_b = 3'h0;
@@ -6304,79 +6156,77 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_b = 3'h0;
             12'h003:
-                o_b = 3'h0;
+                o_b = 3'h5;
             12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h0;
-            12'h006:
-                o_b = 3'h0;
-            12'h007:
-                o_b = 3'h0;
-            12'h008:
-                o_b = 3'h0;
-            12'h009:
-                o_b = 3'h0;
-            12'h00a:
-                o_b = 3'h0;
-            12'h00b:
-                o_b = 3'h0;
-            12'h00c:
-                o_b = 3'h0;
-            12'h00d:
-                o_b = 3'h0;
-            12'h00e:
                 o_b = 3'h7;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h2;
+            12'h007:
+                o_b = 3'h2;
+            12'h008:
+                o_b = 3'h1;
+            12'h009:
+                o_b = 3'h1;
+            12'h00a:
+                o_b = 3'h1;
+            12'h00b:
+                o_b = 3'h2;
+            12'h00c:
+                o_b = 3'h1;
+            12'h00d:
+                o_b = 3'h2;
+            12'h00e:
+                o_b = 3'h2;
             12'h00f:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h010:
                 o_b = 3'h2;
             12'h011:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h012:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h013:
                 o_b = 3'h2;
             12'h014:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h015:
                 o_b = 3'h2;
             12'h016:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h7;
-            12'h01a:
-                o_b = 3'h7;
-            12'h01b:
                 o_b = 3'h0;
+            12'h018:
+                o_b = 3'h1;
+            12'h019:
+                o_b = 3'h0;
+            12'h01a:
+                o_b = 3'h0;
+            12'h01b:
+                o_b = 3'h1;
             12'h01c:
                 o_b = 3'h0;
             12'h01d:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01e:
                 o_b = 3'h0;
             12'h01f:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h020:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h021:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h022:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h7;
           endcase
-      12'h003:
+      12'h009:
           casez (\$243 )
             12'h000:
                 o_b = 3'h0;
@@ -6385,812 +6235,318 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h002:
                 o_b = 3'h0;
             12'h003:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h004:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h005:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h006:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h007:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h008:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h009:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h00a:
-                o_b = 3'h7;
+                o_b = 3'h2;
             12'h00b:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h00c:
-                o_b = 3'h7;
+                o_b = 3'h2;
             12'h00d:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h00e:
-                o_b = 3'h7;
+                o_b = 3'h2;
             12'h00f:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h010:
                 o_b = 3'h2;
             12'h011:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h012:
                 o_b = 3'h2;
             12'h013:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h014:
                 o_b = 3'h2;
             12'h015:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h016:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h017:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h018:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h019:
-                o_b = 3'h5;
+                o_b = 3'h1;
             12'h01a:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h01b:
                 o_b = 3'h0;
             12'h01c:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01d:
                 o_b = 3'h0;
             12'h01e:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h01f:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h020:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h021:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h022:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h7;
           endcase
-      12'h004:
+      12'h00a:
           casez (\$245 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
                 o_b = 3'h0;
             12'h002:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h003:
-                o_b = 3'h0;
+                o_b = 3'h6;
             12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h0;
-            12'h006:
-                o_b = 3'h0;
-            12'h007:
-                o_b = 3'h0;
-            12'h008:
-                o_b = 3'h7;
-            12'h009:
-                o_b = 3'h7;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h4;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h4;
-            12'h00e:
                 o_b = 3'h2;
+            12'h005:
+                o_b = 3'h1;
+            12'h006:
+                o_b = 3'h2;
+            12'h007:
+                o_b = 3'h2;
+            12'h008:
+                o_b = 3'h1;
+            12'h009:
+                o_b = 3'h2;
+            12'h00a:
+                o_b = 3'h1;
+            12'h00b:
+                o_b = 3'h2;
+            12'h00c:
+                o_b = 3'h1;
+            12'h00d:
+                o_b = 3'h2;
+            12'h00e:
+                o_b = 3'h1;
             12'h00f:
                 o_b = 3'h2;
             12'h010:
-                o_b = 3'h3;
+                o_b = 3'h1;
             12'h011:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h012:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h013:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h014:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h015:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
                 o_b = 3'h3;
+            12'h017:
+                o_b = 3'h3;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h1;
             12'h01a:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h01b:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h01c:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h01d:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h01e:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h01f:
-                o_b = 3'h5;
+                o_b = 3'h1;
             12'h020:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h021:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h022:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h3;
           endcase
-      12'h005:
+      12'h00b:
           casez (\$247 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h002:
-                o_b = 3'h0;
+                o_b = 3'h7;
             12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h0;
-            12'h006:
-                o_b = 3'h7;
-            12'h007:
-                o_b = 3'h7;
-            12'h008:
-                o_b = 3'h4;
-            12'h009:
-                o_b = 3'h2;
-            12'h00a:
                 o_b = 3'h3;
-            12'h00b:
+            12'h004:
                 o_b = 3'h2;
+            12'h005:
+                o_b = 3'h1;
+            12'h006:
+                o_b = 3'h2;
+            12'h007:
+                o_b = 3'h1;
+            12'h008:
+                o_b = 3'h2;
+            12'h009:
+                o_b = 3'h1;
+            12'h00a:
+                o_b = 3'h2;
+            12'h00b:
+                o_b = 3'h1;
             12'h00c:
                 o_b = 3'h2;
             12'h00d:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h00e:
                 o_b = 3'h2;
             12'h00f:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h010:
                 o_b = 3'h2;
             12'h011:
-                o_b = 3'h3;
-            12'h012:
                 o_b = 3'h1;
+            12'h012:
+                o_b = 3'h2;
             12'h013:
                 o_b = 3'h1;
             12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
                 o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h3;
+            12'h017:
+                o_b = 3'h3;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h1;
             12'h01c:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h01d:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
                 o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h2;
             12'h022:
-                o_b = 3'h5;
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h7;
+                o_b = 3'h1;
             12'h024:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h1;
           endcase
-      12'h006:
+      12'h00c:
           casez (\$249 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h0;
-            12'h006:
                 o_b = 3'h7;
+            12'h002:
+                o_b = 3'h5;
+            12'h003:
+                o_b = 3'h1;
+            12'h004:
+                o_b = 3'h1;
+            12'h005:
+                o_b = 3'h1;
+            12'h006:
+                o_b = 3'h1;
             12'h007:
-                o_b = 3'h4;
-            12'h008:
                 o_b = 3'h2;
+            12'h008:
+                o_b = 3'h1;
             12'h009:
                 o_b = 3'h2;
             12'h00a:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h00b:
                 o_b = 3'h2;
             12'h00c:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h00d:
                 o_b = 3'h2;
             12'h00e:
                 o_b = 3'h1;
             12'h00f:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h010:
-                o_b = 3'h2;
-            12'h011:
                 o_b = 3'h1;
-            12'h012:
+            12'h011:
                 o_b = 3'h2;
+            12'h012:
+                o_b = 3'h1;
             12'h013:
                 o_b = 3'h1;
             12'h014:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h015:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h016:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h017:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h018:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h019:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h01a:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h01b:
                 o_b = 3'h1;
             12'h01c:
-                o_b = 3'h0;
-            12'h01d:
                 o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h0;
             12'h01e:
                 o_b = 3'h0;
             12'h01f:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h020:
-                o_b = 3'h0;
-            12'h021:
                 o_b = 3'h1;
-            12'h022:
+            12'h021:
                 o_b = 3'h2;
+            12'h022:
+                o_b = 3'h1;
             12'h023:
-                o_b = 3'h5;
+                o_b = 3'h1;
             12'h024:
-                o_b = 3'h6;
+                o_b = 3'h1;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
+                o_b = 3'h1;
           endcase
-      12'h007:
+      12'h00d:
           casez (\$251 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h7;
-            12'h006:
-                o_b = 3'h2;
-            12'h007:
-                o_b = 3'h2;
-            12'h008:
-                o_b = 3'h2;
-            12'h009:
-                o_b = 3'h1;
-            12'h00a:
-                o_b = 3'h1;
-            12'h00b:
-                o_b = 3'h2;
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h0;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h0;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h7;
-            12'h025:
-                o_b = 3'h7;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h008:
-          casez (\$253 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h5;
-            12'h004:
-                o_b = 3'h7;
-            12'h005:
-                o_b = 3'h2;
-            12'h006:
-                o_b = 3'h2;
-            12'h007:
-                o_b = 3'h2;
-            12'h008:
-                o_b = 3'h1;
-            12'h009:
-                o_b = 3'h1;
-            12'h00a:
-                o_b = 3'h1;
-            12'h00b:
-                o_b = 3'h2;
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h0;
-            12'h01a:
-                o_b = 3'h0;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h3;
-            12'h025:
-                o_b = 3'h7;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h009:
-          casez (\$255 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h7;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h2;
-            12'h006:
-                o_b = 3'h2;
-            12'h007:
-                o_b = 3'h2;
-            12'h008:
-                o_b = 3'h2;
-            12'h009:
-                o_b = 3'h1;
-            12'h00a:
-                o_b = 3'h2;
-            12'h00b:
-                o_b = 3'h1;
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h1;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h1;
-            12'h01a:
-                o_b = 3'h0;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h7;
-            12'h026:
-                o_b = 3'h7;
-          endcase
-      12'h00a:
-          casez (\$257 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h7;
-            12'h003:
-                o_b = 3'h6;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h1;
-            12'h006:
-                o_b = 3'h2;
-            12'h007:
-                o_b = 3'h2;
-            12'h008:
-                o_b = 3'h1;
-            12'h009:
-                o_b = 3'h2;
-            12'h00a:
-                o_b = 3'h1;
-            12'h00b:
-                o_b = 3'h2;
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h1;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h3;
-            12'h026:
-                o_b = 3'h7;
-          endcase
-      12'h00b:
-          casez (\$259 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h7;
-            12'h002:
-                o_b = 3'h7;
-            12'h003:
-                o_b = 3'h3;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h1;
-            12'h006:
-                o_b = 3'h2;
-            12'h007:
-                o_b = 3'h1;
-            12'h008:
-                o_b = 3'h2;
-            12'h009:
-                o_b = 3'h1;
-            12'h00a:
-                o_b = 3'h2;
-            12'h00b:
-                o_b = 3'h1;
-            12'h00c:
-                o_b = 3'h2;
-            12'h00d:
-                o_b = 3'h1;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h1;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h1;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h0;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h5;
-          endcase
-      12'h00c:
-          casez (\$261 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h7;
-            12'h002:
-                o_b = 3'h5;
-            12'h003:
-                o_b = 3'h1;
-            12'h004:
-                o_b = 3'h1;
-            12'h005:
-                o_b = 3'h1;
-            12'h006:
-                o_b = 3'h1;
-            12'h007:
-                o_b = 3'h2;
-            12'h008:
-                o_b = 3'h1;
-            12'h009:
-                o_b = 3'h2;
-            12'h00a:
-                o_b = 3'h1;
-            12'h00b:
-                o_b = 3'h2;
-            12'h00c:
-                o_b = 3'h1;
-            12'h00d:
-                o_b = 3'h2;
-            12'h00e:
-                o_b = 3'h1;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h1;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h1;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h3;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h2;
-          endcase
-      12'h00d:
-          casez (\$263 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
                 o_b = 3'h7;
             12'h002:
                 o_b = 3'h4;
@@ -7264,11 +6620,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h2;
             12'h025:
                 o_b = 3'h2;
-            12'h026:
-                o_b = 3'h1;
           endcase
       12'h00e:
-          casez (\$265 )
+          casez (\$253 )
             12'h000:
                 o_b = 3'h7;
             12'h001:
@@ -7345,25 +6699,497 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h1;
             12'h025:
                 o_b = 3'h2;
-            12'h026:
-                o_b = 3'h2;
           endcase
       12'h00f:
+          casez (\$255 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h7;
+            12'h002:
+                o_b = 3'h2;
+            12'h003:
+                o_b = 3'h1;
+            12'h004:
+                o_b = 3'h1;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h2;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h0;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h1;
+            12'h01c:
+                o_b = 3'h0;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h2;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h1;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h010:
+          casez (\$257 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h6;
+            12'h002:
+                o_b = 3'h2;
+            12'h003:
+                o_b = 3'h1;
+            12'h004:
+                o_b = 3'h1;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h0;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h0;
+            12'h01c:
+                o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h3;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h1;
+            12'h021:
+                o_b = 3'h1;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h011:
+          casez (\$259 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h5;
+            12'h002:
+                o_b = 3'h2;
+            12'h003:
+                o_b = 3'h1;
+            12'h004:
+                o_b = 3'h2;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h5;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h5;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h1;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h0;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h2;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h1;
+            12'h01b:
+                o_b = 3'h1;
+            12'h01c:
+                o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h1;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h012:
+          casez (\$261 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h5;
+            12'h002:
+                o_b = 3'h2;
+            12'h003:
+                o_b = 3'h2;
+            12'h004:
+                o_b = 3'h2;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h2;
+            12'h014:
+                o_b = 3'h0;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h2;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h1;
+            12'h01c:
+                o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h2;
+            12'h01e:
+                o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h1;
+            12'h021:
+                o_b = 3'h2;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h013:
+          casez (\$263 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h5;
+            12'h002:
+                o_b = 3'h3;
+            12'h003:
+                o_b = 3'h2;
+            12'h004:
+                o_b = 3'h2;
+            12'h005:
+                o_b = 3'h2;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h1;
+            12'h015:
+                o_b = 3'h0;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h1;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h1;
+            12'h01b:
+                o_b = 3'h1;
+            12'h01c:
+                o_b = 3'h1;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h2;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h1;
+            12'h022:
+                o_b = 3'h2;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h014:
+          casez (\$265 )
+            12'h000:
+                o_b = 3'h7;
+            12'h001:
+                o_b = 3'h5;
+            12'h002:
+                o_b = 3'h3;
+            12'h003:
+                o_b = 3'h2;
+            12'h004:
+                o_b = 3'h3;
+            12'h005:
+                o_b = 3'h4;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h1;
+            12'h021:
+                o_b = 3'h2;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h2;
+            12'h024:
+                o_b = 3'h1;
+            12'h025:
+                o_b = 3'h1;
+          endcase
+      12'h015:
           casez (\$267 )
             12'h000:
                 o_b = 3'h7;
             12'h001:
                 o_b = 3'h7;
             12'h002:
-                o_b = 3'h2;
+                o_b = 3'h3;
             12'h003:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h004:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h005:
-                o_b = 3'h2;
+                o_b = 3'h4;
             12'h006:
-                o_b = 3'h2;
+                o_b = 3'h3;
             12'h007:
                 o_b = 3'h3;
             12'h008:
@@ -7387,17 +7213,17 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h011:
                 o_b = 3'h3;
             12'h012:
-                o_b = 3'h2;
+                o_b = 3'h3;
             12'h013:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h014:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h015:
                 o_b = 3'h1;
             12'h016:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h017:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h018:
                 o_b = 3'h3;
             12'h019:
@@ -7405,44 +7231,42 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01a:
                 o_b = 3'h3;
             12'h01b:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h01c:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h01d:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h01e:
                 o_b = 3'h2;
             12'h01f:
                 o_b = 3'h1;
             12'h020:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h021:
                 o_b = 3'h1;
             12'h022:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h023:
                 o_b = 3'h1;
             12'h024:
                 o_b = 3'h1;
             12'h025:
                 o_b = 3'h1;
-            12'h026:
-                o_b = 3'h2;
           endcase
-      12'h010:
+      12'h016:
           casez (\$269 )
             12'h000:
                 o_b = 3'h7;
             12'h001:
-                o_b = 3'h6;
+                o_b = 3'h7;
             12'h002:
-                o_b = 3'h2;
+                o_b = 3'h4;
             12'h003:
-                o_b = 3'h1;
+                o_b = 3'h3;
             12'h004:
-                o_b = 3'h1;
+                o_b = 3'h4;
             12'h005:
-                o_b = 3'h2;
+                o_b = 3'h5;
             12'h006:
                 o_b = 3'h3;
             12'h007:
@@ -7452,7 +7276,7 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h009:
                 o_b = 3'h3;
             12'h00a:
-                o_b = 3'h5;
+                o_b = 3'h3;
             12'h00b:
                 o_b = 3'h3;
             12'h00c:
@@ -7468,17 +7292,17 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h011:
                 o_b = 3'h3;
             12'h012:
-                o_b = 3'h2;
+                o_b = 3'h3;
             12'h013:
-                o_b = 3'h0;
+                o_b = 3'h3;
             12'h014:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h015:
                 o_b = 3'h1;
             12'h016:
                 o_b = 3'h1;
             12'h017:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h018:
                 o_b = 3'h3;
             12'h019:
@@ -7486,521 +7310,33 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h01a:
                 o_b = 3'h3;
             12'h01b:
-                o_b = 3'h0;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
                 o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h3;
+            12'h01e:
+                o_b = 3'h1;
             12'h01f:
                 o_b = 3'h1;
             12'h020:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h021:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h022:
                 o_b = 3'h1;
             12'h023:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h024:
                 o_b = 3'h1;
             12'h025:
                 o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
           endcase
-      12'h011:
+      12'h017:
           casez (\$271 )
             12'h000:
                 o_b = 3'h7;
             12'h001:
-                o_b = 3'h5;
-            12'h002:
-                o_b = 3'h2;
-            12'h003:
-                o_b = 3'h1;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h2;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h5;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h5;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h1;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h012:
-          casez (\$273 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
-                o_b = 3'h5;
-            12'h002:
-                o_b = 3'h2;
-            12'h003:
-                o_b = 3'h2;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h2;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h0;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h013:
-          casez (\$275 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
-                o_b = 3'h5;
-            12'h002:
-                o_b = 3'h3;
-            12'h003:
-                o_b = 3'h2;
-            12'h004:
-                o_b = 3'h2;
-            12'h005:
-                o_b = 3'h2;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h0;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h1;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h1;
-            12'h01b:
-                o_b = 3'h1;
-            12'h01c:
-                o_b = 3'h1;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h2;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h014:
-          casez (\$277 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
-                o_b = 3'h5;
-            12'h002:
-                o_b = 3'h3;
-            12'h003:
-                o_b = 3'h2;
-            12'h004:
-                o_b = 3'h3;
-            12'h005:
-                o_b = 3'h4;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h015:
-          casez (\$279 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
-                o_b = 3'h7;
-            12'h002:
-                o_b = 3'h3;
-            12'h003:
-                o_b = 3'h3;
-            12'h004:
-                o_b = 3'h3;
-            12'h005:
-                o_b = 3'h4;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h2;
-            12'h017:
-                o_b = 3'h3;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h3;
-            12'h01e:
-                o_b = 3'h2;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h1;
-            12'h021:
-                o_b = 3'h1;
-            12'h022:
-                o_b = 3'h2;
-            12'h023:
-                o_b = 3'h1;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h016:
-          casez (\$281 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
-                o_b = 3'h7;
-            12'h002:
-                o_b = 3'h4;
-            12'h003:
-                o_b = 3'h3;
-            12'h004:
-                o_b = 3'h4;
-            12'h005:
-                o_b = 3'h5;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h3;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h2;
-            12'h024:
-                o_b = 3'h1;
-            12'h025:
-                o_b = 3'h1;
-            12'h026:
-                o_b = 3'h1;
-          endcase
-      12'h017:
-          casez (\$283 )
-            12'h000:
-                o_b = 3'h7;
-            12'h001:
                 o_b = 3'h7;
             12'h002:
                 o_b = 3'h4;
@@ -8074,11 +7410,9 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h1;
             12'h025:
                 o_b = 3'h1;
-            12'h026:
-                o_b = 3'h3;
           endcase
       12'h018:
-          casez (\$285 )
+          casez (\$273 )
             12'h000:
                 o_b = 3'h6;
             12'h001:
@@ -8155,581 +7489,565 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
                 o_b = 3'h1;
             12'h025:
                 o_b = 3'h2;
-            12'h026:
-                o_b = 3'h7;
           endcase
       12'h019:
+          casez (\$275 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h7;
+            12'h002:
+                o_b = 3'h7;
+            12'h003:
+                o_b = 3'h4;
+            12'h004:
+                o_b = 3'h5;
+            12'h005:
+                o_b = 3'h5;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h5;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h5;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h0;
+            12'h018:
+                o_b = 3'h2;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h1;
+            12'h021:
+                o_b = 3'h2;
+            12'h022:
+                o_b = 3'h2;
+            12'h023:
+                o_b = 3'h1;
+            12'h024:
+                o_b = 3'h2;
+            12'h025:
+                o_b = 3'h7;
+          endcase
+      12'h01a:
+          casez (\$277 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h7;
+            12'h002:
+                o_b = 3'h7;
+            12'h003:
+                o_b = 3'h5;
+            12'h004:
+                o_b = 3'h5;
+            12'h005:
+                o_b = 3'h4;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h0;
+            12'h018:
+                o_b = 3'h2;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h2;
+            12'h01e:
+                o_b = 3'h0;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h2;
+            12'h022:
+                o_b = 3'h1;
+            12'h023:
+                o_b = 3'h3;
+            12'h024:
+                o_b = 3'h7;
+            12'h025:
+                o_b = 3'h7;
+          endcase
+      12'h01b:
+          casez (\$279 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h7;
+            12'h003:
+                o_b = 3'h7;
+            12'h004:
+                o_b = 3'h4;
+            12'h005:
+                o_b = 3'h3;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h5;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h5;
+            12'h00c:
+                o_b = 3'h5;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h2;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h1;
+            12'h01e:
+                o_b = 3'h0;
+            12'h01f:
+                o_b = 3'h1;
+            12'h020:
+                o_b = 3'h2;
+            12'h021:
+                o_b = 3'h3;
+            12'h022:
+                o_b = 3'h5;
+            12'h023:
+                o_b = 3'h7;
+            12'h024:
+                o_b = 3'h7;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h01c:
+          casez (\$281 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h7;
+            12'h004:
+                o_b = 3'h7;
+            12'h005:
+                o_b = 3'h4;
+            12'h006:
+                o_b = 3'h3;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h5;
+            12'h00b:
+                o_b = 3'h5;
+            12'h00c:
+                o_b = 3'h5;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h3;
+            12'h011:
+                o_b = 3'h3;
+            12'h012:
+                o_b = 3'h3;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h3;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h0;
+            12'h017:
+                o_b = 3'h0;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h2;
+            12'h01e:
+                o_b = 3'h1;
+            12'h01f:
+                o_b = 3'h2;
+            12'h020:
+                o_b = 3'h7;
+            12'h021:
+                o_b = 3'h7;
+            12'h022:
+                o_b = 3'h7;
+            12'h023:
+                o_b = 3'h7;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h01d:
+          casez (\$283 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h7;
+            12'h005:
+                o_b = 3'h7;
+            12'h006:
+                o_b = 3'h4;
+            12'h007:
+                o_b = 3'h3;
+            12'h008:
+                o_b = 3'h4;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h3;
+            12'h010:
+                o_b = 3'h2;
+            12'h011:
+                o_b = 3'h2;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h3;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h2;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h2;
+            12'h018:
+                o_b = 3'h3;
+            12'h019:
+                o_b = 3'h3;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h3;
+            12'h01c:
+                o_b = 3'h3;
+            12'h01d:
+                o_b = 3'h5;
+            12'h01e:
+                o_b = 3'h5;
+            12'h01f:
+                o_b = 3'h7;
+            12'h020:
+                o_b = 3'h7;
+            12'h021:
+                o_b = 3'h7;
+            12'h022:
+                o_b = 3'h0;
+            12'h023:
+                o_b = 3'h0;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h01e:
+          casez (\$285 )
+            12'h000:
+                o_b = 3'h0;
+            12'h001:
+                o_b = 3'h0;
+            12'h002:
+                o_b = 3'h0;
+            12'h003:
+                o_b = 3'h0;
+            12'h004:
+                o_b = 3'h0;
+            12'h005:
+                o_b = 3'h7;
+            12'h006:
+                o_b = 3'h7;
+            12'h007:
+                o_b = 3'h4;
+            12'h008:
+                o_b = 3'h3;
+            12'h009:
+                o_b = 3'h3;
+            12'h00a:
+                o_b = 3'h3;
+            12'h00b:
+                o_b = 3'h3;
+            12'h00c:
+                o_b = 3'h3;
+            12'h00d:
+                o_b = 3'h3;
+            12'h00e:
+                o_b = 3'h3;
+            12'h00f:
+                o_b = 3'h2;
+            12'h010:
+                o_b = 3'h2;
+            12'h011:
+                o_b = 3'h2;
+            12'h012:
+                o_b = 3'h2;
+            12'h013:
+                o_b = 3'h2;
+            12'h014:
+                o_b = 3'h2;
+            12'h015:
+                o_b = 3'h1;
+            12'h016:
+                o_b = 3'h1;
+            12'h017:
+                o_b = 3'h1;
+            12'h018:
+                o_b = 3'h2;
+            12'h019:
+                o_b = 3'h2;
+            12'h01a:
+                o_b = 3'h3;
+            12'h01b:
+                o_b = 3'h5;
+            12'h01c:
+                o_b = 3'h7;
+            12'h01d:
+                o_b = 3'h7;
+            12'h01e:
+                o_b = 3'h7;
+            12'h01f:
+                o_b = 3'h6;
+            12'h020:
+                o_b = 3'h0;
+            12'h021:
+                o_b = 3'h0;
+            12'h022:
+                o_b = 3'h0;
+            12'h023:
+                o_b = 3'h0;
+            12'h024:
+                o_b = 3'h0;
+            12'h025:
+                o_b = 3'h0;
+          endcase
+      12'h01f:
           casez (\$287 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h002:
-                o_b = 3'h7;
+                o_b = 3'h0;
             12'h003:
-                o_b = 3'h4;
+                o_b = 3'h0;
             12'h004:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h005:
-                o_b = 3'h5;
+                o_b = 3'h0;
             12'h006:
-                o_b = 3'h3;
+                o_b = 3'h7;
             12'h007:
-                o_b = 3'h3;
+                o_b = 3'h7;
             12'h008:
-                o_b = 3'h3;
+                o_b = 3'h4;
             12'h009:
-                o_b = 3'h5;
+                o_b = 3'h3;
             12'h00a:
                 o_b = 3'h3;
             12'h00b:
-                o_b = 3'h5;
+                o_b = 3'h3;
             12'h00c:
                 o_b = 3'h3;
             12'h00d:
                 o_b = 3'h3;
             12'h00e:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h00f:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h010:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h011:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h012:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h013:
-                o_b = 3'h3;
+                o_b = 3'h2;
             12'h014:
-                o_b = 3'h2;
+                o_b = 3'h1;
             12'h015:
-                o_b = 3'h1;
+                o_b = 3'h2;
             12'h016:
-                o_b = 3'h0;
+                o_b = 3'h1;
             12'h017:
-                o_b = 3'h0;
+                o_b = 3'h2;
             12'h018:
-                o_b = 3'h2;
+                o_b = 3'h3;
             12'h019:
-                o_b = 3'h3;
+                o_b = 3'h5;
             12'h01a:
-                o_b = 3'h3;
+                o_b = 3'h7;
             12'h01b:
-                o_b = 3'h3;
+                o_b = 3'h7;
             12'h01c:
-                o_b = 3'h3;
+                o_b = 3'h7;
             12'h01d:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h01e:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h01f:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h020:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h021:
-                o_b = 3'h2;
+                o_b = 3'h0;
             12'h022:
-                o_b = 3'h2;
+                o_b = 3'h0;
             12'h023:
-                o_b = 3'h1;
+                o_b = 3'h0;
             12'h024:
-                o_b = 3'h2;
+                o_b = 3'h0;
             12'h025:
-                o_b = 3'h7;
-            12'h026:
-                o_b = 3'h7;
+                o_b = 3'h0;
           endcase
-      12'h01a:
+      12'h020:
           casez (\$289 )
             12'h000:
                 o_b = 3'h0;
             12'h001:
-                o_b = 3'h7;
-            12'h002:
-                o_b = 3'h7;
-            12'h003:
-                o_b = 3'h5;
-            12'h004:
-                o_b = 3'h5;
-            12'h005:
-                o_b = 3'h4;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h2;
-            12'h022:
-                o_b = 3'h1;
-            12'h023:
-                o_b = 3'h3;
-            12'h024:
-                o_b = 3'h7;
-            12'h025:
-                o_b = 3'h7;
-            12'h026:
-                o_b = 3'h6;
-          endcase
-      12'h01b:
-          casez (\$291 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h7;
-            12'h003:
-                o_b = 3'h7;
-            12'h004:
-                o_b = 3'h4;
-            12'h005:
-                o_b = 3'h3;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h5;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h5;
-            12'h00c:
-                o_b = 3'h5;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h1;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h1;
-            12'h020:
-                o_b = 3'h2;
-            12'h021:
-                o_b = 3'h3;
-            12'h022:
-                o_b = 3'h5;
-            12'h023:
-                o_b = 3'h7;
-            12'h024:
-                o_b = 3'h7;
-            12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h01c:
-          casez (\$293 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h7;
-            12'h004:
-                o_b = 3'h7;
-            12'h005:
-                o_b = 3'h4;
-            12'h006:
-                o_b = 3'h3;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h5;
-            12'h00b:
-                o_b = 3'h5;
-            12'h00c:
-                o_b = 3'h5;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h3;
-            12'h011:
-                o_b = 3'h3;
-            12'h012:
-                o_b = 3'h3;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h3;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h0;
-            12'h017:
-                o_b = 3'h0;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h2;
-            12'h01e:
-                o_b = 3'h1;
-            12'h01f:
-                o_b = 3'h2;
-            12'h020:
-                o_b = 3'h7;
-            12'h021:
-                o_b = 3'h7;
-            12'h022:
-                o_b = 3'h7;
-            12'h023:
-                o_b = 3'h7;
-            12'h024:
-                o_b = 3'h0;
-            12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h01d:
-          casez (\$295 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h7;
-            12'h005:
-                o_b = 3'h7;
-            12'h006:
-                o_b = 3'h4;
-            12'h007:
-                o_b = 3'h3;
-            12'h008:
-                o_b = 3'h4;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h3;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h3;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h3;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h3;
-            12'h01c:
-                o_b = 3'h3;
-            12'h01d:
-                o_b = 3'h5;
-            12'h01e:
-                o_b = 3'h5;
-            12'h01f:
-                o_b = 3'h7;
-            12'h020:
-                o_b = 3'h7;
-            12'h021:
-                o_b = 3'h7;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
-            12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h01e:
-          casez (\$297 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h7;
-            12'h006:
-                o_b = 3'h7;
-            12'h007:
-                o_b = 3'h4;
-            12'h008:
-                o_b = 3'h3;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h3;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h2;
-            12'h015:
-                o_b = 3'h1;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h1;
-            12'h018:
-                o_b = 3'h2;
-            12'h019:
-                o_b = 3'h2;
-            12'h01a:
-                o_b = 3'h3;
-            12'h01b:
-                o_b = 3'h5;
-            12'h01c:
-                o_b = 3'h7;
-            12'h01d:
-                o_b = 3'h7;
-            12'h01e:
-                o_b = 3'h7;
-            12'h01f:
-                o_b = 3'h6;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
-            12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h01f:
-          casez (\$299 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
-                o_b = 3'h0;
-            12'h002:
-                o_b = 3'h0;
-            12'h003:
-                o_b = 3'h0;
-            12'h004:
-                o_b = 3'h0;
-            12'h005:
-                o_b = 3'h0;
-            12'h006:
-                o_b = 3'h7;
-            12'h007:
-                o_b = 3'h7;
-            12'h008:
-                o_b = 3'h4;
-            12'h009:
-                o_b = 3'h3;
-            12'h00a:
-                o_b = 3'h3;
-            12'h00b:
-                o_b = 3'h3;
-            12'h00c:
-                o_b = 3'h3;
-            12'h00d:
-                o_b = 3'h3;
-            12'h00e:
-                o_b = 3'h2;
-            12'h00f:
-                o_b = 3'h2;
-            12'h010:
-                o_b = 3'h2;
-            12'h011:
-                o_b = 3'h2;
-            12'h012:
-                o_b = 3'h2;
-            12'h013:
-                o_b = 3'h2;
-            12'h014:
-                o_b = 3'h1;
-            12'h015:
-                o_b = 3'h2;
-            12'h016:
-                o_b = 3'h1;
-            12'h017:
-                o_b = 3'h2;
-            12'h018:
-                o_b = 3'h3;
-            12'h019:
-                o_b = 3'h5;
-            12'h01a:
-                o_b = 3'h7;
-            12'h01b:
-                o_b = 3'h7;
-            12'h01c:
-                o_b = 3'h7;
-            12'h01d:
-                o_b = 3'h0;
-            12'h01e:
-                o_b = 3'h0;
-            12'h01f:
-                o_b = 3'h0;
-            12'h020:
-                o_b = 3'h0;
-            12'h021:
-                o_b = 3'h0;
-            12'h022:
-                o_b = 3'h0;
-            12'h023:
-                o_b = 3'h0;
-            12'h024:
-                o_b = 3'h0;
-            12'h025:
-                o_b = 3'h0;
-            12'h026:
-                o_b = 3'h0;
-          endcase
-      12'h020:
-          casez (\$301 )
-            12'h000:
-                o_b = 3'h0;
-            12'h001:
                 o_b = 3'h0;
             12'h002:
                 o_b = 3'h0;
@@ -8802,18 +8120,16 @@ module \sphn_vga_top.vga (o_vsync, i_pope_location, i_paddle_location, i_enemy_p
             12'h024:
                 o_b = 3'h0;
             12'h025:
-                o_b = 3'h0;
-            12'h026:
                 o_b = 3'h0;
           endcase
     endcase
-    if (\$317 ) begin
+    if (\$305 ) begin
       o_b = 3'h7;
     end
-    if (\$333 ) begin
+    if (\$321 ) begin
       o_b = 3'h7;
     end
-    if (\$339 ) begin
+    if (\$327 ) begin
       o_b = 3'h0;
     end
   end

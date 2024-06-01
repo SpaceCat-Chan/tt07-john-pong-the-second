@@ -132,12 +132,12 @@ class VGAOutput(Elaboratable):
             palette = image.getpalette("RGB")
             
             with m.Switch(clock[0:11] - self.i_pope_location[0:10]):
-                for x in range(width):
-                    with m.Case(x):
+                for x in range(width - 2):
+                    with m.Case(x + 2):
                         with m.Switch(clock[11:22] - self.i_pope_location[10:20]):
-                            for y in range(height - 1):
+                            for y in range(height - 2):
                                 with m.Case(y):
-                                    data = image.getpixel((bbox[0] + x, bbox[1] + y))
+                                    data = image.getpixel((bbox[0] + x + 2, bbox[1] + y))
                                     if palette:
                                         data = (palette[data * 3], palette[data * 3 + 1], palette[data * 3 + 2])
                                     m.d.comb += [
