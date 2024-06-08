@@ -26,9 +26,9 @@ class Top(Elaboratable):
         prev_vsync = Signal(1)
         m.d.pix += prev_vsync.eq(self.vga.o_vsync)
 
-        pope_location = Signal(20, reset=((240 - 20) << 10) + (320 - 17)) # reset at (320-20),(240-17) which is the middle of the screen when accounting for the dimensions of the pope
+        pope_location = Signal(22, reset=((240 - 20) << 12) + (320 - 17)) # reset at (320-20),(240-17) which is the middle of the screen when accounting for the dimensions of the pope
         pope_h_velocity = Signal(1, reset=0)
-        pope_v_velocity = Signal(signed(3), reset=-1)
+        pope_v_velocity = Signal(signed(7), reset=-1)
         
         paddle_location = Signal(10, reset=240-75)
         enemy_paddle_location = Signal(10, reset=240-75)
@@ -39,51 +39,46 @@ class Top(Elaboratable):
         enemy_score = Signal(3)
 
 
+        lfsr = Signal(16, reset=1)
+        m.d.pix += lfsr.eq(Cat(lfsr[10] ^ lfsr[12] ^ lfsr[13] ^ lfsr[15], lfsr[0:15]))
+
+
         with m.If(prev_vsync & ~self.vga.o_vsync): # we just entered vsync, do all logic now
             with m.If(time_until_start > 0):
                 m.d.pix += time_until_start.eq(time_until_start - 1)
+                m.d.pix += pope_v_velocity.eq(lfsr[0:4].as_signed())
             with m.Else():
                 with m.If(pope_h_velocity):
                     m.d.pix += pope_location[0:10].eq(pope_location[0:10] + 3)
                 with m.Else():
                     m.d.pix += pope_location[0:10].eq(pope_location[0:10] - 3)
-                m.d.pix += pope_location[10:20].eq(pope_location[10:20] + 3 * pope_v_velocity)
+                m.d.pix += pope_location[10:22].eq(pope_location[10:22] + 3 * pope_v_velocity)
                 
-                with m.If(pope_location[10:20] <= 20):
+                with m.If(pope_location[12:22] <= 20):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity > 0, pope_v_velocity, -pope_v_velocity))
-                with m.If(pope_location[10:20] >= 480 - 40):
+                with m.If(pope_location[12:22] >= 480 - 40):
                     m.d.pix += pope_v_velocity.eq(Mux(pope_v_velocity < 0, pope_v_velocity, -pope_v_velocity))
 
-                with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[10:20] > paddle_location - 40) & (pope_location[10:20] <= paddle_location + 150))):
-                    m.d.pix += pope_h_velocity.eq(1)
-                    with m.If(self.i_move_up):
-                        with m.If(pope_v_velocity != -3):
-                            m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
-                    with m.If(self.i_move_down):
-                        with m.If(pope_v_velocity < 3):
-                            m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
+                with m.If((pope_h_velocity == 0) & (pope_location[0:10] < 50) & ((pope_location[12:22] > paddle_location - 40) & (pope_location[12:22] <= paddle_location + 150))):
+                    m.d.pix += [
+                        pope_h_velocity.eq(1),
+                        pope_v_velocity.eq(((pope_location[12:22] - paddle_location - 55) >> 3) + lfsr[0:3].as_signed())
+                    ]
                     
-                with m.If((pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 0)):
-                    m.d.pix += pope_h_velocity.eq(0)
-                
-                
-                with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[10:20] > enemy_paddle_location - 40) & (pope_location[10:20] <= enemy_paddle_location + 150)) & (self.i_player_two_active == 1)):
-                    m.d.pix += pope_h_velocity.eq(0)
-                    with m.If(self.i_player_two_up):
-                        with m.If(pope_v_velocity != -3):
-                            m.d.pix += pope_v_velocity.eq(pope_v_velocity - 1)
-                    with m.If(self.i_player_two_down):
-                        with m.If(pope_v_velocity < 3):
-                            m.d.pix += pope_v_velocity.eq(pope_v_velocity + 1)
+                with m.If((pope_h_velocity == 1) & (pope_location[0:10] >= 640 - 50 - 34) & ((pope_location[12:22] > enemy_paddle_location - 40) & (pope_location[12:22] <= enemy_paddle_location + 150))):
+                    m.d.pix += [
+                        pope_h_velocity.eq(0),
+                        pope_v_velocity.eq(((pope_location[12:22] - enemy_paddle_location - 55) >> 3) + lfsr[0:3].as_signed())
+                    ]
 
                 with m.If(self.i_move_up & (paddle_location >= 3)):
                     m.d.pix += paddle_location.eq(paddle_location - 3)
                 with m.If(self.i_move_down & (paddle_location < (480-150-3))):
                     m.d.pix += paddle_location.eq(paddle_location + 3)
 
-                with m.If((pope_location[10:20] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20) & (self.i_player_two_active == 0)):
+                with m.If((pope_location[12:22] > enemy_paddle_location + 75 - 20) & (enemy_paddle_location < 480-150-20) & (self.i_player_two_active == 0)):
                     m.d.pix += enemy_paddle_location.eq(enemy_paddle_location + 2)
-                with m.If((pope_location[10:20] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20) & (self.i_player_two_active == 0)):
+                with m.If((pope_location[12:22] < enemy_paddle_location + 75 - 20) & (enemy_paddle_location > 20) & (self.i_player_two_active == 0)):
                     m.d.pix += enemy_paddle_location.eq(enemy_paddle_location - 2)
 
                 with m.If(self.i_player_two_up & (enemy_paddle_location >= 3) & (self.i_player_two_active)):
@@ -113,7 +108,7 @@ class Top(Elaboratable):
                     ]
 
         m.d.comb += [
-            self.vga.i_pope_location.eq(pope_location),
+            self.vga.i_pope_location.eq(Cat(pope_location[0:10], pope_location[12:22])),
             self.vga.i_paddle_location.eq(paddle_location),
             self.vga.i_enemy_paddle_location.eq(enemy_paddle_location),
             self.vga.i_player_score.eq(player_score),
