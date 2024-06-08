@@ -69,7 +69,7 @@ class VgaApplet(GlasgowApplet):
     nothing. Similarly, there is no requirement to use IN or OUT FIFOs, or any pins at all.
     """
 
-    __pins = ("hsync","vsync","r0","r1","r2","g0","g1","g2","b0","b1","b2","up","down", "p2_up", "p2_down", "p2_active")
+    __pins = ("r2","r1","r0","g2","g1","g0","b2","b1","hsync","b0","vsync","up","down", "p2_up", "p2_down", "p2_active")
 
     @classmethod
     def add_build_arguments(cls, parser, access):
